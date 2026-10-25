@@ -46,11 +46,11 @@ interview walk-through. The brief asks for three things, which have their own se
     <a class="btn btn--primary" data-prototype-link href="https://zuper-product-designer-role-assignm.vercel.app/" target="_blank" rel="noopener">Open the prototype</a>
   </div>
   <dl class="stats">
-    <div><dt>Prompts logged</dt><dd>38</dd></div>
+    <div><dt>Prompts logged</dt><dd>41</dd></div>
     <div><dt>Working days</dt><dd>2</dd><dd class="stats__sub">2026-10-24 – 2026-10-25</dd></div>
-    <div><dt>Commits</dt><dd>33</dd></div>
-    <div><dt>AI errors logged</dt><dd>19</dd></div>
-    <div><dt>“My notes” filled</dt><dd>0 of 38</dd></div>
+    <div><dt>Commits</dt><dd>37</dd></div>
+    <div><dt>AI errors logged</dt><dd>20</dd></div>
+    <div><dt>“My notes” filled</dt><dd>0 of 41</dd></div>
   </dl>
 </section>
 
@@ -74,7 +74,7 @@ interview walk-through. The brief asks for three things, which have their own se
         <li><a class="summary__ref" href="#p-022">Prompt 022</a> Audit before building. Only the gaps were built, and each fix was re-tested with real files.</li>
         <li><a class="summary__ref" href="#p-028">Prompt 028</a> The review is the office&#39;s main task, so its action lives in the job card. It always shows the next step: Start, then Continue, then Mark reviewed.</li>
       </ol>
-      <a class="summary__more" href="#decisions">All 31 recorded decisions</a>
+      <a class="summary__more" href="#decisions">All 34 recorded decisions</a>
     </section>
     <section class="summary__col" aria-labelledby="sum-discarded">
       <h3 id="sum-discarded">What was thrown away</h3>
@@ -96,14 +96,14 @@ interview walk-through. The brief asks for three things, which have their own se
         <li>Sample data had Priya (insurance claims) scheduling jobs, which is off-persona. <span class="summary__fix">→ Changed to Sean Doyle (PM).</span></li>
         <li>Office job tabs scrolled sideways on phones and hid the active Needs review tab (prompt 029). <span class="summary__fix">→ Caught at 320px; tabs become a 2 × 2 grid on phones.</span></li>
       </ul>
-      <a class="summary__more" href="#wrong">All 19 logged AI errors</a>
+      <a class="summary__more" href="#wrong">All 20 logged AI errors</a>
     </section>
   </div>
 </section>
 
 <section class="section" id="needs-input" aria-labelledby="needs-title">
   <h2 id="needs-title">Needs your input before deployment</h2>
-  <p>The scan found <strong>38 of 38</strong> “My notes” sections blank, <strong>5</strong> timeline placeholders and <strong>1</strong> row marked “To confirm”. These are the ones that matter most. Nothing below has been filled in for you.</p>
+  <p>The scan found <strong>41 of 41</strong> “My notes” sections blank, <strong>5</strong> timeline placeholders and <strong>1</strong> row marked “To confirm”. These are the ones that matter most. Nothing below has been filled in for you.</p>
   <ol class="needs">
     
     <li><strong>Confirm the “record screen” reading.</strong> The AI read “record screen” in the first prompt as “screens to design”, and the AI-errors row is still marked <em>To confirm</em> (<a href="#p-001">prompt 001</a>, <a href="#wrong">AI-errors table</a>).</li>
@@ -153,6 +153,9 @@ interview walk-through. The brief asks for three things, which have their own se
       <tr><td><a href="#p-036">036</a></td><td>Keep 16px side padding on phones, in line with the crew app&#39;s mobile spacing.</td></tr>
       <tr><td><a href="#p-037">037</a></td><td>The title names how the card is organised (status tabs) rather than repeating &quot;Jobs&quot;.</td></tr>
       <tr><td><a href="#p-038">038</a></td><td>The office&#39;s main task leads the page; the numbers follow.</td></tr>
+      <tr><td><a href="#p-039">039</a></td><td>Fix every objective accessibility failure. Keep the heuristic issues that are design trade-offs as recommendations (bulk approve, metric tiles that look tappable, office help).</td></tr>
+      <tr><td><a href="#p-040">040</a></td><td>Show the exceptions, not every received shot. A full checklist of green ticks hid the two things that need attention.</td></tr>
+      <tr><td><a href="#p-041">041</a></td><td>Every line on the review page either asks for a decision or says why none is needed. Ownership tags make &quot;is this mine?&quot; instant.</td></tr>
     </tbody>
   </table></div>
   <h3>Before / after: the usability check</h3>
@@ -243,16 +246,16 @@ interview walk-through. The brief asks for three things, which have their own se
   <h2 id="log-title">Chronological process log</h2>
   <p>Every prompt in order, quoted exactly from its prompt file, with the matching process-log entry. “What the AI produced” is the record kept in each prompt file; it was written during the work with the AI, so treat it as the AI’s account. My own notes are shown where I wrote them.</p>
   <div class="filters" role="group" aria-label="Filter prompts">
-    <button type="button" class="chip" aria-pressed="true" data-phase="all">All <span>38</span></button>
+    <button type="button" class="chip" aria-pressed="true" data-phase="all">All <span>41</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="0">0 · Understand <span>1</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="1">1 · Define <span>6</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="3">3 · Prototype <span>17</span></button>
-    <button type="button" class="chip" aria-pressed="false" data-phase="4">4 · Test &amp; refine <span>13</span></button>
+    <button type="button" class="chip" aria-pressed="false" data-phase="4">4 · Test &amp; refine <span>16</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="5">5 · Submit <span>1</span></button>
     <label class="search"><span class="visually-hidden">Search prompts</span><input type="search" placeholder="Search prompts and outputs" data-search-input></label>
     <button type="button" class="link" data-toggle-all>Expand all AI outputs</button>
   </div>
-  <p class="count" role="status" aria-live="polite" data-count>38 prompts</p>
+  <p class="count" role="status" aria-live="polite" data-count>41 prompts</p>
   <div class="prompts">
     <h3 class="day">2026-10-24</h3>
 <article class="prompt" id="p-001" data-phase="0" data-search="# prompt 001: kickoff: read and break down the brief
@@ -4062,6 +4065,381 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
   
   <p class="prompt__source">Source: <a href="sources/prompts/038_2026-10-25_review-now-first.md" target="_blank" rel="noopener"><code>process-log/prompts/038_2026-10-25_review-now-first.md</code> · view original file</a></p>
 </article>
+<article class="prompt" id="p-039" data-phase="4" data-search="# prompt 039: heuristic evaluation and accessibility check of both apps
+
+- **date:** 2026-10-25
+- **input type:** text prompt, likely dictated by voice
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview · axe-core 4.10.2 (loaded only during the audit)
+- **phase:** 4 · test &amp; refine
+
+## prompt (verbatim)
+
+&gt; for both flows, crew for mobile application and office team for web application, both apps should be easy to use. and check the heuristic evaluation, then ten tub rules are working or not. then accessibility should be usable for across all the users. check that also.
+
+## how the ai read it
+- &quot;ten tub rules&quot; was read as nielsen's 10 usability heuristics.
+- &quot;usable for across all the users&quot; was read as wcag 2.1 aa, plus 44px touch targets for gloved, outdoor use.
+
+## what the ai did
+- **automated:** ran axe-core in the browser on every screen.
+  - **scope:** 24 crew screens at 375px, the crew desktop view, 7 office and customer pages at 1366px (including the photo panel, compare and share dialogs, and the expired link), and 3 office pages at 375px. **35 scans.**
+  - **result:** 5 violations: approve button contrast (serious), an unreachable scrollable upload list (serious), a loading screen with no heading, and a link outside a landmark.
+- **touch targets:** wcag 2.2 at 24px passed everywhere. the stricter 44px check found 13 kinds of small targets (crew job tabs, period switch and filter chips; office close, back, chips and phase filters).
+- **keyboard:** the page behind the open office menu could still be focused.
+- **fixed all of the above:**
+  - **contrast:** approve is now `#13693a`, 6.75:1, up from 4.4:1.
+  - **upload list:** focusable and labelled.
+  - **loading screen:** hidden heading.
+  - **office view link:** now inside a `nav`.
+  - **tap targets:** 44px.
+  - **office menu:** page and top bar are `inert` while it's open.
+
+  the re-scan shows **0 violations in 35 scans** and no targets under 44px (inline text links excepted).
+- **heuristics:** walked both flows through all 10.
+  - **crew app:** passes all 10, with one severity-1 note (no explicit &quot;undo skip&quot;).
+  - **office app:** 7 pass. severity notes: metric tiles look tappable but aren't (1), no bulk approve (2), no help for the review workflow (1), and no &quot;reopen review&quot; (1).
+
+  these are recommendations, not built.
+- **report:** [docs/07-heuristic-and-accessibility-review.md](../../docs/07-heuristic-and-accessibility-review.md).
+- **clean-up:** axe-core was served from a temporary `public/__audit/` folder and deleted afterwards. it isn't part of the app.
+
+## limits (stated in the report)
+- no real users were involved.
+- no hands-on screen-reader session; the screen-reader findings come from axe and code inspection.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the accessibility fixes, docs/07 and the log, regenerate the process-log site, and commit that too.
+
+- committed the fixes, docs/07 and the log, then regenerated the process-log site (which now includes docs/07 as an evidence page) and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">039</span>
+    <div>
+      <h3 class="prompt__title">Heuristic evaluation and accessibility check of both apps</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt, likely dictated by voice</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview · axe-core 4.10.2 (loaded only during the audit)</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">For both flows, crew for mobile application and office team for web application, both apps should be easy to use. And check the heuristic evaluation, then ten tub rules are working or not. Then accessibility should be usable for across all the users. Check that also.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Heuristic and accessibility review</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-039">Prompt 039</a> (text)</li>
+<li><strong>What happened:</strong><ul>
+<li>Ran axe-core on every crew screen and office page: 35 scans at phone and desktop sizes. Also checked 44px touch targets and keyboard focus, and walked both flows through Nielsen&#39;s 10 heuristics.</li>
+<li>Found 5 axe violations (2 serious: Approve button contrast, an unreachable scrollable list), 13 kinds of undersized tap targets, and a focus leak behind the office menu. All fixed; the re-scan shows 0 violations.</li>
+<li>Write-up: <a href="evidence/07-heuristic-and-accessibility-review.html">docs/07</a>.</li>
+</ul>
+</li>
+<li><strong>Key decision:</strong> Fix every objective accessibility failure. Keep the heuristic issues that are design trade-offs as recommendations (bulk approve, metric tiles that look tappable, office help).</li>
+<li><strong>AI got wrong / I overruled:</strong> The Approve button colour, chosen by the AI in prompt 026, failed AA contrast (4.4:1) and went unnoticed until this audit.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: How the AI read it, What the AI did, Limits (stated in the report), Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>How the AI read it</h5><ul>
+<li>&quot;ten tub rules&quot; was read as Nielsen&#39;s 10 usability heuristics.</li>
+<li>&quot;Usable for across all the users&quot; was read as WCAG 2.1 AA, plus 44px touch targets for gloved, outdoor use.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><p><strong>Automated:</strong> ran axe-core in the browser on every screen.</p>
+<ul>
+<li><strong>Scope:</strong> 24 crew screens at 375px, the crew desktop view, 7 office and customer pages at 1366px (including the photo panel, compare and share dialogs, and the expired link), and 3 office pages at 375px. <strong>35 scans.</strong></li>
+<li><strong>Result:</strong> 5 violations: Approve button contrast (serious), an unreachable scrollable upload list (serious), a loading screen with no heading, and a link outside a landmark.</li>
+</ul>
+</li>
+<li><p><strong>Touch targets:</strong> WCAG 2.2 at 24px passed everywhere. The stricter 44px check found 13 kinds of small targets (crew job tabs, period switch and filter chips; office close, back, chips and phase filters).</p>
+</li>
+<li><p><strong>Keyboard:</strong> the page behind the open office menu could still be focused.</p>
+</li>
+<li><p><strong>Fixed all of the above:</strong></p>
+<ul>
+<li><strong>Contrast:</strong> Approve is now <code>#13693A</code>, 6.75:1, up from 4.4:1.</li>
+<li><strong>Upload list:</strong> focusable and labelled.</li>
+<li><strong>Loading screen:</strong> hidden heading.</li>
+<li><strong>Office view link:</strong> now inside a <code>nav</code>.</li>
+<li><strong>Tap targets:</strong> 44px.</li>
+<li><strong>Office menu:</strong> page and top bar are <code>inert</code> while it&#39;s open.</li>
+</ul>
+<p>The re-scan shows <strong>0 violations in 35 scans</strong> and no targets under 44px (inline text links excepted).</p>
+</li>
+<li><p><strong>Heuristics:</strong> walked both flows through all 10.</p>
+<ul>
+<li><strong>Crew app:</strong> passes all 10, with one severity-1 note (no explicit &quot;Undo skip&quot;).</li>
+<li><strong>Office app:</strong> 7 pass. Severity notes: metric tiles look tappable but aren&#39;t (1), no bulk approve (2), no help for the review workflow (1), and no &quot;Reopen review&quot; (1).</li>
+</ul>
+<p>These are recommendations, not built.</p>
+</li>
+<li><p><strong>Report:</strong> <a href="evidence/07-heuristic-and-accessibility-review.html">docs/07-heuristic-and-accessibility-review.md</a>.</p>
+</li>
+<li><p><strong>Clean-up:</strong> axe-core was served from a temporary <code>public/__audit/</code> folder and deleted afterwards. It isn&#39;t part of the app.</p>
+</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Limits (stated in the report)</h5><ul>
+<li>No real users were involved.</li>
+<li>No hands-on screen-reader session; the screen-reader findings come from axe and code inspection.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the accessibility fixes, docs/07 and the log, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed the fixes, docs/07 and the log, then regenerated the process-log site (which now includes docs/07 as an evidence page) and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/039_2026-10-25_heuristic-accessibility-review.md" target="_blank" rel="noopener"><code>process-log/prompts/039_2026-10-25_heuristic-accessibility-review.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-040" data-phase="4" data-search="# prompt 040: clean up the job card and required photos
+
+- **date:** 2026-10-25
+- **input type:** text prompt with two screenshots (the job card and the required photos card), likely dictated by voice
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview · axe-core (loaded only for the re-scan)
+- **phase:** 4 · test &amp; refine (office web app)
+
+## prompt (verbatim)
+
+&gt; these two sections reviewing the particular job card, and after require photos are there before, during, after. so these two are sections are unclear now. so let's say we can take first card. there are some details needs to review, and title is there, and there are two buttons are there. then below we have some option. the information, jobs, date, crew, photos, review progress, and below that some 0 of 15 decided, 0 approved, 0 registered. so something it's looking messy now. so can you clear that messy into cleaner interface? it should be clean and neat. make it as in a row, 2 or 3 information.
+
+## what the ai did
+- **job card** (`jobevidencescreen.jsx`, `office.css`):
+  - **header:** &quot;job hr-2041&quot; with a small status chip beside it, then the address as the title and the job type (&quot;full re-roof · asphalt shingles · 2 storeys&quot;) as a muted subtitle. the two buttons stay on the right.
+  - **facts:** **three** facts in one row, each with an icon and a label:
+    - date: sat 24 oct · 8:00 am – 4:00 pm
+    - crew: crew 3 · lead ravi menon
+    - photos: 15 of 18 received
+
+    thin dividers sit above and below the row. the previous &quot;job&quot; fact moved into the subtitle; the uploading and skipped counts live in the banner and in required photos.
+  - **review progress:** one line (&quot;review progress … 0 of 15 decided&quot;) above a slim bar. the approved / rejected legend, with coloured dots, appears only after the first decision.
+  - **screen readers:** the facts are a plain list with an accessible name, not a definition list.
+- **required photos:**
+  - **phase rows:** one row per phase: name · progress bar · &quot;6/7&quot;.
+  - **gaps only:** under each row, only the shots still missing (e.g. &quot;existing damage · skipped&quot;, &quot;driveway cleanup · uploading&quot;), or &quot;all received&quot;.
+  - **full list:** all 18 shots, clickable as before, are behind **&quot;show all 18 shots&quot;**.
+- **clean-up:** removed old, unused job-table css.
+- **tested:**
+  - **desktop (1366px):** the cleaner layout is right.
+  - **1024px:** facts in one row.
+  - **phones (375 and 320px):** facts stack, with no overflow.
+  - **interactions:** &quot;show all&quot; opens the 18 shots; a shot opens its photo; the legend appears after approve.
+  - **accessibility:** axe finds **0 violations** on the page. axe-core was served temporarily and deleted afterwards.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">040</span>
+    <div>
+      <h3 class="prompt__title">Clean up the job card and Required photos</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt with two screenshots (the job card and the Required photos card), likely dictated by voice</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (office web app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview · axe-core (loaded only for the re-scan)</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">These two sections reviewing the particular job card, and after require photos are there before, during, after. So these two are sections are unclear now. So let's say we can take first card. There are some details needs to review, and title is there, and there are two buttons are there. Then below we have some option. The information, jobs, date, crew, photos, review progress, and below that some 0 of 15 decided, 0 approved, 0 registered. So something it's looking messy now. So can you clear that messy into cleaner interface? It should be clean and neat. Make it as in a row, 2 or 3 information.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Cleaner job card and Required photos</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-040">Prompt 040</a> (text + two screenshots)</li>
+<li><strong>What happened:</strong><ul>
+<li><strong>Job card:</strong> job ID with a status chip, then the address and the job type as a subtitle. Below that, three facts in one row (Date, Crew, Photos), then one review-progress line. The approved / rejected legend only appears once something is decided.</li>
+<li><strong>Required photos:</strong> one row per phase (name · bar · count), listing only the gaps (skipped or uploading). All 18 shots sit behind &quot;Show all 18 shots&quot;.</li>
+</ul>
+</li>
+<li><strong>Key decision:</strong> Show the exceptions, not every received shot. A full checklist of green ticks hid the two things that need attention.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: What the AI did)</span></summary>
+    <section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Job card</strong> (<code>JobEvidenceScreen.jsx</code>, <code>office.css</code>):<ul>
+<li><p><strong>Header:</strong> &quot;Job HR-2041&quot; with a small status chip beside it, then the address as the title and the job type (&quot;Full re-roof · asphalt shingles · 2 storeys&quot;) as a muted subtitle. The two buttons stay on the right.</p>
+</li>
+<li><p><strong>Facts:</strong> <strong>three</strong> facts in one row, each with an icon and a label:</p>
+<ul>
+<li>Date: Sat 24 Oct · 8:00 AM – 4:00 PM</li>
+<li>Crew: Crew 3 · lead Ravi Menon</li>
+<li>Photos: 15 of 18 received</li>
+</ul>
+<p>Thin dividers sit above and below the row. The previous &quot;Job&quot; fact moved into the subtitle; the uploading and skipped counts live in the banner and in Required photos.</p>
+</li>
+<li><p><strong>Review progress:</strong> one line (&quot;Review progress … 0 of 15 decided&quot;) above a slim bar. The approved / rejected legend, with coloured dots, appears only after the first decision.</p>
+</li>
+<li><p><strong>Screen readers:</strong> the facts are a plain list with an accessible name, not a definition list.</p>
+</li>
+</ul>
+</li>
+<li><strong>Required photos:</strong><ul>
+<li><strong>Phase rows:</strong> one row per phase: name · progress bar · &quot;6/7&quot;.</li>
+<li><strong>Gaps only:</strong> under each row, only the shots still missing (e.g. &quot;Existing damage · Skipped&quot;, &quot;Driveway cleanup · Uploading&quot;), or &quot;All received&quot;.</li>
+<li><strong>Full list:</strong> all 18 shots, clickable as before, are behind <strong>&quot;Show all 18 shots&quot;</strong>.</li>
+</ul>
+</li>
+<li><strong>Clean-up:</strong> removed old, unused job-table CSS.</li>
+<li><strong>Tested:</strong><ul>
+<li><strong>Desktop (1366px):</strong> the cleaner layout is right.</li>
+<li><strong>1024px:</strong> facts in one row.</li>
+<li><strong>Phones (375 and 320px):</strong> facts stack, with no overflow.</li>
+<li><strong>Interactions:</strong> &quot;Show all&quot; opens the 18 shots; a shot opens its photo; the legend appears after Approve.</li>
+<li><strong>Accessibility:</strong> axe finds <strong>0 violations</strong> on the page. axe-core was served temporarily and deleted afterwards.</li>
+</ul>
+</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/040_2026-10-25_cleaner-job-card.md" target="_blank" rel="noopener"><code>process-log/prompts/040_2026-10-25_cleaner-job-card.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-041" data-phase="4" data-search="# prompt 041: make the information cards more useful
+
+- **date:** 2026-10-25
+- **input type:** text prompt, likely dictated by voice (the request appears twice in the same message)
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview · axe-core (loaded only for the re-scan)
+- **phase:** 4 · test &amp; refine (office web app)
+
+## prompt (verbatim)
+
+&gt; now, missing or questionable can i trust the details? what do next? so these cards are just like an information. so i hope it's like very useful for office team also. can we do it some other way to show the details?  so still more intuitive way to show the these cards., can i trust the details? what do next? so these cards are, it's just like an information. so i hope it's like very useful for office team also. can we do it some other way to show the details? now it's showing something like as a list or something like that. so still more intuitive way to show the these cards.
+
+## how the ai read it
+- the three cards (&quot;missing or questionable&quot;, &quot;can i trust the details?&quot; and &quot;what to do next&quot;) read as text to scan, not tools to act with.
+- &quot;missing or questionable&quot; and &quot;what to do next&quot; also repeated the same issues (blurry photo, skipped shot, uploads).
+
+## what the ai did
+- **needs attention** (new, full width, right after the job card): replaces &quot;missing or questionable&quot; and &quot;what to do next&quot;.
+  - **each issue** has a coloured icon, a plain title, a one-line reason, and an **owner tag**: *your decision*, *customer*, *waiting on crew* or *for info*.
+  - **actions:** where there's something to do, there's one button: **open photo** or **compare**.
+  - **header count:** &quot;3 items for you&quot;.
+  - **live:** approving the blurry photo removes it (3 → 2 items for you), and rejecting a photo adds &quot;retake requested&quot;.
+- **evidence check** (replaces &quot;can i trust the details?&quot;): four verdict tiles in a 2 × 2 grid, each with a pass, warning or not-recorded mark.
+  - **time stamps:** consistent
+  - **photo quality:** 14 of 15 sharp (warning)
+  - **taken by:** 2 crew members
+  - **location:** not recorded
+- **required photos:** unchanged, now beside evidence check.
+- **removed:**
+  - the upload banner, which repeated a needs attention item
+  - the review row from the old &quot;what to do next&quot; (start / continue review is in the job card)
+  - the old card styles
+- **tested:**
+  - **desktop (1366px):** layout right; compare and open photo work.
+  - **phones (375 and 320px):** no overflow, and the button wraps under the text.
+  - **tap targets:** at least 44px.
+  - **accessibility:** axe finds **0 violations** at 1366 and 375px.
+- **docs:** readme and docs/07 updated to the new card names.
+
+## where the ai got it wrong
+- on phones the action button first squeezed the issue text into a narrow column. fixed by letting the text take the full row so the button wraps under it.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the job card, needs attention and evidence check changes with the log for prompts 040 and 041, regenerate the process-log site, and commit that too.
+
+- committed prompts 040 and 041 together (app, readme, docs/07, log), then regenerated the process-log site and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">041</span>
+    <div>
+      <h3 class="prompt__title">Make the information cards more useful</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt, likely dictated by voice (the request appears twice in the same message)</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (office web app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview · axe-core (loaded only for the re-scan)</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">Now, missing or questionable can I trust the details? What do next? So these cards are just like an information. So I hope it's like very useful for office team also. Can we do it some other way to show the details?  So still more intuitive way to show the these cards., can I trust the details? What do next? So these cards are, it's just like an information. So I hope it's like very useful for office team also. Can we do it some other way to show the details? Now it's showing something like as a list or something like that. So still more intuitive way to show the these cards.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: From information cards to action</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-041">Prompt 041</a> (text)</li>
+<li><strong>What happened:</strong><ul>
+<li><strong>Needs attention:</strong> &quot;Missing or questionable&quot; and &quot;What to do next&quot; listed the same issues twice, so they merged into one full-width card. Each issue has an owner tag (Your decision · Customer · Waiting on crew · For info) and, where there&#39;s something to do, one button (Open photo, Compare). It updates as photos are approved or rejected.</li>
+<li><strong>Evidence check:</strong> &quot;Can I trust the details?&quot; became four verdict tiles: Time stamps, Photo quality, Taken by, Location.</li>
+<li><strong>Banner:</strong> the upload banner was removed, since it repeated a Needs attention item.</li>
+</ul>
+</li>
+<li><strong>Key decision:</strong> Every line on the review page either asks for a decision or says why none is needed. Ownership tags make &quot;is this mine?&quot; instant.</li>
+<li><strong>AI got wrong / I overruled:</strong> On phones the action button first squeezed the text into a narrow column. Fixed so the button wraps under the text.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: How the AI read it, What the AI did, Where the AI got it wrong, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>How the AI read it</h5><ul>
+<li>The three cards (&quot;Missing or questionable&quot;, &quot;Can I trust the details?&quot; and &quot;What to do next&quot;) read as text to scan, not tools to act with.</li>
+<li>&quot;Missing or questionable&quot; and &quot;What to do next&quot; also repeated the same issues (blurry photo, skipped shot, uploads).</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Needs attention</strong> (new, full width, right after the job card): replaces &quot;Missing or questionable&quot; and &quot;What to do next&quot;.<ul>
+<li><strong>Each issue</strong> has a coloured icon, a plain title, a one-line reason, and an <strong>owner tag</strong>: <em>Your decision</em>, <em>Customer</em>, <em>Waiting on crew</em> or <em>For info</em>.</li>
+<li><strong>Actions:</strong> where there&#39;s something to do, there&#39;s one button: <strong>Open photo</strong> or <strong>Compare</strong>.</li>
+<li><strong>Header count:</strong> &quot;3 items for you&quot;.</li>
+<li><strong>Live:</strong> approving the blurry photo removes it (3 → 2 items for you), and rejecting a photo adds &quot;Retake requested&quot;.</li>
+</ul>
+</li>
+<li><strong>Evidence check</strong> (replaces &quot;Can I trust the details?&quot;): four verdict tiles in a 2 × 2 grid, each with a pass, warning or not-recorded mark.<ul>
+<li><strong>Time stamps:</strong> Consistent</li>
+<li><strong>Photo quality:</strong> 14 of 15 sharp (warning)</li>
+<li><strong>Taken by:</strong> 2 crew members</li>
+<li><strong>Location:</strong> Not recorded</li>
+</ul>
+</li>
+<li><strong>Required photos:</strong> unchanged, now beside Evidence check.</li>
+<li><strong>Removed:</strong><ul>
+<li>the upload banner, which repeated a Needs attention item</li>
+<li>the review row from the old &quot;What to do next&quot; (Start / Continue review is in the job card)</li>
+<li>the old card styles</li>
+</ul>
+</li>
+<li><strong>Tested:</strong><ul>
+<li><strong>Desktop (1366px):</strong> layout right; Compare and Open photo work.</li>
+<li><strong>Phones (375 and 320px):</strong> no overflow, and the button wraps under the text.</li>
+<li><strong>Tap targets:</strong> at least 44px.</li>
+<li><strong>Accessibility:</strong> axe finds <strong>0 violations</strong> at 1366 and 375px.</li>
+</ul>
+</li>
+<li><strong>Docs:</strong> README and docs/07 updated to the new card names.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Where the AI got it wrong</h5><ul>
+<li>On phones the action button first squeezed the issue text into a narrow column. Fixed by letting the text take the full row so the button wraps under it.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the job card, Needs attention and Evidence check changes with the log for prompts 040 and 041, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed prompts 040 and 041 together (app, README, docs/07, log), then regenerated the process-log site and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/041_2026-10-25_needs-attention-evidence-check.md" target="_blank" rel="noopener"><code>process-log/prompts/041_2026-10-25_needs-attention-evidence-check.md</code> · view original file</a></p>
+</article>
     
   </div>
   
@@ -4154,6 +4532,16 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 <td>Set the brand typeface through one token. <span class="replaced"><span class="replaced__tag">Later replaced</span> Typeface changed to Manrope in <a href="#p-014">prompt 014</a></span></td>
 </tr>
 <tr>
+<td>041</td>
+<td>Needs attention and Evidence check</td>
+<td>Turned the review page&#39;s information cards into an owned, actionable issue list and four trust verdicts.</td>
+</tr>
+<tr>
+<td>039</td>
+<td>Heuristic and accessibility review of both apps</td>
+<td>Turned &quot;easy to use&quot; into evidence: 0 axe violations in 35 scans, 44px targets, and a severity-ranked list of what&#39;s left.</td>
+</tr>
+<tr>
 <td>026</td>
 <td>Office dashboard, approve / reject, five review questions</td>
 <td>Turned the office view into a review workflow with metrics, decisions and a clear end state.</td>
@@ -4189,6 +4577,11 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 </tr>
 </thead>
 <tbody><tr>
+<td>2026-10-25</td>
+<td>The office Approve button (prompt 026) used white on #1A8A47, 4.4:1, below WCAG AA; the scrollable upload list wasn&#39;t keyboard-reachable (prompt 039 audit).</td>
+<td>Found by axe-core; button darkened to 6.75:1, list made focusable and labelled.</td>
+</tr>
+<tr>
 <td>2026-10-25</td>
 <td>The office slide-in menu didn&#39;t take keyboard focus when opened: it was still visibility-hidden during its slide (prompt 035).</td>
 <td>Caught in the browser check; the menu now becomes visible immediately and hides only after sliding out.</td>
@@ -4285,7 +4678,7 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 </tr>
 </tbody></table></div>
 </section>
-  <p class="undoc"><span class="undoc__tag">Undocumented</span> Per-prompt “kept / changed / thrown away” notes: 38 of 38 prompt files have this section blank, so decisions beyond the tables above are not documented.</p>
+  <p class="undoc"><span class="undoc__tag">Undocumented</span> Per-prompt “kept / changed / thrown away” notes: 41 of 41 prompt files have this section blank, so decisions beyond the tables above are not documented.</p>
 </section>
 
 <section class="section" id="evidence" aria-labelledby="evidence-title">
@@ -4305,6 +4698,7 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 <li><a href="evidence/04-crew-user-flow.html"><strong>Crew User Flow: Mobile Photo Capture</strong><span class="muted">docs/04-crew-user-flow.md</span></a><a class="doc-list__src" href="sources/docs/04-crew-user-flow.md" target="_blank" rel="noopener">Original .md</a></li>
 <li><a href="evidence/05-office-user-flow.html"><strong>Office User Flow: Desktop Evidence Review (by Job ID)</strong><span class="muted">docs/05-office-user-flow.md</span></a><a class="doc-list__src" href="sources/docs/05-office-user-flow.md" target="_blank" rel="noopener">Original .md</a></li>
 <li><a href="evidence/06-usability-check.html"><strong>Usability Check: Crew Photo Capture</strong><span class="muted">docs/06-usability-check.md</span></a><a class="doc-list__src" href="sources/docs/06-usability-check.md" target="_blank" rel="noopener">Original .md</a></li>
+<li><a href="evidence/07-heuristic-and-accessibility-review.html"><strong>Heuristic and accessibility review</strong><span class="muted">docs/07-heuristic-and-accessibility-review.md</span></a><a class="doc-list__src" href="sources/docs/07-heuristic-and-accessibility-review.md" target="_blank" rel="noopener">Original .md</a></li>
     <li><a href="evidence/session-handoff.html"><strong>Session handoff</strong><span class="muted">process-log/SESSION_HANDOFF.md</span></a><a class="doc-list__src" href="sources/process-log/SESSION_HANDOFF.md" target="_blank" rel="noopener">Original .md</a></li>
     <li><a href="sources/process-log/PROCESS_LOG.md" target="_blank" rel="noopener"><strong>Process log (raw)</strong><span class="muted">process-log/PROCESS_LOG.md</span></a></li>
     <li><a href="sources/process-log/TOOLS_AND_SKILLS.md" target="_blank" rel="noopener"><strong>Tools and skills (raw)</strong><span class="muted">process-log/TOOLS_AND_SKILLS.md</span></a></li>
@@ -4316,7 +4710,7 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
     <li><span class="repo-path">app/roofing-crew-mobile/</span> <span class="muted small">React + Vite source of the prototype, in the repository</span></li>
   </ul>
   <h3>Commit history</h3>
-  <p class="muted small">As of 2026-10-25 23:12 (<code>0e5b74b</code>), when this site was generated. Later commits are not listed until the site is regenerated.</p>
+  <p class="muted small">As of 2026-10-25 23:36 (<code>709fe7b</code>), when this site was generated. Later commits are not listed until the site is regenerated.</p>
   <ol class="commits"><li><code>c757d35</code><span class="muted">2026-10-24 21:08</span><span>Add assignment breakdown, UX plan and process log</span></li>
 <li><code>6d44ee8</code><span class="muted">2026-10-24 21:56</span><span>Add crew and office user flows with SVG diagrams</span></li>
 <li><code>959e03d</code><span class="muted">2026-10-24 22:57</span><span>Add crew mobile prototype: design canvas source and React app</span></li>
@@ -4349,7 +4743,11 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 <li><code>5ece424</code><span class="muted">2026-10-25 23:03</span><span>Regenerate the process-log site with prompt 036</span></li>
 <li><code>c8b8a02</code><span class="muted">2026-10-25 23:11</span><span>Rename office Jobs to &quot;Jobs by status&quot;; slimmer search bar</span></li>
 <li><code>283a002</code><span class="muted">2026-10-25 23:11</span><span>Regenerate the process-log site with prompt 037</span></li>
-<li><code>0e5b74b</code><span class="muted">2026-10-25 23:12</span><span>Put Review now above key metrics on the office dashboard</span></li></ol>
+<li><code>0e5b74b</code><span class="muted">2026-10-25 23:12</span><span>Put Review now above key metrics on the office dashboard</span></li>
+<li><code>12ba961</code><span class="muted">2026-10-25 23:12</span><span>Regenerate the process-log site with prompt 038</span></li>
+<li><code>16b5560</code><span class="muted">2026-10-25 23:27</span><span>Fix accessibility findings; add heuristic and accessibility review</span></li>
+<li><code>fac27c3</code><span class="muted">2026-10-25 23:27</span><span>Regenerate the process-log site with prompt 039 and docs/07</span></li>
+<li><code>709fe7b</code><span class="muted">2026-10-25 23:36</span><span>Clean up the office job page: job card, Needs attention, Evidence check</span></li></ol>
 </section>
 
 <section class="section" id="tools" aria-labelledby="tools-title">
@@ -4446,7 +4844,7 @@ direction (neutral ground, dark text, blue primary, green/amber/red states).</p>
     <li><strong>Not every cut idea was the AI’s.</strong> The AI added a desktop intro panel and banners repeating the tapped quick action (removed in <a href="#p-015">015</a> and <a href="#p-020">020</a>). The weather card and the Cards/Table switch came from the prompts themselves (<a href="#p-016">016</a>, <a href="#p-018">018</a>) and were cut in <a href="#p-020">020</a> and <a href="#p-019">019</a>.</li>
     <li><strong>Testing in a real browser caught what reading the code didn’t.</strong> A regex cleanup that deleted CSS rules, a photo panel that shrank to nothing on short screens, keyboard focus lost after a decision. All were found at phone size in the browser preview (<a href="#wrong">AI-errors table</a>).</li>
     <li><strong>An honesty rule set at the start held throughout.</strong> No GPS, “verified” or original-file claims unless they were built. The office view dropped the map and Verified badge from its own design because the crew app doesn’t record them (<a href="#p-008">008</a>, <a href="#p-024">024</a>, <a href="#thrown">thrown-away table</a>).</li>
-    <li><strong>Not everything was finished.</strong> Connecting the crew app and office view through shared state was planned but not built (<a href="#p-027">027</a>), and 38 of 38 prompt files still have blank personal notes.</li>
+    <li><strong>Not everything was finished.</strong> Connecting the crew app and office view through shared state was planned but not built (<a href="#p-027">027</a>), and 41 of 41 prompt files still have blank personal notes.</li>
   </ol>
 </section>
 

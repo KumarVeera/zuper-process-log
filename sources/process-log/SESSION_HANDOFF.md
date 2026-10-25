@@ -1,7 +1,7 @@
 # Session Handoff: where things stand
 
 Read this first in any new session, then `CLAUDE.md` (logging rules) and `process-log/PROCESS_LOG.md`.
-Last updated: 2026-10-25, after prompt 038 (Review now above key metrics). Prompt 027 (connect crew and office through a shared store) is still **planned but not built**: see its prompt file. The next prompt file is **`039_…`**.
+Last updated: 2026-10-25, after prompt 041 (Needs attention + Evidence check). Prompt 027 (connect crew and office through a shared store) is still **planned but not built**: see its prompt file. The next prompt file is **`042_…`**.
 
 ## The assignment (one line)
 Zuper take-home (Senior AI-Native Product Designer): design how a roofing crew takes job photos and how the office
@@ -14,10 +14,11 @@ finds and shares them as proof. Deliverables: **prototype link** (crew phone + o
 | Requirements, assumptions, UX plan | `docs/01`–`03` | Done |
 | Crew and office flows plus SVG diagrams | `docs/04`, `docs/05`, `docs/diagrams/` | Done |
 | Usability check (6 points, evidence) | `docs/06-usability-check.md` | Done, all pass |
+| Heuristic + accessibility review | `docs/07-heuristic-and-accessibility-review.md` | Done: 0 axe violations in 35 scans; 5 recommendations open |
 | **React crew app** (main prototype) | `app/roofing-crew-mobile/` | Working, tested at 320/375px |
-| **Office portal + customer page** | same app, `?view=office` / `?view=share` (`src/office/`) | Sidebar navigation; Dashboard (Review now card, 4 read-only metrics, Jobs by status card with tabs, Needs review first) → job review page (job · required photos · missing/questionable · trust · next) → photo panel with approve / reject → compare → share. Prompts 024, 026, 028, 029, tested at 1366/375/320px |
+| **Office portal + customer page** | same app, `?view=office` / `?view=share` (`src/office/`) | Sidebar navigation; Dashboard (Review now card, 4 read-only metrics, Jobs by status card with tabs, Needs review first) → job review page (job card · Needs attention · Required photos · Evidence check) → photo panel with approve / reject → compare → share. Prompts 024, 026, 028, 029, tested at 1366/375/320px |
 | Claude Design canvas (earlier prototype) | `prototype/crew-mobile/` · https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz (v19, private) | Older flow; Manrope font. Not updated with the later Home/Jobs redesign |
-| Process log | `process-log/PROCESS_LOG.md`, `process-log/prompts/001–038`, `TOOLS_AND_SKILLS.md` | Up to date |
+| Process log | `process-log/PROCESS_LOG.md`, `process-log/prompts/001–041`, `TOOLS_AND_SKILLS.md` | Up to date |
 
 ## React app at a glance
 - Run: `npm --prefix app/roofing-crew-mobile run dev` (preview config: `.claude/launch.json`, name `roofing-crew-mobile`).

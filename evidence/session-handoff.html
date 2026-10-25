@@ -27,7 +27,7 @@
 <main id="main">
 <article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>process-log/SESSION_HANDOFF.md</code> · <a href="../sources/process-log/SESSION_HANDOFF.md" target="_blank" rel="noopener">original .md</a></p><h1>Session Handoff: where things stand</h1>
 <p>Read this first in any new session, then <code>CLAUDE.md</code> (logging rules) and <code>process-log/PROCESS_LOG.md</code>.
-Last updated: 2026-10-25, after prompt 038 (Review now above key metrics). Prompt 027 (connect crew and office through a shared store) is still <strong>planned but not built</strong>: see its prompt file. The next prompt file is <strong><code>039_…</code></strong>.</p>
+Last updated: 2026-10-25, after prompt 041 (Needs attention + Evidence check). Prompt 027 (connect crew and office through a shared store) is still <strong>planned but not built</strong>: see its prompt file. The next prompt file is <strong><code>042_…</code></strong>.</p>
 <h2>The assignment (one line)</h2>
 <p>Zuper take-home (Senior AI-Native Product Designer): design how a roofing crew takes job photos and how the office
 finds and shares them as proof. Deliverables: <strong>prototype link</strong> (crew phone + one office or customer view) and a
@@ -57,6 +57,11 @@ finds and shares them as proof. Deliverables: <strong>prototype link</strong> (c
 <td>Done, all pass</td>
 </tr>
 <tr>
+<td>Heuristic + accessibility review</td>
+<td><code>docs/07-heuristic-and-accessibility-review.md</code></td>
+<td>Done: 0 axe violations in 35 scans; 5 recommendations open</td>
+</tr>
+<tr>
 <td><strong>React crew app</strong> (main prototype)</td>
 <td><code>app/roofing-crew-mobile/</code></td>
 <td>Working, tested at 320/375px</td>
@@ -64,7 +69,7 @@ finds and shares them as proof. Deliverables: <strong>prototype link</strong> (c
 <tr>
 <td><strong>Office portal + customer page</strong></td>
 <td>same app, <code>?view=office</code> / <code>?view=share</code> (<code>src/office/</code>)</td>
-<td>Sidebar navigation; Dashboard (Review now card, 4 read-only metrics, Jobs by status card with tabs, Needs review first) → job review page (job · required photos · missing/questionable · trust · next) → photo panel with approve / reject → compare → share. Prompts 024, 026, 028, 029, tested at 1366/375/320px</td>
+<td>Sidebar navigation; Dashboard (Review now card, 4 read-only metrics, Jobs by status card with tabs, Needs review first) → job review page (job card · Needs attention · Required photos · Evidence check) → photo panel with approve / reject → compare → share. Prompts 024, 026, 028, 029, tested at 1366/375/320px</td>
 </tr>
 <tr>
 <td>Claude Design canvas (earlier prototype)</td>
@@ -73,7 +78,7 @@ finds and shares them as proof. Deliverables: <strong>prototype link</strong> (c
 </tr>
 <tr>
 <td>Process log</td>
-<td><code>process-log/PROCESS_LOG.md</code>, <code>process-log/prompts/001–038</code>, <code>TOOLS_AND_SKILLS.md</code></td>
+<td><code>process-log/PROCESS_LOG.md</code>, <code>process-log/prompts/001–041</code>, <code>TOOLS_AND_SKILLS.md</code></td>
 <td>Up to date</td>
 </tr>
 </tbody></table></div>

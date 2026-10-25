@@ -363,6 +363,31 @@ interview walk-through. The brief asks for three things, which have their own se
 - **What happened:** Moved the Review now card above Key metrics. The dashboard now reads: Review now → Key metrics → Jobs by status.
 - **Key decision:** The office's main task leads the page; the numbers follow.
 
+### 2026-10-25 · Phase 4 Test & refine: Heuristic and accessibility review
+- **Input:** [Prompt 039](prompts/039_2026-10-25_heuristic-accessibility-review.md) (text)
+- **What happened:**
+  - Ran axe-core on every crew screen and office page: 35 scans at phone and desktop sizes. Also checked 44px touch targets and keyboard focus, and walked both flows through Nielsen's 10 heuristics.
+  - Found 5 axe violations (2 serious: Approve button contrast, an unreachable scrollable list), 13 kinds of undersized tap targets, and a focus leak behind the office menu. All fixed; the re-scan shows 0 violations.
+  - Write-up: [docs/07](../docs/07-heuristic-and-accessibility-review.md).
+- **Key decision:** Fix every objective accessibility failure. Keep the heuristic issues that are design trade-offs as recommendations (bulk approve, metric tiles that look tappable, office help).
+- **AI got wrong / I overruled:** The Approve button colour, chosen by the AI in prompt 026, failed AA contrast (4.4:1) and went unnoticed until this audit.
+
+### 2026-10-25 · Phase 4 Test & refine: Cleaner job card and Required photos
+- **Input:** [Prompt 040](prompts/040_2026-10-25_cleaner-job-card.md) (text + two screenshots)
+- **What happened:**
+  - **Job card:** job ID with a status chip, then the address and the job type as a subtitle. Below that, three facts in one row (Date, Crew, Photos), then one review-progress line. The approved / rejected legend only appears once something is decided.
+  - **Required photos:** one row per phase (name · bar · count), listing only the gaps (skipped or uploading). All 18 shots sit behind "Show all 18 shots".
+- **Key decision:** Show the exceptions, not every received shot. A full checklist of green ticks hid the two things that need attention.
+
+### 2026-10-25 · Phase 4 Test & refine: From information cards to action
+- **Input:** [Prompt 041](prompts/041_2026-10-25_needs-attention-evidence-check.md) (text)
+- **What happened:**
+  - **Needs attention:** "Missing or questionable" and "What to do next" listed the same issues twice, so they merged into one full-width card. Each issue has an owner tag (Your decision · Customer · Waiting on crew · For info) and, where there's something to do, one button (Open photo, Compare). It updates as photos are approved or rejected.
+  - **Evidence check:** "Can I trust the details?" became four verdict tiles: Time stamps, Photo quality, Taken by, Location.
+  - **Banner:** the upload banner was removed, since it repeated a Needs attention item.
+- **Key decision:** Every line on the review page either asks for a decision or says why none is needed. Ownership tags make "is this mine?" instant.
+- **AI got wrong / I overruled:** On phones the action button first squeezed the text into a narrow column. Fixed so the button wraps under the text.
+
 <!-- New entries go below, newest last. Template:
 ### YYYY-MM-DD · Phase N <name>: <title>
 - **Input:** [Prompt NNN](prompts/NNN_...) (text | voice note)
@@ -393,6 +418,8 @@ interview walk-through. The brief asks for three things, which have their own se
 | 016 | Today's progress, weather, colour-coded quick actions | Home now answers 'how is today going' and 'is it safe up there' first. |
 | 014 | Manrope + restructure from two feature lists | Turned a text-heavy prototype into an image-led app with job detail, camera simulation and tutorial. |
 | 012 | Switch typeface to Bricolage Grotesque | Set the brand typeface through one token. |
+| 041 | Needs attention and Evidence check | Turned the review page's information cards into an owned, actionable issue list and four trust verdicts. |
+| 039 | Heuristic and accessibility review of both apps | Turned "easy to use" into evidence: 0 axe violations in 35 scans, 44px targets, and a severity-ranked list of what's left. |
 | 026 | Office dashboard, approve / reject, five review questions | Turned the office view into a review workflow with metrics, decisions and a clear end state. |
 | 024 | Build the office evidence review view | Delivered the office half of the brief: lookup → evidence → compare → share → customer page. |
 
@@ -404,6 +431,7 @@ interview walk-through. The brief asks for three things, which have their own se
 ## Where the AI got it wrong (and what I did)
 | When | What the AI did | What I did instead |
 |---|---|---|
+| 2026-10-25 | The office Approve button (prompt 026) used white on #1A8A47, 4.4:1, below WCAG AA; the scrollable upload list wasn't keyboard-reachable (prompt 039 audit). | Found by axe-core; button darkened to 6.75:1, list made focusable and labelled. |
 | 2026-10-25 | The office slide-in menu didn't take keyboard focus when opened: it was still visibility-hidden during its slide (prompt 035). | Caught in the browser check; the menu now becomes visible immediately and hides only after sliding out. |
 | 2026-10-25 | The process-log site's reflection said the AI added the weather card and Cards/Table switch, but prompts 016 and 018 show I asked for them (prompt 030). | Corrected the reflection; cut ideas are now tagged with their real source. |
 | 2026-10-25 | Office job tabs scrolled sideways on phones and hid the active Needs review tab (prompt 029). | Caught at 320px; tabs become a 2 × 2 grid on phones. |
