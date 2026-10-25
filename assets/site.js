@@ -20,6 +20,27 @@
     })
   }
 
+  // Highlight the section in view, and show "Back to top" once the page is scrolled.
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a[href*="#"]'))
+  var toTop = document.querySelector('.to-top')
+  if ('IntersectionObserver' in window && navLinks.length) {
+    var byId = {}
+    navLinks.forEach(function (a) { byId[a.getAttribute('href').split('#')[1]] = a })
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting || !byId[en.target.id]) return
+        navLinks.forEach(function (a) { a.removeAttribute('aria-current') })
+        byId[en.target.id].setAttribute('aria-current', 'location')
+      })
+    }, { rootMargin: '-30% 0px -60% 0px' })
+    Object.keys(byId).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el) })
+  }
+  if (toTop) {
+    var onScroll = function () { toTop.classList.toggle('is-hidden', window.scrollY < 600) }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+  }
+
   // Prompt filters: phase chips + text search
   var cards = Array.prototype.slice.call(document.querySelectorAll('.prompt[data-search]'))
   if (!cards.length) return

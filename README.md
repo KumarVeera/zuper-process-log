@@ -13,12 +13,14 @@ labelled **Undocumented**.
 
 | Path | What it is |
 |---|---|
-| `index.html` | Overview, chronological log (27 prompts), kept / rejected / AI-error tables, evidence, tools, reflection |
+| `index.html` | Overview, executive summary, needs-your-input list, key decisions and before / after (with prototype screenshots), chronological log of every prompt, kept / rejected / AI-error tables, evidence, tools, reflection |
 | `evidence/*.html` | `docs/01`–`06` and the session handoff, rendered as pages |
 | `assets/site.css`, `assets/site.js` | Styles and small enhancements (filters, search, mobile menu). The pages work without JavaScript. |
 | `assets/config.js` | **Edit this** to add the deployed prototype URL (`prototypeUrl`). No rebuild needed. |
 | `assets/diagrams/` | Copies of `docs/diagrams/*.svg` |
-| `tools/` | Generator (`generate.mjs`). Only needed to refresh the site after the log changes. Not deployed. |
+| `assets/screens/` | Copies of `case-study/screens/*.png`, captures of the running prototype |
+| `sources/` | The original markdown files (prompts, process log, tools, handoff, docs), copied as-is so every “view original” link works |
+| `tools/` | Generator (`generate.mjs`) and checker (`check.mjs`). Only needed to refresh the site after the log changes. Not deployed. |
 
 ## Test locally
 
@@ -48,7 +50,16 @@ npm install
 npm run generate
 ```
 
-This rewrites `index.html`, `evidence/` and `assets/diagrams/`. It doesn't touch `assets/site.css`,
+Then check it before deploying (exits with an error if anything fails):
+
+```bash
+npm run check
+```
+
+It verifies that every internal link and asset resolves, that all prompts are still quoted word for word, and that no
+template text is left outside the intentional “Unresolved” labels.
+
+`generate` rewrites `index.html`, `evidence/`, `sources/`, `assets/diagrams/` and `assets/screens/`. It doesn't touch `assets/site.css`,
 `assets/site.js` or `assets/config.js`.
 
 ## Deploy to Vercel

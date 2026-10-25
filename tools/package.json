@@ -4,7 +4,8 @@
   "type": "module",
   "description": "Regenerates the static process-log site from the repository's markdown files. Not needed to deploy.",
   "scripts": {
-    "generate": "node generate.mjs"
+    "generate": "node generate.mjs",
+    "check": "node check.mjs"
   },
   "devDependencies": {
     "marked": "14.1.4"
