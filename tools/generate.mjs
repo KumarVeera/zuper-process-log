@@ -222,6 +222,8 @@ const README = read(path.join(ROOT, 'README.md'))
 const BRIEF_URL = README.match(/https:\/\/spd-take-home\.vercel\.app\/?/)?.[0] || null
 const CANVAS_URL = read(path.join(LOG_DIR, 'SESSION_HANDOFF.md')).match(/https:\/\/claude\.ai\/artifact\/[A-Za-z0-9]+/)?.[0] || null
 const HANDOFF = read(path.join(LOG_DIR, 'SESSION_HANDOFF.md'))
+// Deployed prototype link, set in assets/config.js (not recorded in the repository's docs).
+const PROTOTYPE_URL = read(path.join(SITE, 'assets', 'config.js')).match(/prototypeUrl:\s*'([^']+)'/)?.[1] || null
 
 // Screens captured from the running prototype for the case study (case-study/screens). Captions describe what
 // each capture shows; nothing here is a mock-up or a "before" state.
@@ -380,8 +382,10 @@ const indexBody = `
   ${LOG_INTRO}
   <div class="hero__links">
     ${BRIEF_URL ? `<a class="btn" href="${esc(BRIEF_URL)}" target="_blank" rel="noopener">Read the brief</a>` : ''}
-    <a class="btn btn--primary" data-prototype-link hidden href="#" target="_blank" rel="noopener">Open the prototype</a>
-    <span class="undoc" data-prototype-missing><span class="undoc__tag">Undocumented</span> The deployed prototype URL is not recorded in the repository. Add it in <code>assets/config.js</code>.</span>
+    ${PROTOTYPE_URL
+    ? `<a class="btn btn--primary" data-prototype-link href="${esc(PROTOTYPE_URL)}" target="_blank" rel="noopener">Open the prototype</a>`
+    : `<a class="btn btn--primary" data-prototype-link hidden href="#" target="_blank" rel="noopener">Open the prototype</a>
+    <span class="undoc" data-prototype-missing><span class="undoc__tag">Undocumented</span> The deployed prototype URL is not recorded in the repository. Add it in <code>assets/config.js</code>.</span>`}
   </div>
   <dl class="stats">
     <div><dt>Prompts logged</dt><dd>${PROMPTS.length}</dd></div>
@@ -429,7 +433,7 @@ const indexBody = `
   <h2 id="needs-title">Needs your input before deployment</h2>
   <p>The scan found <strong>${PROMPTS.length - notesFilled} of ${PROMPTS.length}</strong> “My notes” sections blank, <strong>${placeholderEntries.length}</strong> timeline placeholders and <strong>${TO_CONFIRM.length}</strong> row marked “To confirm”. These are the ones that matter most. Nothing below has been filled in for you.</p>
   <ol class="needs">
-    <li><strong>Deployed prototype URL.</strong> Not recorded anywhere in the repository. Add it as <code>prototypeUrl</code> in <code>assets/config.js</code>; until then the prototype button stays hidden.</li>
+    ${PROTOTYPE_URL ? '' : `<li><strong>Deployed prototype URL.</strong> Not recorded anywhere in the repository. Add it as <code>prototypeUrl</code> in <code>assets/config.js</code>; until then the prototype button stays hidden.</li>`}
     ${TO_CONFIRM.length ? `<li><strong>Confirm the “record screen” reading.</strong> The AI read “record screen” in the first prompt as “screens to design”, and the AI-errors row is still marked <em>To confirm</em> (<a href="#p-001">prompt 001</a>, <a href="#wrong">AI-errors table</a>).</li>` : ''}
     ${placeholderEntries.length ? `<li><strong>Fill in “AI got wrong / I overruled”</strong> for the define-stage entries still showing a placeholder: ${placeholderEntries.map((e) => `<a href="#p-${e.prompts[0]}">${e.prompts[0]}</a>`).join(', ')}.</li>` : ''}
     <li><strong>Write your own final reflection.</strong> The <a href="#reflection">reflection</a> is drafted from the log only.</li>
@@ -505,7 +509,9 @@ const indexBody = `
   </ul>
   <h3>Prototype and design canvas</h3>
   <ul class="link-list">
-    <li><a data-prototype-link hidden href="#" target="_blank" rel="noopener">Deployed prototype</a><span data-prototype-missing>${UNDOC('Deployed prototype URL not recorded in the repository.')}</span></li>
+    ${PROTOTYPE_URL
+    ? `<li><a data-prototype-link href="${esc(PROTOTYPE_URL)}" target="_blank" rel="noopener">Deployed prototype</a> <span class="muted small">crew phone; office portal at <a href="${esc(PROTOTYPE_URL)}?view=office" target="_blank" rel="noopener">?view=office</a></span></li>`
+    : `<li><a data-prototype-link hidden href="#" target="_blank" rel="noopener">Deployed prototype</a><span data-prototype-missing>${UNDOC('Deployed prototype URL not recorded in the repository.')}</span></li>`}
     ${CANVAS_URL ? `<li><a href="${esc(CANVAS_URL)}" target="_blank" rel="noopener">Earlier Claude Design canvas</a> <span class="muted small">(private artifact; may need the owner to share it)</span></li>` : ''}
     <li><span class="repo-path">app/roofing-crew-mobile/</span> <span class="muted small">React + Vite source of the prototype, in the repository</span></li>
   </ul>

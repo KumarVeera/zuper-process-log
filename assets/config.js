@@ -1,6 +1,5 @@
-// Site settings you can edit without regenerating.
-// prototypeUrl: the deployed prototype link. It isn't recorded in the repository, so it starts empty
-// and the site shows "Undocumented" until you add it, e.g. 'https://your-prototype.vercel.app/'.
+// Site settings. prototypeUrl is the deployed prototype, used by the "Open the prototype" links.
+// The generator also reads it, so the links work without JavaScript; regenerate after changing it.
 window.SITE_CONFIG = {
-  prototypeUrl: '',
+  prototypeUrl: 'https://zuper-product-designer-role-assignm.vercel.app/',
 }
