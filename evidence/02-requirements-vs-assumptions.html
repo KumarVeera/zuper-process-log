@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explicit Requirements vs Assumptions · Process log</title>
+<meta name="description" content="Repository document docs/02-requirements-vs-assumptions.md">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="doc">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">Z</span><span>Process log<span class="brand__sub"> · Zuper take-home</span></span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" class="nav" aria-label="Sections">
+    <a href="../index.html#overview">Overview</a>
+    <a href="../index.html#log">Process log</a>
+    <a href="../index.html#outcomes">Kept, rejected, AI errors</a>
+    <a href="../index.html#evidence">Evidence</a>
+    <a href="../index.html#tools">Tools</a>
+    <a href="../index.html#reflection">Reflection</a>
+  </nav>
+</header>
+<main id="main">
+<article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>docs/02-requirements-vs-assumptions.md</code></p><h1>Explicit Requirements vs Assumptions</h1>
+<p>Source: <a href="https://spd-take-home.vercel.app/" target="_blank" rel="noopener">https://spd-take-home.vercel.app/</a> · Written 2026-10-24
+Purpose: keep clear what the brief <strong>actually says</strong> apart from what I (and the AI) <strong>inferred</strong>. In
+the call, every design choice should trace back to either a line in the brief or a named assumption.</p>
+<p><strong>Legend:</strong></p>
+<ul>
+<li><strong>E = Explicit:</strong> stated in the brief.</li>
+<li><strong>I = Inferred:</strong> strongly implied by a persona quote. Low risk, but still mine.</li>
+<li><strong>A = Assumption:</strong> my design hypothesis, not in the brief. Needs a rationale, and validation where possible.</li>
+</ul>
+<hr>
+<h2>1. Explicit requirements (only what the brief says)</h2>
+<h3>Scope</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Brief wording</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>Design how a <strong>crew takes job photos</strong></td>
+<td>&quot;Design how a crew takes job photos&quot;</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Design how the <strong>office finds</strong> photos</td>
+<td>&quot;how the office finds them&quot;</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>Design how the office <strong>shares them as proof</strong></td>
+<td>&quot;and shares them as proof&quot;</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>Use AI tools in the work</td>
+<td>&quot;Use any AI tools you like&quot; / &quot;Design it with AI&quot;</td>
+</tr>
+</tbody></table></div>
+<h3>Problems the design must address (from the problem + voices)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Problem</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E5</td>
+<td>Photos are scattered across phones and group chats</td>
+<td>Problem statement</td>
+</tr>
+<tr>
+<td>E6</td>
+<td>The right photo can&#39;t be found when a customer disputes or an insurer asks</td>
+<td>Problem statement</td>
+</tr>
+<tr>
+<td>E7</td>
+<td>Can&#39;t show <strong>when</strong> a photo was taken</td>
+<td>Problem statement</td>
+</tr>
+<tr>
+<td>E8</td>
+<td>No signal on site; uploads done at night; <strong>half never make it</strong></td>
+<td>Ravi Menon, crew lead</td>
+</tr>
+<tr>
+<td>E9</td>
+<td>The <strong>before</strong> photo is missing / on someone&#39;s phone</td>
+<td>Sean Doyle, PM</td>
+</tr>
+<tr>
+<td>E10</td>
+<td>Insurer rejected photos: <strong>no date, no location</strong></td>
+<td>Priya Shah, insurance claims</td>
+</tr>
+</tbody></table></div>
+<h3>Questions the design should answer</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E11</td>
+<td>Which photos does a job need, and <strong>how does the crew know they&#39;re done</strong>?</td>
+</tr>
+<tr>
+<td>E12</td>
+<td>How does a photo <strong>hold up as proof</strong>?</td>
+</tr>
+<tr>
+<td>E13</td>
+<td>Where can <strong>AI help</strong>, and where should <strong>a person check</strong>?</td>
+</tr>
+</tbody></table></div>
+<h3>Deliverables &amp; constraints</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E14</td>
+<td>A prototype, any tool, showing <strong>the crew&#39;s phone</strong></td>
+</tr>
+<tr>
+<td>E15</td>
+<td>…and <strong>one</strong> office <strong>or</strong> customer view</td>
+</tr>
+<tr>
+<td>E16</td>
+<td>A process log: prompts that mattered, what you threw away, where the AI got it wrong</td>
+</tr>
+<tr>
+<td>E17</td>
+<td>Email both links within <strong>2 days</strong></td>
+</tr>
+<tr>
+<td>E18</td>
+<td>60-min call: walk through, then <strong>they change something</strong> live</td>
+</tr>
+<tr>
+<td>E19</td>
+<td>Own or stock photos only; <strong>no customer data</strong></td>
+</tr>
+<tr>
+<td>E20</td>
+<td>No roofing experience or coding required</td>
+</tr>
+</tbody></table></div>
+<h3>Evaluation criteria</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Criterion</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E21</td>
+<td><strong>Judgment:</strong> what you chose to solve, and what you left out</td>
+</tr>
+<tr>
+<td>E22</td>
+<td><strong>Understanding:</strong> crew, office <em>and</em> insurer</td>
+</tr>
+<tr>
+<td>E23</td>
+<td><strong>Working with AI:</strong> how you steered it, where you overruled it</td>
+</tr>
+<tr>
+<td>E24</td>
+<td><strong>Clarity:</strong> someone could build from it</td>
+</tr>
+</tbody></table></div>
+<blockquote>
+<p>The brief is short on purpose (&quot;The dashed part is yours&quot;). It does <strong>not</strong> specify screens, features,
+platform, AI features, shot lists, or proof mechanisms. Those are all design decisions, and they are
+what gets judged under E21.</p>
+</blockquote>
+<hr>
+<h2>2. Inferences (strongly implied, low risk)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Inference</th>
+<th>Comes from</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>I1</td>
+<td>Capture must <strong>work offline</strong> and upload reliably later</td>
+<td>E8</td>
+<td>High</td>
+</tr>
+<tr>
+<td>I2</td>
+<td>Before photos must be <strong>prompted at the start</strong>, not left to memory</td>
+<td>E9</td>
+<td>High</td>
+</tr>
+<tr>
+<td>I3</td>
+<td>Each photo needs a trustworthy <strong>timestamp + location</strong> attached</td>
+<td>E7, E10</td>
+<td>High</td>
+</tr>
+<tr>
+<td>I4</td>
+<td>Photos must be <strong>linked to a job</strong> (not to a phone or chat)</td>
+<td>E5, E6</td>
+<td>High</td>
+</tr>
+<tr>
+<td>I5</td>
+<td>A job has a defined set of <strong>required photos</strong> and a visible &quot;done&quot; state</td>
+<td>E11</td>
+<td>High</td>
+</tr>
+<tr>
+<td>I6</td>
+<td>Office needs <strong>search/filter</strong> at least by job and photo type (before/after)</td>
+<td>E6, E9</td>
+<td>High</td>
+</tr>
+<tr>
+<td>I7</td>
+<td>Proof is shared with <strong>external people</strong> (customer, insurer)</td>
+<td>E3, E6, E10</td>
+<td>High</td>
+</tr>
+<tr>
+<td>I8</td>
+<td>AI output must have a <strong>human check</strong> somewhere</td>
+<td>E13</td>
+<td>High</td>
+</tr>
+<tr>
+<td>I9</td>
+<td>Priya represents the <strong>insurer&#39;s</strong> viewpoint in the design, even if she works at Halden</td>
+<td>E10, E22</td>
+<td>Medium</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>3. Assumptions (my design hypotheses)</h2>
+<p>Risk = how badly the design breaks if it&#39;s wrong. Validate = a cheap check possible within 2 days.</p>
+<h3>About the users and context</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Assumption</th>
+<th>Risk</th>
+<th>How to validate quickly</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A1</td>
+<td>Crew use <strong>one hand</strong>, often gloved, in <strong>bright sun</strong>, sometimes on a ladder</td>
+<td>Med</td>
+<td>Roofing YouTube / TikTok job videos; ask 1–2 tradespeople</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Crew lead (not every crew member) owns the checklist</td>
+<td>Med</td>
+<td>Ask a contractor; design so both work</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Crew will <strong>not</strong> reliably type notes or tags</td>
+<td>High</td>
+<td>Observe; default to taps and AI suggestions, not typing</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Priya is <strong>Halden&#39;s internal</strong> claims staff; the adjuster is external</td>
+<td>Low</td>
+<td>State it in the call</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>Customers open a link <strong>without an account</strong></td>
+<td>Low</td>
+<td>Industry norm; state it</td>
+</tr>
+<tr>
+<td>A6</td>
+<td>Crews currently use the <strong>native camera + WhatsApp</strong></td>
+<td>Low</td>
+<td>Implied by &quot;group chats&quot;</td>
+</tr>
+</tbody></table></div>
+<h3>About the solution</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Assumption</th>
+<th>Risk</th>
+<th>How to validate quickly</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A7</td>
+<td>A <strong>shot list template per job type</strong> (e.g. re-roof, repair, inspection) is the right model for &quot;which photos a job needs&quot;</td>
+<td><strong>High</strong></td>
+<td>Check real contractor/insurer photo checklists (e.g. public insurer claim guides)</td>
+</tr>
+<tr>
+<td>A8</td>
+<td>Shots are grouped <strong>Before / During / After</strong> by area of the house</td>
+<td>Med</td>
+<td>Same sources as A7</td>
+</tr>
+<tr>
+<td>A9</td>
+<td><strong>In-app camera</strong> is required for &quot;verified&quot; photos; gallery imports are marked unverified</td>
+<td><strong>High</strong></td>
+<td>Test with a crew: will they switch from the native camera?</td>
+</tr>
+<tr>
+<td>A10</td>
+<td>Proof = in-app capture record + GPS + device time + server time + <strong>file hash</strong></td>
+<td>Med</td>
+<td>Read insurer requirements; C2PA standard</td>
+</tr>
+<tr>
+<td>A11</td>
+<td>EXIF alone is not enough proof</td>
+<td>Low</td>
+<td>Well known: EXIF is editable</td>
+</tr>
+<tr>
+<td>A12</td>
+<td>Crew can <strong>skip a required shot with a reason</strong></td>
+<td>Med</td>
+<td>Usability test the &quot;done&quot; state</td>
+</tr>
+<tr>
+<td>A13</td>
+<td>AI is useful for <strong>quality checks</strong> (blur, dark, wrong subject) and <strong>tag suggestions</strong>, not for damage assessment</td>
+<td>Med</td>
+<td>Prototype reaction; liability reasoning</td>
+</tr>
+<tr>
+<td>A14</td>
+<td>AI suggestions must <strong>never block</strong> capture</td>
+<td>Med</td>
+<td>Usability test</td>
+</tr>
+<tr>
+<td>A15</td>
+<td>Office&#39;s main entry is <strong>search by customer/address → job</strong></td>
+<td>Med</td>
+<td>Ask a PM / card-sort</td>
+</tr>
+<tr>
+<td>A16</td>
+<td>Share as a <strong>link</strong> (with expiry/revoke); PDF for insurers</td>
+<td>Med</td>
+<td>Ask what insurers accept</td>
+</tr>
+<tr>
+<td>A17</td>
+<td>Native app beats PWA for background upload reliability</td>
+<td>Low</td>
+<td>Technical fact (iOS background limits)</td>
+</tr>
+<tr>
+<td>A18</td>
+<td>Showing the upload status clearly will <strong>change behaviour</strong> (no more &quot;upload at night&quot;)</td>
+<td><strong>High</strong></td>
+<td>Prototype test: does the crew trust the queue?</td>
+</tr>
+</tbody></table></div>
+<h3>Riskiest assumptions (test or argue these first)</h3>
+<ol>
+<li><strong>A7 Shot list templates:</strong> the backbone of &quot;how does the crew know they&#39;re done&quot;.</li>
+<li><strong>A9 In-app camera only for verified proof:</strong> if crews refuse, proof breaks.</li>
+<li><strong>A18 Visible sync status builds trust:</strong> the direct answer to Ravi&#39;s pain.</li>
+<li><strong>A3 Crews won&#39;t type:</strong> this shapes every crew screen.</li>
+</ol>
+<hr>
+<h2>4. Light research plan (fits a 2-day take-home)</h2>
+<p>No access to Halden&#39;s real users, so: desk research plus 2–3 quick conversations, then use the
+prototype itself as the test.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Goal</th>
+<th>Effort</th>
+<th>Assumptions it checks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Desk research: insurer claim photo guidelines, roofing photo checklists</td>
+<td>Ground the shot list and proof rules in reality</td>
+<td>1–2 h</td>
+<td>A7, A8, A10, A16</td>
+</tr>
+<tr>
+<td>Watch 3–5 roofing job videos</td>
+<td>Understand physical context on a roof</td>
+<td>1 h</td>
+<td>A1, A3</td>
+</tr>
+<tr>
+<td>2–3 guerrilla chats (any tradesperson / site worker / PM you know)</td>
+<td>Reality-check the capture flow</td>
+<td>1–2 h</td>
+<td>A2, A3, A9, A15</td>
+</tr>
+<tr>
+<td>Hallway usability test of the crew prototype (3 people, 10 min each)</td>
+<td>Can they finish the checklist and trust the queue?</td>
+<td>1 h</td>
+<td>A12, A14, A18</td>
+</tr>
+</tbody></table></div>
+<p><strong>Mini interview guide (15 min, for a tradesperson or PM)</strong></p>
+<ol>
+<li><em>Context:</em> &quot;Walk me through the last job where you took photos. What did you do with them after?&quot;</li>
+<li><em>Pain:</em> &quot;Tell me about a time a photo was missing or not accepted.&quot; Probe: what happened next?</li>
+<li><em>Offline:</em> &quot;What do you do when there&#39;s no signal on site?&quot;</li>
+<li><em>Proof:</em> &quot;What would make a customer or insurer believe a photo?&quot;</li>
+<li><em>Reaction:</em> show the checklist + camera screens. &quot;What would you do next? What&#39;s missing?&quot;</li>
+<li><em>Wrap-up:</em> &quot;Anything that would make you not use this?&quot;</li>
+</ol>
+<p>If no research happens, the assumption table is still the deliverable: it shows judgment (E21) and
+lets me answer &quot;why did you do that?&quot; in the call.</p>
+<hr>
+<h2>5. What to build first</h2>
+<p>Rule I used: <strong>build what is explicit first, then the inferences, then the riskiest assumption.</strong> Don&#39;t
+spend prototype time on low-risk assumptions.</p>
+<h3>Build first: the crew capture loop (covers E1, E8, E9, E10, E11, E13, E14)</h3>
+<ol>
+<li><strong>Job shot checklist:</strong> Before / During / After, progress, a clear &quot;done&quot; state. <em>(E11, I2, I5; tests A7)</em></li>
+<li><strong>Guided capture with proof stamp:</strong> time, GPS, job attached automatically and shown to the crew.
+<em>(E10, I3; tests A9)</em></li>
+<li><strong>AI quality check + accept/retake:</strong> AI suggests, the crew decides. <em>(E13, I8; tests A13, A14)</em></li>
+<li><strong>Offline queue / sync status:</strong> &quot;12 photos saved on phone, will upload when online.&quot; <em>(E8, I1; tests A18)</em></li>
+</ol>
+<h3>Then: one office view, told through one story (covers E2, E3, E6, E15, E22)</h3>
+<ol start="5">
+<li><strong>Job photo timeline</strong>, filtered to <em>Before + Gutter</em>. <em>(E2, E9, I6)</em></li>
+<li><strong>Photo proof detail:</strong> time, map, who took it, verified badge. <em>(E12, E10)</em></li>
+<li><strong>Share proof link → what the customer/insurer sees.</strong> <em>(E3, I7)</em></li>
+</ol>
+<p>Hero story to demo: <em>Sean&#39;s customer says the crew broke her gutter → Sean finds the before photo Ravi
+took offline that morning → shares a verified link.</em> This one story touches all three personas (E22).</p>
+<h3>Explicitly not building (say so in the call, E21)</h3>
+<ul>
+<li>AI damage assessment / claim decisions (liability; a person must judge).</li>
+<li>Shot-list template admin, user management, scheduling, payments.</li>
+<li>Customer accounts.</li>
+<li>Both an office <em>and</em> a customer view in full depth; the brief asks for <strong>one</strong>. Show the customer view
+only as the end of the share flow.</li>
+</ul>
+</article>
+</main>
+<footer class="footer">
+  <p>Generated on 2026-10-25 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
+</footer>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

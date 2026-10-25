@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crew User Flow: Mobile Photo Capture · Process log</title>
+<meta name="description" content="Repository document docs/04-crew-user-flow.md">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="doc">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">Z</span><span>Process log<span class="brand__sub"> · Zuper take-home</span></span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" class="nav" aria-label="Sections">
+    <a href="../index.html#overview">Overview</a>
+    <a href="../index.html#log">Process log</a>
+    <a href="../index.html#outcomes">Kept, rejected, AI errors</a>
+    <a href="../index.html#evidence">Evidence</a>
+    <a href="../index.html#tools">Tools</a>
+    <a href="../index.html#reflection">Reflection</a>
+  </nav>
+</header>
+<main id="main">
+<article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>docs/04-crew-user-flow.md</code></p><h1>Crew User Flow: Mobile Photo Capture</h1>
+<p>Define stage. Maps Part A of the <a href="../evidence/03-ux-design-plan.html">UX plan</a> end to end: the happy path, every
+decision point, and the recovery paths. Screen IDs (M1–M6) and acceptance criteria (AC-M…) refer to doc 03.</p>
+<p><strong>Scenario used:</strong> Ravi arrives at <em>14 Elm St, Re-roof</em>. There&#39;s no signal on the roof.</p>
+<p><strong>Presentation diagram:</strong> <a href="../assets/diagrams/crew-user-flow.svg">diagrams/crew-user-flow.svg</a></p>
+<p><img src="../assets/diagrams/crew-user-flow.svg" alt="Crew user flow" loading="lazy"></p>
+<hr>
+<h2>1. Overview: the whole job, at a glance</h2>
+<p class="code-note">Mermaid diagram source, shown as written in the repository (not rendered here).</p><pre class="code"><code>flowchart LR
+    A[&quot;Arrive on site&quot;] --&gt; B[&quot;Open job&lt;br/&gt;(M1 → M2)&quot;]
+    B --&gt; C[&quot;BEFORE shots&quot;]
+    C --&gt; D[&quot;Do the work&lt;br/&gt;+ DURING shots&quot;]
+    D --&gt; E[&quot;AFTER shots&quot;]
+    E --&gt; F[&quot;Finish job&lt;br/&gt;(M6)&quot;]
+    F --&gt; G[&quot;Photos sync&lt;br/&gt;when online (M5)&quot;]
+    G --&gt; H[&quot;Office has&lt;br/&gt;all proof&quot;]
+
+    style C fill:#fde68a,stroke:#b45309,color:#111
+    style H fill:#bbf7d0,stroke:#15803d,color:#111</code></pre><p>Before photos are prompted <strong>first</strong>, because a missing before photo is what loses disputes (E9).</p>
+<hr>
+<h2>2. Detailed flow: capture loop with decisions and recovery</h2>
+<p class="code-note">Mermaid diagram source, shown as written in the repository (not rendered here).</p><pre class="code"><code>flowchart TD
+    start([&quot;Open app&quot;]) --&gt; m1[&quot;M1 Today&lt;br/&gt;job list (cached, works offline)&quot;]
+    m1 --&gt;|no jobs| e1[&quot;Empty: 'No jobs today.&lt;br/&gt;Pull to refresh or call the office'&quot;]
+    m1 --&gt;|tap job| m2[&quot;M2 Shot checklist&lt;br/&gt;opens on BEFORE tab · 0 of 7&quot;]
+
+    m2 --&gt;|&quot;Next required shot&quot;| perm{&quot;Camera&lt;br/&gt;permission?&quot;}
+    perm --&gt;|denied| e2[&quot;Explain why + Open settings&quot;] --&gt; perm
+    perm --&gt;|ok| stor{&quot;Storage&lt;br/&gt;space?&quot;}
+    stor --&gt;|full| e3[&quot;'Storage full. Your saved&lt;br/&gt;photos are safe.'&quot;] --&gt; m2
+    stor --&gt;|ok| m3[&quot;M3 Guided camera&lt;br/&gt;shot name + hint + proof chips&quot;]
+
+    m3 --&gt;|&quot;shutter (or volume key)&quot;| stamp[&quot;Stamp: time · job · crew&lt;br/&gt;+ GPS if available&quot;]
+    stamp --&gt; gps{&quot;GPS&lt;br/&gt;found?&quot;}
+    gps --&gt;|no| flag1[&quot;Mark 'No location'&lt;br/&gt;(flagged for office)&quot;] --&gt; m4
+    gps --&gt;|yes| m4[&quot;M4 Review&lt;br/&gt;AI check runs (on device)&quot;]
+
+    m4 --&gt; ai{&quot;AI result&quot;}
+    ai --&gt;|looks good| keep[&quot;Keep&quot;]
+    ai --&gt;|blurry / dark / wrong subject| choice{&quot;Crew decides&quot;}
+    choice --&gt;|Retake| m3
+    choice --&gt;|&quot;Keep anyway&lt;br/&gt;(AI never blocks)&quot;| keep
+
+    keep --&gt; save[&quot;Saved on phone&lt;br/&gt;queued for upload&quot;]
+    save --&gt; tick[&quot;Checklist item ✓&lt;br/&gt;progress 1 of 7&quot;]
+    tick --&gt; more{&quot;Required shots&lt;br/&gt;left in phase?&quot;}
+    more --&gt;|yes| next[&quot;'Next: Back elevation →'&quot;] --&gt; m3
+    more --&gt;|no| phase{&quot;Phase&quot;}
+    phase --&gt;|BEFORE / DURING done| nextphase[&quot;Nudge to next phase tab&quot;] --&gt; m2
+    phase --&gt;|AFTER done| m6
+
+    m2 --&gt;|&quot;⋯ Can't take this&quot;| skip[&quot;Choose reason:&lt;br/&gt;not accessible · unsafe ·&lt;br/&gt;not applicable · other&quot;]
+    skip --&gt; skipped[&quot;Item marked SKIPPED&lt;br/&gt;(not Done)&quot;] --&gt; more
+    m2 --&gt;|&quot;+ Extra photo&quot;| m3x[&quot;Camera (unlisted)&lt;br/&gt;AI suggests tag&quot;] --&gt; save
+    m2 --&gt;|Finish| m6
+
+    m6[&quot;M6 Finish job&lt;br/&gt;Done / Skipped / Missing&quot;] --&gt; miss{&quot;Anything&lt;br/&gt;missing?&quot;}
+    miss --&gt;|yes| warn[&quot;Warning&quot;]
+    warn --&gt;|Take now| m2
+    warn --&gt;|&quot;Finish anyway + reason&quot;| submit
+    miss --&gt;|no| submit[&quot;Submit job photos&quot;]
+
+    submit --&gt; online{&quot;Online?&quot;}
+    online --&gt;|no| wait[&quot;'Saved on phone ·&lt;br/&gt;will upload when online'&quot;]
+    wait --&gt;|signal returns| upload
+    online --&gt;|yes| upload[&quot;Auto upload&lt;br/&gt;(resumable)&quot;]
+    upload --&gt; ok{&quot;Server&lt;br/&gt;confirmed?&quot;}
+    ok --&gt;|no| fail[&quot;'4 didn't upload. Still on&lt;br/&gt;your phone.' Auto-retry + Retry&quot;] --&gt; upload
+    ok --&gt;|yes| done([&quot;✓ All photos uploaded&lt;br/&gt;local copy can be released&quot;])
+
+    style done fill:#bbf7d0,stroke:#15803d,color:#111
+    style e1 fill:#e5e7eb,stroke:#6b7280,color:#111
+    style e2 fill:#fecaca,stroke:#b91c1c,color:#111
+    style e3 fill:#fecaca,stroke:#b91c1c,color:#111
+    style fail fill:#fecaca,stroke:#b91c1c,color:#111
+    style flag1 fill:#fde68a,stroke:#b45309,color:#111
+    style skipped fill:#fde68a,stroke:#b45309,color:#111
+    style wait fill:#e5e7eb,stroke:#6b7280,color:#111</code></pre><p><strong>Colour key:</strong> green = success · amber = flagged but allowed · red = error/recovery · grey = neutral
+info (offline is <em>not</em> an error). In the real UI every state also has a <strong>text label and icon</strong>, never
+colour alone.</p>
+<hr>
+<h2>3. Background: upload queue (runs alongside everything)</h2>
+<p>The sync runs <strong>independently</strong> of the capture flow. The crew never has to wait for it.</p>
+<p class="code-note">Mermaid diagram source, shown as written in the repository (not rendered here).</p><pre class="code"><code>stateDiagram-v2
+    [*] --&gt; SavedOnPhone: photo kept
+    SavedOnPhone --&gt; Uploading: connection available
+    Uploading --&gt; Uploaded: server confirms
+    Uploading --&gt; Failed: error / signal lost
+    Failed --&gt; Uploading: auto-retry or Retry tapped
+    Uploaded --&gt; [*]: local copy may be released
+
+    note right of SavedOnPhone
+        Never deleted from the phone
+        until the server confirms (AC-M8)
+    end note</code></pre><p>Global sync bar (on every screen, tap → M5): <em>Offline · 12 saved on phone</em> → <em>Uploading 3 of 12</em> →
+<em>All uploaded ✓</em> / <em>4 failed: tap to retry</em>.</p>
+<hr>
+<h2>4. Step-by-step table</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step</th>
+<th>Screen</th>
+<th>Crew does</th>
+<th>System does</th>
+<th>Key states</th>
+<th>♿ Accessibility</th>
+<th>AC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Open job</td>
+<td>M1</td>
+<td>Taps today&#39;s job</td>
+<td>Loads cached jobs offline</td>
+<td>Empty / loading skeleton</td>
+<td>Cards announce progress &quot;Before 0 of 7&quot;</td>
+<td>AC-M1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>See what&#39;s needed</td>
+<td>M2</td>
+<td>Reads Before list</td>
+<td>Opens on Before tab</td>
+<td>Empty slots with names</td>
+<td>Phase headings; status as text + icon</td>
+<td>AC-M1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Start shot</td>
+<td>M2 → M3</td>
+<td>Taps <strong>Next required shot</strong></td>
+<td>Checks permission + storage</td>
+<td>Permission denied, storage full</td>
+<td>56–64 dp button in thumb zone</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Frame</td>
+<td>M3</td>
+<td>Follows hint</td>
+<td>Shows proof chips (time, GPS, offline)</td>
+<td>GPS searching</td>
+<td>Hint is screen-reader readable</td>
+<td>AC-M3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Capture</td>
+<td>M3</td>
+<td>Shutter or <strong>volume key</strong></td>
+<td>Stamps time, job, crew, GPS</td>
+<td>No GPS → flagged</td>
+<td>Haptic + sound on capture</td>
+<td>AC-M3, M4</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Review</td>
+<td>M4</td>
+<td>Keep / Retake</td>
+<td>On-device AI check (≤1–2 s)</td>
+<td>Good / flagged / AI unavailable</td>
+<td>AI result announced as text</td>
+<td>AC-M5</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Save</td>
+<td>M4 → M2</td>
+<td>n/a</td>
+<td>Saves locally, queues, ticks item</td>
+<td>Offline (neutral)</td>
+<td>Live-region &quot;Saved. 1 of 7.&quot;</td>
+<td>AC-M2</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Next</td>
+<td>M3</td>
+<td>Taps &quot;Next: …&quot;</td>
+<td>Advances to next missing shot</td>
+<td>Phase complete nudge</td>
+<td>No swipe-only actions</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Skip (if needed)</td>
+<td>M2</td>
+<td>⋯ → reason</td>
+<td>Marks <strong>Skipped</strong>, not Done</td>
+<td>n/a</td>
+<td>Reasons are big tap options, no typing</td>
+<td>AC-M6</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Finish</td>
+<td>M6</td>
+<td>Reviews summary → Submit</td>
+<td>Shows Done / Skipped / Missing</td>
+<td>Missing warning</td>
+<td>Summary readable as a list</td>
+<td>AC-M10</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Leave site</td>
+<td>Any</td>
+<td>Switches job / logs out</td>
+<td>Warns if photos unsent</td>
+<td>Unsent warning</td>
+<td>Count stated in words</td>
+<td>AC-M9</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Sync</td>
+<td>M5 (background)</td>
+<td>Nothing (or Retry)</td>
+<td>Auto upload, resumable, retry</td>
+<td>Uploading / failed / done</td>
+<td>Status changes announced + haptic</td>
+<td>AC-M7, M8</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>5. Decision points (what the crew can choose, and what the system enforces)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Who decides</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Keep a photo the AI flagged</td>
+<td><strong>Crew</strong></td>
+<td>AI advises, never blocks (A14)</td>
+</tr>
+<tr>
+<td>Mark a required shot done without a photo</td>
+<td><strong>Not allowed</strong></td>
+<td>Only via <em>Skip + reason</em></td>
+</tr>
+<tr>
+<td>Finish with missing shots</td>
+<td><strong>Crew</strong>, with a reason</td>
+<td>Office sees the reason (honest &quot;done&quot;)</td>
+</tr>
+<tr>
+<td>Delete a photo from the phone</td>
+<td><strong>System</strong>, after server confirms</td>
+<td>Prevents &quot;half never make it&quot; (E8)</td>
+</tr>
+<tr>
+<td>Retake</td>
+<td><strong>Crew</strong></td>
+<td>Original is kept hidden for audit</td>
+</tr>
+<tr>
+<td>Photo has no GPS</td>
+<td><strong>System</strong> saves anyway</td>
+<td>Flagged &quot;No location&quot; for the office (E10)</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>6. Where AI shows up in the crew flow (and where a person checks)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Point</th>
+<th>AI does</th>
+<th>Person checks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Review (M4)</td>
+<td>Blur / dark / &quot;doesn&#39;t look like a roof&quot;</td>
+<td>Crew keeps or retakes</td>
+</tr>
+<tr>
+<td>Extra photo</td>
+<td>Suggests area tag (e.g. &quot;Gutter&quot;)</td>
+<td>Crew confirms, or the office confirms later</td>
+</tr>
+<tr>
+<td>Finish (M6)</td>
+<td><em>(not used)</em></td>
+<td>Crew judges completeness; AI does not decide &quot;done&quot;</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>7. Open questions to test with the prototype</h2>
+<ul>
+<li>Do crews follow <strong>Next required shot</strong>, or browse the list? (tests A7)</li>
+<li>Is <strong>Skip + reason</strong> fast enough that crews don&#39;t fake a photo instead?</li>
+<li>Does the <strong>sync bar</strong> make them trust the app enough to stop uploading at night? (A18)</li>
+<li>Is the AI warning helpful or annoying after the 50th photo?</li>
+</ul>
+</article>
+</main>
+<footer class="footer">
+  <p>Generated on 2026-10-25 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
+</footer>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

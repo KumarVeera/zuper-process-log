@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 2400" width="1200" height="2400" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#374151"/>
+    </marker>
+    <style>
+      .t{font-size:15px;font-weight:600;fill:#111827;text-anchor:middle}
+      .s{font-size:12px;fill:#4b5563;text-anchor:middle}
+      .tw{font-size:15px;font-weight:600;fill:#ffffff;text-anchor:middle}
+      .sw{font-size:12px;fill:#d1d5db;text-anchor:middle}
+      .lbl{font-size:12px;font-weight:600;fill:#374151}
+      .ln{fill:none;stroke:#374151;stroke-width:1.6}
+      .screen{fill:#dbeafe;stroke:#1d4ed8;stroke-width:1.6}
+      .user{fill:#ffffff;stroke:#374151;stroke-width:1.6}
+      .sys{fill:#f3f4f6;stroke:#6b7280;stroke-width:1.6;stroke-dasharray:5 3}
+      .dec{fill:#fef3c7;stroke:#b45309;stroke-width:1.6}
+      .flag{fill:#ffedd5;stroke:#c2410c;stroke-width:1.6}
+      .err{fill:#fee2e2;stroke:#b91c1c;stroke-width:1.6}
+      .store{fill:#dcfce7;stroke:#15803d;stroke-width:1.6}
+      .term{fill:#111827}
+      .band{font-size:13px;font-weight:700;fill:#6b7280;letter-spacing:1px;text-anchor:middle}
+    </style>
+  </defs>
+
+  <rect width="1200" height="2400" fill="#ffffff"/>
+
+  <!-- Phase bands -->
+  <rect x="0" y="110" width="1200" height="320" fill="#f8fafc"/>
+  <rect x="0" y="900" width="1200" height="485" fill="#f8fafc"/>
+  <rect x="0" y="2050" width="1200" height="350" fill="#f8fafc"/>
+  <text class="band" transform="translate(1178,270) rotate(-90)">1 · FIND JOB</text>
+  <text class="band" transform="translate(1178,665) rotate(-90)">2 · REVIEW JOB FOLDER</text>
+  <text class="band" transform="translate(1178,1142) rotate(-90)">3 · VERIFY PHOTO</text>
+  <text class="band" transform="translate(1178,1717) rotate(-90)">4 · SHARE PROOF</text>
+  <text class="band" transform="translate(1178,2225) rotate(-90)">5 · RECIPIENT VIEWS</text>
+
+  <!-- Title -->
+  <text x="40" y="52" font-size="22" font-weight="700" fill="#111827">Office evidence-review flow</text>
+  <text x="40" y="76" font-size="13" fill="#4b5563">Sean (PM) · desktop · dispute by job ID</text>
+  <text x="40" y="94" font-size="13" fill="#4b5563">Find job → review → verify → share → recipient</text>
+
+  <!-- Legend -->
+  <g transform="translate(830,24)">
+    <rect width="300" height="270" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+    <text x="16" y="26" font-size="13" font-weight="700" fill="#111827">Legend</text>
+    <rect x="16" y="40" width="44" height="22" rx="11" class="term"/><text x="72" y="56" font-size="12" fill="#111827">Start / end</text>
+    <rect x="16" y="72" width="44" height="22" rx="4" class="screen"/><text x="72" y="88" font-size="12" fill="#111827">Screen</text>
+    <rect x="16" y="104" width="44" height="22" rx="4" class="user"/><text x="72" y="120" font-size="12" fill="#111827">Office user action</text>
+    <rect x="16" y="136" width="44" height="22" rx="4" class="sys"/><text x="72" y="152" font-size="12" fill="#111827">System (automatic)</text>
+    <path d="M38,166 L60,179 L38,192 L16,179 z" class="dec"/><text x="72" y="184" font-size="12" fill="#111827">Decision</text>
+    <rect x="16" y="200" width="44" height="22" rx="4" class="store"/><text x="72" y="216" font-size="12" fill="#111827">Shared file / link</text>
+    <rect x="16" y="232" width="20" height="22" rx="4" class="flag"/><rect x="40" y="232" width="20" height="22" rx="4" class="err"/><text x="72" y="248" font-size="12" fill="#111827">Flagged / recovery</text>
+  </g>
+
+  <!-- Start -->
+  <rect x="440" y="36" width="240" height="48" rx="24" class="term"/>
+  <text x="560" y="57" class="tw">Question arrives</text>
+  <text x="560" y="74" class="sw">"Your crew broke my gutter"</text>
+  <line x1="560" y1="84" x2="560" y2="120" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 1 Job lookup -->
+  <rect x="430" y="122" width="260" height="56" rx="6" class="screen"/>
+  <text x="560" y="146" class="t">Job lookup</text>
+  <text x="560" y="164" class="s">Search field focused on load</text>
+  <line x1="560" y1="178" x2="560" y2="210" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 2 Type job ID -->
+  <rect x="430" y="212" width="260" height="56" rx="6" class="user"/>
+  <text x="560" y="236" class="t">Type job ID</text>
+  <text x="560" y="254" class="s">HR-2041 (or address / customer)</text>
+  <line x1="560" y1="268" x2="560" y2="303" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 3 Match? -->
+  <path d="M560,305 L670,360 L560,415 L450,360 z" class="dec"/>
+  <text x="560" y="365" class="t">Match?</text>
+  <!-- None -->
+  <line x1="450" y1="360" x2="312" y2="360" class="ln" marker-end="url(#arr)"/>
+  <text x="364" y="352" class="lbl">None</text>
+  <rect x="90" y="332" width="220" height="56" rx="6" class="sys"/>
+  <text x="200" y="356" class="t">"No job found"</text>
+  <text x="200" y="374" class="s">Check ID or search by address</text>
+  <path d="M200,332 V150 H428" class="ln" marker-end="url(#arr)"/>
+  <!-- Several -->
+  <line x1="670" y1="360" x2="788" y2="360" class="ln" marker-end="url(#arr)"/>
+  <text x="704" y="352" class="lbl">Several</text>
+  <rect x="790" y="332" width="240" height="56" rx="6" class="user"/>
+  <text x="910" y="356" class="t">Pick from result list</text>
+  <text x="910" y="374" class="s">ID · address · date · completeness</text>
+  <path d="M910,388 V480 H692" class="ln" marker-end="url(#arr)"/>
+  <!-- Exact -->
+  <line x1="560" y1="415" x2="560" y2="450" class="ln" marker-end="url(#arr)"/>
+  <text x="570" y="438" class="lbl">Exact ID</text>
+
+  <!-- 4 Job evidence -->
+  <rect x="430" y="452" width="260" height="56" rx="6" class="screen"/>
+  <text x="560" y="476" class="t">Job evidence (job folder)</text>
+  <text x="560" y="494" class="s">Before 7/7 · During 4/4 · After 7/7</text>
+  <line x1="560" y1="508" x2="560" y2="543" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 5 Still syncing? -->
+  <path d="M560,545 L670,600 L560,655 L450,600 z" class="dec"/>
+  <text x="560" y="596" class="t">Photos still</text>
+  <text x="560" y="614" class="t">syncing?</text>
+  <line x1="670" y1="600" x2="788" y2="600" class="ln" marker-end="url(#arr)"/>
+  <text x="716" y="592" class="lbl">Yes</text>
+  <rect x="790" y="572" width="240" height="56" rx="6" class="sys"/>
+  <text x="910" y="596" class="t">Show "still uploading" banner</text>
+  <text x="910" y="614" class="s">12 photos · crew phone seen 2 h ago</text>
+  <path d="M910,628 V720 H692" class="ln" marker-end="url(#arr)"/>
+  <line x1="560" y1="655" x2="560" y2="690" class="ln" marker-end="url(#arr)"/>
+  <text x="570" y="678" class="lbl">No</text>
+
+  <!-- 6 Filter -->
+  <rect x="430" y="692" width="260" height="56" rx="6" class="user"/>
+  <text x="560" y="716" class="t">Filter: Before · Gutters</text>
+  <text x="560" y="734" class="s">Filter chips · one click to clear</text>
+  <line x1="560" y1="748" x2="560" y2="783" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 7 Results? -->
+  <path d="M560,785 L670,840 L560,895 L450,840 z" class="dec"/>
+  <text x="560" y="845" class="t">Results?</text>
+  <line x1="450" y1="840" x2="312" y2="840" class="ln" marker-end="url(#arr)"/>
+  <text x="364" y="832" class="lbl">None</text>
+  <rect x="90" y="812" width="220" height="56" rx="6" class="flag"/>
+  <text x="200" y="836" class="t">Explain the gap</text>
+  <text x="200" y="854" class="s">Skipped reason · or Clear filters</text>
+  <path d="M200,812 V720 H428" class="ln" marker-end="url(#arr)"/>
+  <line x1="560" y1="895" x2="560" y2="930" class="ln" marker-end="url(#arr)"/>
+  <text x="570" y="918" class="lbl">Found</text>
+
+  <!-- 8 Proof detail -->
+  <rect x="430" y="932" width="260" height="56" rx="6" class="screen"/>
+  <text x="560" y="956" class="t">Photo proof detail</text>
+  <text x="560" y="974" class="s">Time · map + address · crew · hash</text>
+  <line x1="560" y1="988" x2="560" y2="1023" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 9 Trust issues? -->
+  <path d="M560,1025 L670,1080 L560,1135 L450,1080 z" class="dec"/>
+  <text x="560" y="1076" class="t">Trust</text>
+  <text x="560" y="1094" class="t">issues?</text>
+  <line x1="670" y1="1080" x2="788" y2="1080" class="ln" marker-end="url(#arr)"/>
+  <text x="716" y="1072" class="lbl">Yes</text>
+  <rect x="790" y="1052" width="240" height="56" rx="6" class="flag"/>
+  <text x="910" y="1076" class="t">Show badge + reason</text>
+  <text x="910" y="1094" class="s">Imported · no GPS · clock mismatch</text>
+  <path d="M910,1108 V1200 H692" class="ln" marker-end="url(#arr)"/>
+  <line x1="560" y1="1135" x2="560" y2="1170" class="ln" marker-end="url(#arr)"/>
+  <text x="570" y="1158" class="lbl">No</text>
+
+  <!-- 10 Compare -->
+  <rect x="430" y="1172" width="260" height="56" rx="6" class="user"/>
+  <text x="560" y="1196" class="t">Compare Before ↔ After</text>
+  <text x="560" y="1214" class="s">Same area, side by side</text>
+  <line x1="560" y1="1228" x2="560" y2="1263" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 11 AI tags correct? -->
+  <path d="M560,1265 L670,1320 L560,1375 L450,1320 z" class="dec"/>
+  <text x="560" y="1316" class="t">AI tags</text>
+  <text x="560" y="1334" class="t">correct?</text>
+  <line x1="450" y1="1320" x2="312" y2="1320" class="ln" marker-end="url(#arr)"/>
+  <text x="364" y="1312" class="lbl">No</text>
+  <rect x="90" y="1292" width="220" height="56" rx="6" class="user"/>
+  <text x="200" y="1316" class="t">Correct tag</text>
+  <text x="200" y="1334" class="s">Change logged · Confirmed</text>
+  <path d="M200,1348 V1440 H428" class="ln" marker-end="url(#arr)"/>
+  <line x1="560" y1="1375" x2="560" y2="1410" class="ln" marker-end="url(#arr)"/>
+  <text x="570" y="1398" class="lbl">Yes · confirm</text>
+
+  <!-- 12 Select photos -->
+  <rect x="430" y="1412" width="260" height="56" rx="6" class="user"/>
+  <text x="560" y="1436" class="t">Select photos to share</text>
+  <text x="560" y="1454" class="s">Nothing shared by default</text>
+  <line x1="560" y1="1468" x2="560" y2="1500" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 13 Share dialog -->
+  <rect x="430" y="1502" width="260" height="56" rx="6" class="screen"/>
+  <text x="560" y="1526" class="t">Share dialog</text>
+  <text x="560" y="1544" class="s">Customer link or insurer PDF · expiry</text>
+  <line x1="560" y1="1558" x2="560" y2="1593" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 14 Missing data? -->
+  <path d="M560,1595 L670,1650 L560,1705 L450,1650 z" class="dec"/>
+  <text x="560" y="1646" class="t">Missing</text>
+  <text x="560" y="1664" class="t">data?</text>
+  <line x1="670" y1="1650" x2="788" y2="1650" class="ln" marker-end="url(#arr)"/>
+  <text x="716" y="1642" class="lbl">Yes</text>
+  <rect x="790" y="1622" width="240" height="56" rx="6" class="flag"/>
+  <text x="910" y="1646" class="t">Warn before sharing</text>
+  <text x="910" y="1664" class="s">Remove photo or share with note</text>
+  <path d="M910,1678 V1770 H692" class="ln" marker-end="url(#arr)"/>
+  <line x1="560" y1="1705" x2="560" y2="1740" class="ln" marker-end="url(#arr)"/>
+  <text x="570" y="1728" class="lbl">No</text>
+
+  <!-- 15 Create link / PDF -->
+  <path d="M430,1752 A130,10 0 0,1 690,1752 V1792 A130,10 0 0,1 430,1792 Z" class="store"/>
+  <path d="M430,1752 A130,10 0 0,0 690,1752" fill="none" stroke="#15803d" stroke-width="1.6"/>
+  <text x="560" y="1778" class="t">Create link or export PDF</text>
+  <text x="560" y="1796" class="s">Expiry set · revocable · logged</text>
+  <line x1="560" y1="1802" x2="560" y2="1833" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 16 Created OK? -->
+  <path d="M560,1835 L670,1890 L560,1945 L450,1890 z" class="dec"/>
+  <text x="560" y="1886" class="t">Created</text>
+  <text x="560" y="1904" class="t">OK?</text>
+  <line x1="450" y1="1890" x2="312" y2="1890" class="ln" marker-end="url(#arr)"/>
+  <text x="364" y="1882" class="lbl">No</text>
+  <rect x="90" y="1862" width="220" height="56" rx="6" class="err"/>
+  <text x="200" y="1886" class="t">Export failed</text>
+  <text x="200" y="1904" class="s">Selection kept · Retry</text>
+  <path d="M200,1862 V1772 H428" class="ln" marker-end="url(#arr)"/>
+  <line x1="560" y1="1945" x2="560" y2="1980" class="ln" marker-end="url(#arr)"/>
+  <text x="570" y="1968" class="lbl">Yes</text>
+
+  <!-- 17 Send -->
+  <rect x="430" y="1982" width="260" height="56" rx="6" class="user"/>
+  <text x="560" y="2006" class="t">Send to customer / insurer</text>
+  <text x="560" y="2024" class="s">Copy link or attach PDF</text>
+  <line x1="560" y1="2038" x2="560" y2="2070" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 18 Shared proof page -->
+  <rect x="430" y="2072" width="260" height="56" rx="6" class="screen"/>
+  <text x="560" y="2096" class="t">Shared proof page</text>
+  <text x="560" y="2114" class="s">No login · Before → After · Verified</text>
+  <line x1="560" y1="2128" x2="560" y2="2163" class="ln" marker-end="url(#arr)"/>
+
+  <!-- 19 Link valid? -->
+  <path d="M560,2165 L670,2220 L560,2275 L450,2220 z" class="dec"/>
+  <text x="560" y="2216" class="t">Link</text>
+  <text x="560" y="2234" class="t">valid?</text>
+  <line x1="670" y1="2220" x2="788" y2="2220" class="ln" marker-end="url(#arr)"/>
+  <text x="716" y="2212" class="lbl">No</text>
+  <rect x="790" y="2192" width="240" height="56" rx="6" class="err"/>
+  <text x="910" y="2216" class="t">Expired or revoked</text>
+  <text x="910" y="2234" class="s">"Contact Halden Roofing"</text>
+  <line x1="560" y1="2275" x2="560" y2="2310" class="ln" marker-end="url(#arr)"/>
+  <text x="570" y="2298" class="lbl">Yes</text>
+
+  <!-- End -->
+  <rect x="420" y="2312" width="280" height="56" rx="28" class="term"/>
+  <text x="560" y="2336" class="tw">Dispute settled with proof ✓</text>
+  <text x="560" y="2354" class="sw">Every view logged in activity</text>
+</svg>

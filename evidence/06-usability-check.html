@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usability Check: Crew Photo Capture · Process log</title>
+<meta name="description" content="Repository document docs/06-usability-check.md">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="doc">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">Z</span><span>Process log<span class="brand__sub"> · Zuper take-home</span></span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" class="nav" aria-label="Sections">
+    <a href="../index.html#overview">Overview</a>
+    <a href="../index.html#log">Process log</a>
+    <a href="../index.html#outcomes">Kept, rejected, AI errors</a>
+    <a href="../index.html#evidence">Evidence</a>
+    <a href="../index.html#tools">Tools</a>
+    <a href="../index.html#reflection">Reflection</a>
+  </nav>
+</header>
+<main id="main">
+<article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>docs/06-usability-check.md</code></p><h1>Usability Check: Crew Photo Capture</h1>
+<p>Six core usability questions, checked against the React prototype (<code>app/roofing-crew-mobile</code>) in the browser on
+2026-10-25. Each was <strong>audited first</strong>; gaps were built, then <strong>re-tested</strong>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Before</th>
+<th>After</th>
+<th>How it works now</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>Can you select or capture a photo?</strong></td>
+<td>⚠ Capture only (<code>capture=&quot;environment&quot;</code> forces the camera on phones)</td>
+<td>✅</td>
+<td><strong>Shutter</strong> (simulated camera) · <strong>Use phone camera instead</strong> (real camera) · <strong>Gallery</strong> (pick an existing photo) · <strong>Can&#39;t take</strong> (skip with a reason)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Does the preview appear?</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>Full preview with &quot;Taken 9:14 AM · HR-2041&quot;, a <em>Demo photo</em> badge when simulated, and the quality result (Sharpness, Light)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Can you retake or replace the image?</strong></td>
+<td>⚠ Retake only</td>
+<td>✅</td>
+<td><strong>Retake</strong> returns to the camera · <strong>Choose a different photo</strong> swaps from the gallery on the preview · retaking a saved shot shows <em>&quot;Already taken at 8:15 AM. A new photo will replace it.&quot;</em> and ends on <strong>Photo replaced</strong>. A replaced photo goes back into the upload queue.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Can you add a note?</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>Labelled <em>Note for the office (optional)</em> field plus 5 one-tap tags. The note shows on the Saved screen (&quot;note added&quot;)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Does saving produce visible feedback?</strong></td>
+<td>⚠ Missing when <em>Next shot after saving</em> is on</td>
+<td>✅</td>
+<td>Button changes to <em>Saving to job folder…</em> (busy state) → <strong>Saved to job folder</strong> screen with the folder path → plus a <strong>toast</strong> (&quot;Saved · Before › Driveway &amp; plants&quot;) on every save, announced to screen readers (<code>aria-live=&quot;polite&quot;</code>), including when the app jumps to the next shot</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Is it usable on a narrow mobile screen?</strong></td>
+<td>✅ No overflow · ⚠ 3 small targets</td>
+<td>✅</td>
+<td>All 22 screens tested at <strong>320×640</strong> and 375×812: <strong>no horizontal overflow</strong>. Every tap target is <strong>≥ 44×44</strong> (camera chips, settings switches and the tutorial <em>Skip</em> were enlarged)</td>
+</tr>
+</tbody></table></div>
+<h2>Evidence (browser tests)</h2>
+<ul>
+<li>Gallery file → preview shows the real image (<code>blob:</code> URL) → &quot;Looks good&quot;.</li>
+<li><em>Choose a different photo</em> on the preview → a different image appears, same shot.</li>
+<li>Note typed → Save → &quot;Saved to job folder&quot; · &quot;Taken 2:39 PM · note added · waiting to upload&quot; · toast shown.</li>
+<li>Re-open a saved shot → replace notice → Save → <strong>&quot;Photo replaced&quot;</strong> title and toast.</li>
+<li><em>Next shot after saving</em> on → Save → toast &quot;Saved · Before › Existing damage&quot;.</li>
+<li>320px sweep across every <code>?state=</code>: 0 overflowing elements; 0 targets under 44px after the fix.</li>
+</ul>
+<h2>Still simulated (say so in the walkthrough)</h2>
+<ul>
+<li>Shutter = simulated camera (labelled). The real camera is one tap away.</li>
+<li>Uploads are simulated (&quot;Demo: signal is back&quot;).</li>
+<li>Saved photos live in memory until reload.</li>
+</ul>
+</article>
+</main>
+<footer class="footer">
+  <p>Generated on 2026-10-25 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
+</footer>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

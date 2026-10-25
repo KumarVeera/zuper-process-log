@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assignment Breakdown — Zuper Photo Documentation Take-Home · Process log</title>
+<meta name="description" content="Repository document docs/01-assignment-breakdown.md">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="doc">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">Z</span><span>Process log<span class="brand__sub"> · Zuper take-home</span></span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" class="nav" aria-label="Sections">
+    <a href="../index.html#overview">Overview</a>
+    <a href="../index.html#log">Process log</a>
+    <a href="../index.html#outcomes">Kept, rejected, AI errors</a>
+    <a href="../index.html#evidence">Evidence</a>
+    <a href="../index.html#tools">Tools</a>
+    <a href="../index.html#reflection">Reflection</a>
+  </nav>
+</header>
+<main id="main">
+<article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>docs/01-assignment-breakdown.md</code></p><h1>Assignment Breakdown — Zuper Photo Documentation Take-Home</h1>
+<p>Source: <a href="https://spd-take-home.vercel.app/" target="_blank" rel="noopener">https://spd-take-home.vercel.app/</a> (read 2026-10-24)
+Role: Senior AI-Native Product Designer, Zuper
+Time box: <strong>2 days</strong> · Deliverables: <strong>1 prototype link + 1 process log</strong> · Follow-up: <strong>60-min call</strong></p>
+<hr>
+<h2>1. The assignment in simple language</h2>
+<p>Halden Roofing (a fictional roofing company) takes hundreds of photos on every job. Those photos live on
+people&#39;s phones and in WhatsApp-style group chats. When a customer says &quot;you broke my gutter&quot;, or an
+insurer asks &quot;prove this damage was there&quot;, nobody can find the right photo, or prove <strong>when</strong> and <strong>where</strong>
+it was taken.</p>
+<p><strong>Your job:</strong> design two things that work together:</p>
+<ol>
+<li><strong>On the crew&#39;s phone:</strong> how they take job photos, so the right photos get taken and they <em>know when
+they&#39;re done</em>, even with no signal on the roof.</li>
+<li><strong>In the office (or for the customer):</strong> how someone finds those photos fast and <strong>shares them as
+proof</strong> that a customer or insurer will accept.</li>
+</ol>
+<p>Use AI tools to do the design work, and keep an honest log of how you used them: the prompts that
+mattered, what you threw away, and where the AI got it wrong.</p>
+<p>They gave you three questions to start from:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Question</th>
+<th>What it really asks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Which photos does a job need, and how does the crew know they&#39;re done?</td>
+<td>A <strong>required shot list / checklist</strong> per job, with clear progress and a &quot;complete&quot; state.</td>
+</tr>
+<tr>
+<td>How does a photo hold up as proof?</td>
+<td><strong>Trust metadata</strong>: timestamp, GPS, job ID, who took it, tamper-evidence, before/after pairing.</td>
+</tr>
+<tr>
+<td>Where can AI help, and where should a person check?</td>
+<td><strong>Human-in-the-loop design</strong>: AI suggests and flags, people confirm what matters legally.</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>2. Primary users</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>User</th>
+<th>Persona from brief</th>
+<th>Where they work</th>
+<th>Core need</th>
+<th>Pain quote</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Field crew / crew lead</strong></td>
+<td>Ravi Menon</td>
+<td>On a roof, phone in one hand, often no signal, gloves, bright sun</td>
+<td>Capture the right photos fast and trust they&#39;ll upload</td>
+<td>&quot;No signal on site, so I upload at night. Half never make it.&quot;</td>
+</tr>
+<tr>
+<td><strong>Project manager (office)</strong></td>
+<td>Sean Doyle</td>
+<td>Desk, handling customer calls and disputes</td>
+<td>Find the exact <em>before</em> photo in seconds, share it with the customer</td>
+<td>&quot;The before photo is on someone&#39;s phone. Maybe.&quot;</td>
+</tr>
+<tr>
+<td><strong>Insurance claims coordinator</strong></td>
+<td>Priya Shah</td>
+<td>Office, preparing claim packets for insurers</td>
+<td>Photos with provable date + location that insurers accept</td>
+<td>&quot;No date, no location, no proof.&quot;</td>
+</tr>
+</tbody></table></div>
+<p><strong>Secondary users (the audience for proof):</strong></p>
+<ul>
+<li><strong>Homeowner / customer:</strong> receives a shared link; needs to understand it without an account.</li>
+<li><strong>Insurance adjuster (external):</strong> needs to trust the evidence is real and unedited.</li>
+</ul>
+<hr>
+<h2>3. Business goals</h2>
+<ol>
+<li><strong>Win disputes:</strong> reduce money lost to &quot;you damaged my property&quot; claims by having a timestamped <em>before</em> photo.</li>
+<li><strong>Get insurance claims approved first time:</strong> fewer rejections caused by missing date/location.</li>
+<li><strong>Zero lost photos:</strong> every photo taken reaches the job record, even if taken offline.</li>
+<li><strong>Consistent documentation on every job:</strong> a standard shot list so quality doesn&#39;t depend on who&#39;s on the crew.</li>
+<li><strong>Save office time:</strong> find any photo in seconds instead of chasing crew members.</li>
+<li><strong>For Zuper (the platform):</strong> a differentiating field-service feature (proof-grade photo documentation)
+that can generalise beyond roofing (HVAC, solar, plumbing).</li>
+</ol>
+<p><strong>Possible success metrics:</strong> % jobs with complete required shots, upload success rate, time-to-find a photo,
+claim rejection rate, dispute resolution time.</p>
+<hr>
+<h2>4. User journeys</h2>
+<h3>Journey A: Crew captures job photos (Ravi)</h3>
+<ol>
+<li>Opens today&#39;s job on phone → sees <strong>required shots</strong> for this job (e.g. Before: each roof face, gutters,
+driveway, existing damage · During: underlayment, flashing · After: each roof face, cleanup).</li>
+<li>Taps a shot → camera opens with a <strong>guide</strong> (&quot;Front elevation, whole house in frame&quot;).</li>
+<li>Takes photo → app stamps <strong>time, GPS, job, crew member</strong>, and AI checks quality (blurry? too dark? wrong subject?).</li>
+<li>Accepts or retakes → shot is ticked off; progress bar moves.</li>
+<li>No signal → photo is <strong>saved on the phone and queued</strong>; status is visible (&quot;12 waiting to upload&quot;).</li>
+<li>Finishes job → sees <strong>&quot;All required shots done&quot;</strong> (or what&#39;s missing / skipped with a reason) → submits.</li>
+<li>Signal returns → photos upload automatically in the background; crew gets confirmation.</li>
+</ol>
+<h3>Journey B: PM resolves a customer dispute (Sean)</h3>
+<ol>
+<li>Customer calls: &quot;you broke my gutter.&quot;</li>
+<li>Sean searches by customer/address → opens the job → filters <strong>Before + Gutters</strong>.</li>
+<li>Sees the photo with <strong>time, location on a map, who took it, &quot;verified original&quot;</strong> badge.</li>
+<li>Compares before/after side-by-side.</li>
+<li>Shares a <strong>proof link</strong> with the customer (selected photos only).</li>
+</ol>
+<h3>Journey C: Claims coordinator builds an insurer packet (Priya)</h3>
+<ol>
+<li>Opens job → selects damage photos.</li>
+<li>Checks every photo has date, GPS, and is unedited (missing data flagged clearly).</li>
+<li>Exports or shares an <strong>evidence pack</strong> (link or PDF) with metadata and a verification note.</li>
+</ol>
+<h3>Journey D: Customer/insurer views proof (external)</h3>
+<ol>
+<li>Opens a link, no login.</li>
+<li>Sees photos in a timeline (before → after), with date, location, and &quot;captured in app, not edited&quot;.</li>
+</ol>
+<hr>
+<h2>5. Screens to design (&quot;record screens&quot;)</h2>
+<blockquote>
+<p>Assumption: &quot;record screen&quot; was read as the list of screens to design. Confirm if you meant screen
+recording of the prototype (a walkthrough video). That&#39;s also worth doing for the submission.</p>
+</blockquote>
+<p><strong>Crew phone (must have):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Screen</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C1</td>
+<td>Today&#39;s jobs</td>
+<td>Pick the job; shows photo progress + upload status per job</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Job shot checklist</td>
+<td>Required shots grouped Before / During / After, progress, missing items</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>Guided camera</td>
+<td>Overlay hint for the current shot, big shutter, works one-handed</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>Photo review</td>
+<td>AI quality check result, accept / retake, optional note or tag</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>Upload queue / sync status</td>
+<td>Offline queue, retry, &quot;all safe&quot; confirmation</td>
+</tr>
+<tr>
+<td>C6</td>
+<td>Job completion</td>
+<td>All done, or skip a shot with a reason, then submit</td>
+</tr>
+</tbody></table></div>
+<p><strong>Office / customer view (need at least one):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Screen</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>O1</td>
+<td>Job photo timeline</td>
+<td>All photos for a job, filter by phase / area / tag</td>
+</tr>
+<tr>
+<td>O2</td>
+<td>Photo proof detail</td>
+<td>Large photo + time, GPS map, author, device, verification status</td>
+</tr>
+<tr>
+<td>O3</td>
+<td>Share / evidence pack</td>
+<td>Select photos, create a link or PDF for customer or insurer</td>
+</tr>
+<tr>
+<td>O4</td>
+<td>Shared proof page (external)</td>
+<td>What the customer/insurer sees, no login</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>6. Functional requirements</h2>
+<p><strong>Capture (crew)</strong></p>
+<ul>
+<li>FR1. Each job has a <strong>required shot list</strong> (template by job type, editable by office).</li>
+<li>FR2. Show progress per job and per phase; clear &quot;done&quot; state.</li>
+<li>FR3. In-app camera with per-shot guidance.</li>
+<li>FR4. Auto-attach <strong>timestamp, GPS + accuracy, job ID, crew member, device</strong> at capture.</li>
+<li>FR5. AI quality check (blur, darkness, obstruction) with <strong>retake suggestion</strong>, never blocking.</li>
+<li>FR6. AI suggests tags/area (e.g. &quot;gutter&quot;, &quot;flashing&quot;); crew can correct.</li>
+<li>FR7. Allow extra (unlisted) photos and notes.</li>
+<li>FR8. Allow skipping a required shot <strong>with a reason</strong> (e.g. &quot;area not accessible&quot;).</li>
+</ul>
+<p><strong>Offline &amp; sync</strong></p>
+<ul>
+<li>FR9. Works fully offline; photos stored locally until confirmed uploaded.</li>
+<li>FR10. Visible upload queue, auto-retry, resumable uploads; never delete local copy until server confirms.</li>
+<li>FR11. Warn before logout/uninstall/job close if photos are still queued.</li>
+</ul>
+<p><strong>Proof &amp; integrity</strong></p>
+<ul>
+<li>FR12. Store the original file untouched; compute a <strong>hash at capture</strong> (tamper evidence).</li>
+<li>FR13. Record both device time and server-received time; flag big mismatches.</li>
+<li>FR14. Mark photos imported from gallery as <strong>&quot;imported, not verified&quot;</strong>.</li>
+<li>FR15. Audit trail: who viewed, shared, or edited metadata.</li>
+</ul>
+<p><strong>Find &amp; share (office)</strong></p>
+<ul>
+<li>FR16. Search by customer, address, job, date; filter by phase, area, tag, crew member.</li>
+<li>FR17. Before/after comparison by area.</li>
+<li>FR18. Create share links for selected photos; expiry and revoke.</li>
+<li>FR19. Export evidence pack (PDF) with metadata for insurers.</li>
+<li>FR20. Flag missing data (no GPS, no time) before sharing.</li>
+</ul>
+<hr>
+<h2>7. Technical feasibility</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Feasible?</th>
+<th>Notes / risk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Offline capture + local queue</td>
+<td>✅ Proven</td>
+<td>Native apps (or PWA with IndexedDB) do this. Risk: OS killing background uploads; need resumable chunked upload + retry.</td>
+</tr>
+<tr>
+<td>GPS + timestamp</td>
+<td>✅</td>
+<td>GPS can be weak/inaccurate; store accuracy radius. Device clock can be wrong, so server time is the trusted second source.</td>
+</tr>
+<tr>
+<td>Tamper evidence</td>
+<td>✅</td>
+<td>SHA-256 hash at capture + immutable original storage. Stronger option: C2PA content credentials (emerging standard).</td>
+</tr>
+<tr>
+<td>EXIF as proof</td>
+<td>⚠️ Weak alone</td>
+<td>EXIF is easy to edit. Proof should come from the app&#39;s own capture record, not EXIF only.</td>
+</tr>
+<tr>
+<td>On-device AI quality check (blur/dark)</td>
+<td>✅</td>
+<td>Lightweight models / simple image metrics run offline.</td>
+</tr>
+<tr>
+<td>AI tagging (roof, gutter, damage)</td>
+<td>⚠️ Medium</td>
+<td>Cloud vision works but needs signal and makes mistakes; treat as <strong>suggestion</strong> with human confirm.</td>
+</tr>
+<tr>
+<td>AI &quot;is the checklist satisfied?&quot;</td>
+<td>⚠️ Medium</td>
+<td>Good as a nudge, not as a gate; person confirms.</td>
+</tr>
+<tr>
+<td>AI damage assessment for insurers</td>
+<td>❌ Avoid</td>
+<td>High stakes and liability; a person should judge. Good thing to <em>intentionally leave out</em>.</td>
+</tr>
+<tr>
+<td>Storage cost (hundreds of photos/job)</td>
+<td>✅</td>
+<td>Upload compressed preview first, full original when on Wi-Fi/charging.</td>
+</tr>
+<tr>
+<td>Prototype in 2 days</td>
+<td>✅</td>
+<td>Figma + AI (Figma Make/Claude/v0) or a coded clickable prototype on Vercel.</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>8. Edge cases</h2>
+<p><strong>Field / capture</strong></p>
+<ul>
+<li>No signal for the whole job (or days).</li>
+<li>Phone dies, app is force-closed, or phone is lost mid-queue.</li>
+<li>Phone storage full.</li>
+<li>GPS unavailable or inaccurate (e.g. 200 m off).</li>
+<li>Device clock set wrong / time-zone change.</li>
+<li>Two crew members shooting the same job at once (duplicates, conflicting checklist ticks).</li>
+<li>Photo taken against the wrong job.</li>
+<li>Required shot impossible (dog, locked gate, unsafe roof, bad weather).</li>
+<li>Gloves, bright sunlight, rain, one hand holding a ladder → huge touch targets, high contrast.</li>
+<li>Crew uses the phone&#39;s normal camera instead of the app → gallery import path.</li>
+<li>Retakes: keep or discard the rejected one? (Suggest: keep, hidden, for audit.)</li>
+<li>AI wrongly flags a good photo as blurry, or wrongly tags &quot;gutter&quot;.</li>
+</ul>
+<p><strong>Office / proof</strong></p>
+<ul>
+<li>Searching across hundreds of photos per job; thousands per month.</li>
+<li>Photo has missing metadata; what does the share page show?</li>
+<li>Customer disputes that the photo is from their house.</li>
+<li>Share link forwarded to the wrong person → expiry &amp; revoke.</li>
+<li>Privacy: faces, neighbours&#39; houses, car plates, house numbers in photos.</li>
+<li>Metadata edited later (e.g. re-tagging): must not break the &quot;verified original&quot; trust.</li>
+<li>Job reassigned or merged.</li>
+</ul>
+<hr>
+<h2>9. Submission deliverables</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>Detail</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Prototype link</strong></td>
+<td>Any tool. Must show <strong>the crew&#39;s phone</strong> + <strong>one office or customer view</strong>.</td>
+<td>☐</td>
+</tr>
+<tr>
+<td><strong>Process log link</strong></td>
+<td>Prompts that mattered · what you threw away · where the AI got it wrong.</td>
+<td>☐ (started in <code>process-log/</code>)</td>
+</tr>
+<tr>
+<td><strong>Email both links</strong></td>
+<td>Within <strong>2 days</strong>, reply to the invitation.</td>
+<td>☐</td>
+</tr>
+<tr>
+<td><strong>60-min call prep</strong></td>
+<td>Walk-through + they&#39;ll <strong>change something live</strong> and watch how you respond.</td>
+<td>☐</td>
+</tr>
+</tbody></table></div>
+<p><strong>Rules:</strong> no roofing experience or coding needed · own or stock photos only · <strong>no customer data</strong>.</p>
+<p><strong>How they judge it:</strong></p>
+<ol>
+<li><strong>Judgment:</strong> what you chose to solve and what you left out.</li>
+<li><strong>Understanding:</strong> crew, office, <em>and</em> insurer.</li>
+<li><strong>Working with AI:</strong> how you steered it and where you overruled it.</li>
+<li><strong>Clarity:</strong> someone could build from what you show.</li>
+</ol>
+<hr>
+<h2>10. What to build first (recommendation)</h2>
+<p><strong>Build the crew&#39;s capture loop first: C2 → C3 → C4 → C5 (shot checklist → guided camera → review → offline queue).</strong></p>
+<p>Why:</p>
+<ul>
+<li>Proof is <strong>created at the moment of capture</strong>. If the photo isn&#39;t taken, isn&#39;t tagged, or never uploads,
+no office screen can fix it. All three persona quotes trace back to capture and upload.</li>
+<li>It answers two of the three starter questions directly (&quot;how does the crew know they&#39;re done&quot; and
+&quot;where does AI help&quot;).</li>
+<li>It&#39;s the hardest UX (offline, gloves, sunlight), so it&#39;s where judgment shows most.</li>
+</ul>
+<p><strong>Then</strong> build one office flow end-to-end using a single hero story: <strong>Sean&#39;s gutter dispute</strong>
+(O1 → O2 → O3 → O4). One story, told from roof to customer link, is easier to demo and critique than many
+half-screens.</p>
+<p><strong>Suggested 2-day plan</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>When</th>
+<th>Do</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Day 1 AM</td>
+<td>Lock the hero scenario, shot-list model, and &quot;what makes a photo proof&quot; rules. Sketch flows. Log prompts.</td>
+</tr>
+<tr>
+<td>Day 1 PM</td>
+<td>Prototype crew screens C1–C6 (offline + AI flags included).</td>
+</tr>
+<tr>
+<td>Day 2 AM</td>
+<td>Prototype O1–O4 for the gutter dispute; add insurer pack if time.</td>
+</tr>
+<tr>
+<td>Day 2 PM</td>
+<td>Polish, record a walkthrough video, finalise process log (&quot;what I left out&quot; section), email links.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Deliberately leave out (say so in the call):</strong> AI damage assessment, customer accounts, payments,
+scheduling, full admin for templates. Show you chose not to, and why.</p>
+<hr>
+<h2>11. Open questions / assumptions to state</h2>
+<ul>
+<li>Is Priya internal (Halden&#39;s claims staff)? Assumed <strong>yes</strong>; the insurer adjuster is external.</li>
+<li>Native app vs PWA? Prototype is tool-agnostic; recommend native for reliable background upload.</li>
+<li>Who defines the shot list? Assumed office creates templates per job type.</li>
+</ul>
+</article>
+</main>
+<footer class="footer">
+  <p>Generated on 2026-10-25 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
+</footer>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

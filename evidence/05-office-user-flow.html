@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Office User Flow: Desktop Evidence Review (by Job ID) · Process log</title>
+<meta name="description" content="Repository document docs/05-office-user-flow.md">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="doc">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">Z</span><span>Process log<span class="brand__sub"> · Zuper take-home</span></span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" class="nav" aria-label="Sections">
+    <a href="../index.html#overview">Overview</a>
+    <a href="../index.html#log">Process log</a>
+    <a href="../index.html#outcomes">Kept, rejected, AI errors</a>
+    <a href="../index.html#evidence">Evidence</a>
+    <a href="../index.html#tools">Tools</a>
+    <a href="../index.html#reflection">Reflection</a>
+  </nav>
+</header>
+<main id="main">
+<article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>docs/05-office-user-flow.md</code></p><h1>Office User Flow: Desktop Evidence Review (by Job ID)</h1>
+<p>Define stage. Maps Part B of the <a href="../evidence/03-ux-design-plan.html">UX plan</a> end to end. Screen IDs (D1–D5) and
+acceptance criteria (AC-D…) refer to doc 03. Companion to the <a href="../evidence/04-crew-user-flow.html">crew flow</a>.</p>
+<p><strong>Presentation diagram:</strong> <a href="../assets/diagrams/office-evidence-review-flow.svg">diagrams/office-evidence-review-flow.svg</a></p>
+<p><img src="../assets/diagrams/office-evidence-review-flow.svg" alt="Office evidence-review flow" loading="lazy"></p>
+<p><strong>Scenarios used</strong></p>
+<ul>
+<li><strong>Sean (PM), dispute:</strong> a customer calls: &quot;your crew broke my gutter.&quot; He has the job ID on screen.</li>
+<li><strong>Priya (claims), insurer packet:</strong> an insurer asks for dated, located photos of existing storm damage.</li>
+</ul>
+<hr>
+<h2>1. Overview: from question to proof</h2>
+<p class="code-note">Mermaid diagram source, shown as written in the repository (not rendered here).</p><pre class="code"><code>flowchart LR
+    Q[&quot;Question arrives&lt;br/&gt;(customer call / insurer request)&quot;] --&gt; L[&quot;Find job&lt;br/&gt;by job ID (D1)&quot;]
+    L --&gt; R[&quot;Review evidence&lt;br/&gt;(D2)&quot;]
+    R --&gt; V[&quot;Verify a photo&lt;br/&gt;(D3)&quot;]
+    V --&gt; S[&quot;Share / export&lt;br/&gt;(D4)&quot;]
+    S --&gt; X[&quot;Recipient views proof&lt;br/&gt;(D5)&quot;]
+
+    style Q fill:#fde68a,stroke:#b45309,color:#111
+    style X fill:#bbf7d0,stroke:#15803d,color:#111</code></pre><p>Target: Sean can answer the customer <strong>while still on the call</strong> (lookup → before photo in under a minute).</p>
+<hr>
+<h2>2. Detailed flow: dispute (Sean)</h2>
+<p class="code-note">Mermaid diagram source, shown as written in the repository (not rendered here).</p><pre class="code"><code>flowchart TD
+    start([&quot;Customer calls about gutter&quot;]) --&gt; d1[&quot;D1 Job lookup&lt;br/&gt;search field focused&quot;]
+    d1 --&gt;|&quot;type job ID / address / customer&quot;| match{&quot;Match?&quot;}
+    match --&gt;|exact job ID| d2
+    match --&gt;|several| list[&quot;Result list&lt;br/&gt;job ID · address · date · completeness&quot;] --&gt;|pick job| d2
+    match --&gt;|none| e1[&quot;'No job found for HR-2041.&lt;br/&gt;Check the ID or search by address'&quot;] --&gt; d1
+    match --&gt;|no access| e2[&quot;'You don't have access to this job'&quot;]
+
+    d2[&quot;D2 Job evidence&lt;br/&gt;header: Before 7/7 · During 4/4 · After 7/7&lt;br/&gt;trust summary: 0 unverified · 1 no location&quot;]
+    d2 --&gt; sync{&quot;Photos still&lt;br/&gt;syncing?&quot;}
+    sync --&gt;|yes| banner[&quot;Banner: '12 photos from Ravi's phone&lt;br/&gt;still uploading · last seen 2 h ago'&quot;] --&gt; filt
+    sync --&gt;|no| filt[&quot;Filter: Phase = Before · Area = Gutters&quot;]
+
+    filt --&gt; res{&quot;Results?&quot;}
+    res --&gt;|0, shot skipped| skipr[&quot;'Before · Gutters was skipped:&lt;br/&gt;not accessible (ladder unsafe)'&quot;]
+    res --&gt;|0, no match| e3[&quot;'No Before photos of Gutters'&lt;br/&gt;+ Clear filters&quot;] --&gt; filt
+    res --&gt;|1+ photos| d3[&quot;D3 Proof detail (side panel)&lt;br/&gt;photo · capture time · received time ·&lt;br/&gt;map + address text · crew · Verified&quot;]
+
+    d3 --&gt; trust{&quot;Trust&lt;br/&gt;issues?&quot;}
+    trust --&gt;|imported / no GPS / clock mismatch| warn[&quot;Badge + plain explanation&lt;br/&gt;(never hidden)&quot;] --&gt; cmp
+    trust --&gt;|none| cmp[&quot;Compare with After&lt;br/&gt;(same area, side by side)&quot;]
+
+    cmp --&gt; decide{&quot;Sean decides&quot;}
+    decide --&gt;|&quot;before shows gutter was&lt;br/&gt;already damaged&quot;| sel[&quot;Select before + after&quot;]
+    decide --&gt;|&quot;photos show crew caused it&quot;| internal[&quot;Handle internally&lt;br/&gt;(out of scope)&quot;]
+
+    sel --&gt; d4[&quot;D4 Share dialog&lt;br/&gt;recipient: Customer · expiry: 7 days&quot;]
+    d4 --&gt; chk{&quot;Selection has&lt;br/&gt;missing data?&quot;}
+    chk --&gt;|yes| w2[&quot;Warning before creating link:&lt;br/&gt;remove photo or share anyway&quot;] --&gt; d4
+    chk --&gt;|no| link[&quot;Create link → copy / send&quot;]
+    link --&gt; d5([&quot;D5 Customer opens link&lt;br/&gt;before → after · date · location ·&lt;br/&gt;'Captured in app, unedited'&quot;])
+
+    style d5 fill:#bbf7d0,stroke:#15803d,color:#111
+    style e1 fill:#e5e7eb,stroke:#6b7280,color:#111
+    style e3 fill:#e5e7eb,stroke:#6b7280,color:#111
+    style e2 fill:#fecaca,stroke:#b91c1c,color:#111
+    style banner fill:#e5e7eb,stroke:#6b7280,color:#111
+    style warn fill:#fde68a,stroke:#b45309,color:#111
+    style w2 fill:#fde68a,stroke:#b45309,color:#111
+    style skipr fill:#fde68a,stroke:#b45309,color:#111</code></pre><hr>
+<h2>3. Detailed flow: insurer evidence pack (Priya)</h2>
+<p class="code-note">Mermaid diagram source, shown as written in the repository (not rendered here).</p><pre class="code"><code>flowchart TD
+    p0([&quot;Insurer requests proof&lt;br/&gt;of storm damage&quot;]) --&gt; p1[&quot;D1 Lookup by job ID&quot;] --&gt; p2[&quot;D2 Job evidence&quot;]
+    p2 --&gt; p3[&quot;Filter: Phase = Before · Tag = Existing damage&quot;]
+    p3 --&gt; p4[&quot;Review each in D3&lt;br/&gt;(arrow keys: next / previous)&quot;]
+    p4 --&gt; tag{&quot;AI tag&lt;br/&gt;correct?&quot;}
+    tag --&gt;|yes| conf[&quot;Confirm tag&lt;br/&gt;'Suggested' → 'Confirmed'&quot;]
+    tag --&gt;|no| fix[&quot;Correct tag&lt;br/&gt;(change logged)&quot;]
+    conf --&gt; p5[&quot;Select photos&quot;]
+    fix --&gt; p5
+    p5 --&gt; p6[&quot;D4 Evidence pack · recipient: Insurer&lt;br/&gt;include metadata + map&quot;]
+    p6 --&gt; gate{&quot;Every photo has&lt;br/&gt;date + location + verified?&quot;}
+    gate --&gt;|no| list2[&quot;List the problem photos&lt;br/&gt;remove · or include with note&quot;] --&gt; p6
+    gate --&gt;|yes| exp[&quot;Export PDF / create insurer link&quot;]
+    exp --&gt; ok{&quot;Export OK?&quot;}
+    ok --&gt;|no| retry[&quot;'Export failed. Selection kept.' Retry&quot;] --&gt; exp
+    ok --&gt;|yes| sent([&quot;Packet sent&lt;br/&gt;activity log records who shared what, when&quot;])
+
+    style sent fill:#bbf7d0,stroke:#15803d,color:#111
+    style list2 fill:#fde68a,stroke:#b45309,color:#111
+    style retry fill:#fecaca,stroke:#b91c1c,color:#111</code></pre><p><strong>Colour key</strong> (same as the crew flow): green = success · amber = flagged but allowed · red = error ·
+grey = neutral info. In the UI, every state also has a <strong>text label and icon</strong>.</p>
+<hr>
+<h2>4. Share link lifecycle</h2>
+<p class="code-note">Mermaid diagram source, shown as written in the repository (not rendered here).</p><pre class="code"><code>stateDiagram-v2
+    [*] --&gt; Active: link created (expiry set)
+    Active --&gt; Viewed: recipient opens
+    Viewed --&gt; Viewed: opened again (logged)
+    Active --&gt; Revoked: office revokes
+    Viewed --&gt; Revoked: office revokes
+    Active --&gt; Expired: expiry date reached
+    Viewed --&gt; Expired: expiry date reached
+    Revoked --&gt; [*]
+    Expired --&gt; [*]
+
+    note right of Expired
+        Recipient sees: &quot;This link has expired.
+        Contact Halden Roofing.&quot;
+    end note</code></pre><hr>
+<h2>5. Step-by-step table</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step</th>
+<th>Screen</th>
+<th>Office user does</th>
+<th>System does</th>
+<th>Key states</th>
+<th>♿ Accessibility</th>
+<th>AC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Find job</td>
+<td>D1</td>
+<td>Types job ID</td>
+<td>Exact ID jumps to job; partial shows list</td>
+<td>No results, no access</td>
+<td>Labelled search, focused on load; &quot;3 jobs found&quot; announced</td>
+<td>AC-D1, D2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Read job health</td>
+<td>D2</td>
+<td>Scans header</td>
+<td>Completeness per phase + trust summary</td>
+<td>Still syncing banner</td>
+<td>Summary is text, not only colour/icons</td>
+<td>AC-D3, D10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Narrow down</td>
+<td>D2</td>
+<td>Applies filters</td>
+<td>Filters shown as chips</td>
+<td>0 results, skipped-with-reason</td>
+<td>Chips keyboard removable; result count announced</td>
+<td>AC-D4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Inspect photo</td>
+<td>D3</td>
+<td>Opens a thumbnail</td>
+<td>Side panel with proof block</td>
+<td>Loading blur → full</td>
+<td>Focus moves into panel; Esc returns; arrow keys next/prev</td>
+<td>AC-D5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Check trust</td>
+<td>D3</td>
+<td>Reads badges</td>
+<td>Explains imported / no GPS / clock mismatch</td>
+<td>Warnings</td>
+<td>Location as text + map; badges have text</td>
+<td>AC-D6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Compare</td>
+<td>D3</td>
+<td>&quot;Compare with After&quot;</td>
+<td>Side-by-side by area</td>
+<td>No matching after</td>
+<td>Labelled &quot;Before&quot; / &quot;After&quot; in text</td>
+<td>AC-D7</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Confirm AI tags</td>
+<td>D3</td>
+<td>Confirm or correct</td>
+<td>Tag moves from Suggested to Confirmed; change logged</td>
+<td>n/a</td>
+<td>Tag state stated in words</td>
+<td>AC-D11</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Share / export</td>
+<td>D4</td>
+<td>Selects, picks recipient</td>
+<td>Warns about missing data <strong>before</strong> creating</td>
+<td>Export loading / failed</td>
+<td>Dialog focus-trapped; warnings announced</td>
+<td>AC-D8</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Recipient views</td>
+<td>D5</td>
+<td>n/a</td>
+<td>Read-only page, no login, only selected photos</td>
+<td>Expired / revoked</td>
+<td>Plain language; mobile friendly; alt text</td>
+<td>AC-D9</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Audit</td>
+<td>D3 activity</td>
+<td>Checks who viewed</td>
+<td>Logs views, shares, tag edits</td>
+<td>n/a</td>
+<td>Activity as readable list</td>
+<td>n/a</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>6. Decision points</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Who decides</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Is this photo trustworthy?</td>
+<td><strong>Person</strong> (Sean / Priya)</td>
+<td>System shows the facts and badges; it does not declare &quot;fraud&quot; or &quot;safe&quot;</td>
+</tr>
+<tr>
+<td>Which photos to share</td>
+<td><strong>Person</strong></td>
+<td>Nothing is shared by default; recipient sees only the selection</td>
+</tr>
+<tr>
+<td>Share a photo with missing data</td>
+<td><strong>Person</strong>, after a warning</td>
+<td>Warning comes <strong>before</strong> the link, never after</td>
+</tr>
+<tr>
+<td>Accept an AI tag</td>
+<td><strong>Person</strong></td>
+<td>Tags stay &quot;Suggested&quot; until confirmed (E13)</td>
+</tr>
+<tr>
+<td>Who caused the damage</td>
+<td><strong>Person</strong></td>
+<td>AI does <strong>not</strong> assess damage (out of scope, liability)</td>
+</tr>
+<tr>
+<td>Link expiry / revoke</td>
+<td><strong>Person</strong>, with a default</td>
+<td>Default expiry (e.g. 7 days), revocable any time</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>7. Where AI shows up in the office flow (and where a person checks)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Point</th>
+<th>AI does</th>
+<th>Person checks</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Filters</td>
+<td>Area tags make &quot;Gutters&quot; filterable</td>
+<td>Confirms or corrects tags</td>
+</tr>
+<tr>
+<td>Trust summary</td>
+<td>Flags clock mismatch, missing GPS, duplicates</td>
+<td>Decides whether to share</td>
+</tr>
+<tr>
+<td>Search (later)</td>
+<td>Natural-language search, e.g. &quot;before photos of the gutter&quot;</td>
+<td>Picks the right photo</td>
+</tr>
+<tr>
+<td>Damage judgement</td>
+<td><strong>Not used</strong></td>
+<td>Always a person</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>8. How this connects to the crew flow</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Crew does (doc 04)</th>
+<th>Office sees (this doc)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Takes Before shots first</td>
+<td>Before 7/7 in the header; before ↔ after pairing works</td>
+</tr>
+<tr>
+<td>Skips a shot with a reason</td>
+<td>&quot;Skipped: not accessible&quot; instead of an empty gap</td>
+</tr>
+<tr>
+<td>Photo with no GPS</td>
+<td>&quot;No location&quot; badge + warning before sharing</td>
+</tr>
+<tr>
+<td>Imports from gallery</td>
+<td>&quot;Imported, not verified&quot; badge everywhere</td>
+</tr>
+<tr>
+<td>Phone still offline</td>
+<td>&quot;Still uploading · last seen 2 h ago&quot; banner</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2>9. Open questions to test</h2>
+<ul>
+<li>Is <strong>job ID</strong> really the starting point, or do PMs search by customer name or address during a call? (A15)</li>
+<li>Do PMs trust the <strong>Verified</strong> badge without understanding what it means? Is a plain explanation needed?</li>
+<li>Is a <strong>link</strong> enough for insurers, or do they require a PDF? (A16)</li>
+<li>Does showing <strong>Skipped + reason</strong> help or hurt in a dispute?</li>
+</ul>
+</article>
+</main>
+<footer class="footer">
+  <p>Generated on 2026-10-25 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
+</footer>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

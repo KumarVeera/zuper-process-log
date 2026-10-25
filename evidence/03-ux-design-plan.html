@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX Design Plan (Define stage) · Process log</title>
+<meta name="description" content="Repository document docs/03-ux-design-plan.md">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="doc">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">Z</span><span>Process log<span class="brand__sub"> · Zuper take-home</span></span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" class="nav" aria-label="Sections">
+    <a href="../index.html#overview">Overview</a>
+    <a href="../index.html#log">Process log</a>
+    <a href="../index.html#outcomes">Kept, rejected, AI errors</a>
+    <a href="../index.html#evidence">Evidence</a>
+    <a href="../index.html#tools">Tools</a>
+    <a href="../index.html#reflection">Reflection</a>
+  </nav>
+</header>
+<main id="main">
+<article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>docs/03-ux-design-plan.md</code></p><h1>UX Design Plan (Define stage)</h1>
+<p>Lightweight plan, written <strong>before any prototyping or code</strong>. No implementation here, only what we are
+designing and why.
+Builds on: <a href="../evidence/01-assignment-breakdown.html">01 Breakdown</a> · <a href="../evidence/02-requirements-vs-assumptions.html">02 Requirements vs Assumptions</a>
+(IDs like E8, A7 refer to doc 02.)</p>
+<p><strong>Priority</strong></p>
+<ol>
+<li><strong>Mobile photo capture:</strong> roofing crew (Part A)</li>
+<li><strong>Desktop evidence review by job ID:</strong> office / PM / claims (Part B)</li>
+</ol>
+<p>Accessibility is written <strong>inside every step</strong>, marked ♿, plus a global section at the end.</p>
+<hr>
+<h2>1. Problem statement</h2>
+<ul>
+<li>Roofing crews take hundreds of photos per job, but the photos live on personal phones and in group chats. (E5)</li>
+<li>Uploads fail on sites with no signal, and half the photos never arrive. (E8)</li>
+<li>When a customer disputes work, the <strong>before</strong> photo can&#39;t be found. (E9)</li>
+<li>Insurers reject photos with <strong>no date and no location</strong>. (E10)</li>
+</ul>
+<blockquote>
+<p><strong>How might we</strong> help a crew capture the <em>right</em> photos on every job, even offline, so that the office
+can find any photo by job and share it as proof a customer or insurer will trust?</p>
+</blockquote>
+<p><strong>Design principle:</strong> <em>Proof is created at capture, not in the office.</em></p>
+<hr>
+<h2>2. Primary users</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Crew lead (Ravi)</th>
+<th>Project manager (Sean)</th>
+<th>Claims coordinator (Priya)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Device</td>
+<td>Phone, on a roof</td>
+<td>Desktop</td>
+<td>Desktop</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>Gloves, sun, ladder, no signal, hurry</td>
+<td>Customer on the phone, needs an answer now</td>
+<td>Preparing an insurer packet, deadlines</td>
+</tr>
+<tr>
+<td>Wants</td>
+<td>Get the shots done and go</td>
+<td>Find the exact photo fast</td>
+<td>Photos the insurer can&#39;t reject</td>
+</tr>
+<tr>
+<td>Fears</td>
+<td>Photos lost; redoing a job</td>
+<td>&quot;It&#39;s on someone&#39;s phone&quot;</td>
+<td>Missing date/location → rejected claim</td>
+</tr>
+<tr>
+<td>Part</td>
+<td><strong>A</strong></td>
+<td><strong>B</strong></td>
+<td><strong>B</strong></td>
+</tr>
+</tbody></table></div>
+<p>Secondary (they view the proof): homeowner and insurance adjuster, via a share link.</p>
+<hr>
+<h2>3. Jobs to be done</h2>
+<p><strong>Crew (Part A)</strong></p>
+<ul>
+<li>When I arrive on a job, I want to know <strong>exactly which photos to take</strong>, so I don&#39;t miss the before shots.</li>
+<li>When I&#39;m on the roof with no signal, I want my photos to be <strong>safe on my phone</strong>, so I don&#39;t lose them.</li>
+<li>When I finish, I want to <strong>know I&#39;m done</strong>, so I can leave without the office calling me back.</li>
+</ul>
+<p><strong>Office (Part B)</strong></p>
+<ul>
+<li>When a customer disputes the work, I want to <strong>open the job and find the before photo in seconds</strong>, so I can settle it on the call.</li>
+<li>When an insurer asks for proof, I want to <strong>show date, location and that the photo is unedited</strong>, so the claim is accepted.</li>
+<li>When I share photos, I want to <strong>send only the relevant ones</strong>, so I don&#39;t expose other customer details.</li>
+</ul>
+<hr>
+<h2>4. Key assumptions (full list in doc 02)</h2>
+<ul>
+<li><strong>A7</strong> A shot list per job type, grouped Before / During / After, defines &quot;done&quot;. <em>(riskiest)</em></li>
+<li><strong>A9</strong> Only photos taken in the app count as &quot;verified&quot;. Gallery imports are allowed but marked unverified.</li>
+<li><strong>A18</strong> Showing sync status clearly will stop the &quot;upload at night and hope&quot; habit.</li>
+<li><strong>A3</strong> The crew won&#39;t type, so the design uses taps, defaults and AI suggestions.</li>
+<li><strong>A13 / A14</strong> AI checks quality and suggests tags. It <strong>never blocks</strong> capture and <strong>never judges damage</strong>.</li>
+<li><strong>A15</strong> The office starts from a <strong>job ID</strong> (or address/customer), not from a photo search.</li>
+<li>Out of scope: template admin, scheduling, payments, customer accounts, AI damage assessment.</li>
+</ul>
+<hr>
+<h1>Part A: Mobile photo capture (crew)</h1>
+<h2>A1. Information architecture</h2>
+<pre class="code"><code>Crew app
+├── Today (job list)                 ← home
+│   └── Job
+│       ├── Shot checklist           ← the core screen
+│       │   ├── Before  (areas: front, back, left, right, gutters, driveway, existing damage)
+│       │   ├── During  (tear-off, decking, underlayment, flashing)
+│       │   └── After   (each roof face, gutters, cleanup, driveway)
+│       ├── Camera (guided, per shot)
+│       │   └── Review (AI check → keep / retake)
+│       ├── Extra photos (unlisted)
+│       └── Finish job (summary → submit)
+└── Uploads (sync queue, global)     ← always reachable from the status bar</code></pre><ul>
+<li>Two levels deep at most from the job.</li>
+<li><strong>Sync status is global</strong>: a persistent indicator on every screen, not buried in settings.</li>
+</ul>
+<h2>A2. Primary user flow: capture a required shot (happy path, offline)</h2>
+<ol>
+<li>Open app → <strong>Today</strong> → tap job &quot;14 Elm St – Re-roof&quot;.</li>
+<li><strong>Checklist</strong> opens on the <strong>Before</strong> tab (before photos are prompted first, per E9). Shows &quot;0 of 7&quot;.</li>
+<li>Tap &quot;Front elevation&quot; → <strong>Camera</strong> opens with a hint: &quot;Whole front of house in frame&quot;.</li>
+<li>Tap the shutter → photo stamped with <strong>time · GPS · job · crew member</strong> (shown on screen).</li>
+<li><strong>Review</strong>: AI says &quot;Looks good&quot; or &quot;Looks blurry: retake?&quot; → crew taps <strong>Keep</strong> or <strong>Retake</strong>.</li>
+<li>Back on the checklist: the item is ticked and shows &quot;1 of 7&quot;. Status bar: &quot;Saved on phone · 1 waiting to upload&quot;.</li>
+<li>Repeat → when the Before tab is complete, it is marked done and the crew is nudged to the <strong>During</strong> tab.</li>
+</ol>
+<p><strong>Secondary flows</strong></p>
+<ul>
+<li><strong>Skip a shot:</strong> tap ⋯ → &quot;Can&#39;t take this&quot; → choose a reason (not accessible / unsafe / not applicable / other) → item marked <em>Skipped</em> (not <em>Done</em>).</li>
+<li><strong>Extra photo:</strong> &quot;+ Extra photo&quot; → camera → optional tag (AI suggests).</li>
+<li><strong>Finish job:</strong> &quot;Finish&quot; → summary (done / skipped / missing) → if anything is missing, a warning with &quot;Take now&quot; or &quot;Finish anyway (reason)&quot; → submit.</li>
+<li><strong>Back online:</strong> queue uploads automatically → &quot;All 42 photos uploaded ✓&quot;.</li>
+<li><strong>Gallery import (fallback):</strong> allowed; marked &quot;Imported, not verified&quot; everywhere.</li>
+</ul>
+<h2>A3. Screen hierarchy</h2>
+<p><strong>M1 Today (job list)</strong></p>
+<ol>
+<li>Sync status bar (global)</li>
+<li>Job cards: address, job type, time → <strong>photo progress</strong> (&quot;Before 0/7&quot;) → upload state</li>
+<li>Nothing else (no menus competing for attention)</li>
+</ol>
+<p><strong>M2 Job shot checklist</strong> <em>(core screen)</em></p>
+<ol>
+<li>Job address + sync status</li>
+<li>Phase tabs: <strong>Before · During · After</strong>, each showing progress (e.g. &quot;5/7&quot;)</li>
+<li>Shot list: thumbnail or empty slot · name · state (To do / Done / Skipped / Needs retake)</li>
+<li>Primary action: <strong>Next required shot</strong> (big, bottom, thumb zone)</li>
+<li>Secondary: + Extra photo · Finish job</li>
+</ol>
+<p><strong>M3 Guided camera</strong></p>
+<ol>
+<li>Viewfinder (full screen)</li>
+<li>Shot name + one-line hint (top)</li>
+<li>Shutter (bottom centre, very large) · flash · switch to next shot</li>
+<li>Live proof chips: 🕒 time · 📍 GPS accuracy · 📶 offline</li>
+</ol>
+<p><strong>M4 Review</strong></p>
+<ol>
+<li>Captured photo</li>
+<li>AI result (one line + icon): Good / Blurry / Too dark / Doesn&#39;t look like a roof</li>
+<li><strong>Keep</strong> (primary) · <strong>Retake</strong> (secondary)</li>
+<li>Proof stamp shown: time, location, job</li>
+</ol>
+<p><strong>M5 Uploads (sync queue)</strong></p>
+<ol>
+<li>Summary: &quot;38 uploaded · 4 waiting · 0 failed&quot;</li>
+<li>Per-job groups → per-photo state</li>
+<li>Retry all (only when failed)</li>
+<li>Reassurance copy: &quot;Photos stay on this phone until the office has them.&quot;</li>
+</ol>
+<p><strong>M6 Finish job</strong></p>
+<ol>
+<li>Summary by phase: Done / Skipped (with reasons) / Missing</li>
+<li>Warning if anything is missing</li>
+<li><strong>Submit job photos</strong> (primary)</li>
+</ol>
+<h2>A4. Critical interactions</h2>
+<ul>
+<li><strong>Next required shot:</strong> one tap goes straight to the camera for the next missing item. No browsing needed.</li>
+<li><strong>Shutter → auto-advance:</strong> after Keep, offer &quot;Next: Back elevation →&quot;, so the crew can work through the checklist on the roof without going back.</li>
+<li><strong>AI check is advisory:</strong> a &quot;Blurry&quot; warning can be dismissed with Keep. It never blocks. (A14)</li>
+<li><strong>Proof stamp visible at capture:</strong> the crew sees that time and location were recorded, which builds trust. (E10)</li>
+<li><strong>Skip with a reason:</strong> the only way to complete a required item without a photo, so &quot;done&quot; stays honest.</li>
+<li><strong>Sync indicator</strong> is tappable from anywhere and opens Uploads.</li>
+<li><strong>Retake keeps the original</strong> (hidden, for audit) and never silently replaces it.</li>
+<li><strong>Leaving with unsent photos:</strong> a warning appears if the crew tries to log out or switch jobs while photos are queued.</li>
+</ul>
+<h2>A5. Empty, loading and error states</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>State</th>
+<th>Screen</th>
+<th>What the user sees</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Empty: no jobs today</td>
+<td>M1</td>
+<td>&quot;No jobs assigned today. Pull to refresh or call the office.&quot;</td>
+</tr>
+<tr>
+<td>Empty: phase not started</td>
+<td>M2</td>
+<td>Empty slots with shot names. &quot;Start with Front elevation.&quot;</td>
+</tr>
+<tr>
+<td>Empty: queue clear</td>
+<td>M5</td>
+<td>&quot;All photos uploaded ✓&quot;. Positive, not blank.</td>
+</tr>
+<tr>
+<td>Loading: jobs syncing</td>
+<td>M1</td>
+<td>Skeleton cards; cached jobs shown first (works offline).</td>
+</tr>
+<tr>
+<td>Loading: AI check</td>
+<td>M4</td>
+<td>&quot;Checking photo…&quot; ≤1–2 s; Keep stays available immediately.</td>
+</tr>
+<tr>
+<td>Loading: uploading</td>
+<td>M5 / bar</td>
+<td>Per-photo progress; &quot;Uploading 3 of 12&quot;.</td>
+</tr>
+<tr>
+<td>Offline</td>
+<td>All</td>
+<td>Bar: &quot;Offline · photos saved on phone&quot;. Neutral tone, <strong>not</strong> an error.</td>
+</tr>
+<tr>
+<td>Error: GPS unavailable</td>
+<td>M3/M4</td>
+<td>&quot;Location not found. Photo saved without location.&quot; Flagged for the office.</td>
+</tr>
+<tr>
+<td>Error: camera permission denied</td>
+<td>M3</td>
+<td>Explain why it&#39;s needed, with a button to open settings.</td>
+</tr>
+<tr>
+<td>Error: storage full</td>
+<td>M3</td>
+<td>&quot;Phone storage full. Free up space to keep taking photos.&quot; Existing photos are safe.</td>
+</tr>
+<tr>
+<td>Error: upload failed</td>
+<td>M5</td>
+<td>&quot;4 photos didn&#39;t upload. They&#39;re still on your phone.&quot; Retry; auto-retry continues.</td>
+</tr>
+<tr>
+<td>Error: device clock wrong</td>
+<td>(silent)</td>
+<td>Flag for the office; don&#39;t burden the crew.</td>
+</tr>
+<tr>
+<td>Error: AI unavailable offline</td>
+<td>M4</td>
+<td>Basic blur/dark check runs on the device; tag suggestions are skipped.</td>
+</tr>
+</tbody></table></div>
+<h2>A6. Accessibility, per step (♿)</h2>
+<ul>
+<li>♿ <strong>Today / Checklist:</strong> progress shown as <strong>text + icon + colour</strong> (never colour alone); headings for each phase; screen reader announces &quot;Before, 5 of 7 done&quot;.</li>
+<li>♿ <strong>Touch targets:</strong> at least 48×48 dp everywhere; <strong>56–64 dp</strong> for primary actions and the shutter (gloves). Primary actions sit in the bottom thumb zone.</li>
+<li>♿ <strong>Sunlight:</strong> aim for <strong>7:1 contrast</strong> (AAA) on key text and icons; avoid thin type and low-contrast greys; consider a high-contrast outdoor theme.</li>
+<li>♿ <strong>Camera:</strong> shutter also works with the <strong>volume button</strong>; haptic + sound confirmation on capture; the hint text is readable by a screen reader.</li>
+<li>♿ <strong>Review:</strong> the AI result is announced as text (&quot;Photo looks blurry. Keep or retake?&quot;), not only shown as an icon.</li>
+<li>♿ <strong>Status changes</strong> (saved, uploaded, failed) are announced via live regions and confirmed with haptics.</li>
+<li>♿ <strong>Dynamic type / large text</strong> supported up to 200% without hiding actions.</li>
+<li>♿ <strong>One-handed:</strong> no required gestures that need two hands; no swipe-only actions (always a button too).</li>
+<li>♿ <strong>Reduced motion</strong> respected; no flashing.</li>
+<li>♿ <strong>Plain language</strong>, short labels, no jargon in errors. Matters for crews working in a second language.</li>
+</ul>
+<h2>A7. Acceptance criteria: mobile capture</h2>
+<ul>
+<li><strong>AC-M1</strong> Given a job is assigned, when the crew opens it, then the checklist opens on <strong>Before</strong> and shows each required shot and progress as &quot;x of y&quot;.</li>
+<li><strong>AC-M2</strong> Given the phone is <strong>offline</strong>, when a photo is taken, then it is saved on the device, shown as &quot;waiting to upload&quot;, and the checklist item is marked done.</li>
+<li><strong>AC-M3</strong> Given any photo is taken in the app, then it records <strong>time, GPS (with accuracy), job ID and crew member</strong>, and these are visible on the Review screen.</li>
+<li><strong>AC-M4</strong> Given GPS is unavailable, when a photo is taken, then it is still saved and clearly marked &quot;no location&quot;.</li>
+<li><strong>AC-M5</strong> Given the AI flags a photo as blurry/dark, then the crew can still <strong>Keep</strong> it with one tap (AI never blocks).</li>
+<li><strong>AC-M6</strong> Given a required shot can&#39;t be taken, then the crew can mark it <strong>Skipped</strong> only by choosing a reason; skipped is shown differently from done.</li>
+<li><strong>AC-M7</strong> Given photos are queued, when the connection returns, then they upload automatically without user action, and the status updates to &quot;uploaded&quot;.</li>
+<li><strong>AC-M8</strong> Given an upload fails, then the photo <strong>stays on the phone</strong>, is shown as failed, and can be retried. No photo is deleted locally until the server confirms receipt.</li>
+<li><strong>AC-M9</strong> Given photos are still queued, when the crew tries to log out or close the job, then they see a warning with the number of unsent photos.</li>
+<li><strong>AC-M10</strong> Given the crew taps Finish, then they see done / skipped / missing per phase before submitting.</li>
+<li><strong>AC-M11</strong> Primary actions are ≥56 dp, key text meets ≥4.5:1 contrast (target 7:1), and every status is conveyed by text, not colour alone.</li>
+<li><strong>AC-M12</strong> All screens are usable with a screen reader and at 200% text size.</li>
+</ul>
+<hr>
+<h1>Part B: Desktop evidence review (by job ID)</h1>
+<h2>B1. Information architecture</h2>
+<pre class="code"><code>Office web app
+├── Job lookup                       ← home: search by job ID / address / customer
+│   └── Job evidence
+│       ├── Summary header           (job, address, crew, dates, completeness)
+│       ├── Photo timeline / grid    (Before → During → After)
+│       │   └── filters: phase · area/tag · crew member · verified/unverified · date
+│       ├── Photo proof detail       (side panel)
+│       └── Share / evidence pack    (select → link or PDF)
+│           └── Shared proof page    (external: customer / insurer, no login)
+└── (out of scope: templates admin, users, settings)</code></pre><h2>B2. Primary user flow: settle a dispute by job ID (Sean)</h2>
+<ol>
+<li>Customer calls: &quot;you broke my gutter&quot;. Sean types <strong>job ID</strong> (or address) into Job lookup.</li>
+<li><strong>Job evidence</strong> opens: header shows &quot;Before 7/7 · During 4/4 · After 7/7 · all verified&quot;.</li>
+<li>Filter <strong>Phase: Before</strong> + <strong>Area: Gutters</strong> → 2 photos.</li>
+<li>Click a photo → <strong>Proof detail</strong> panel: large image, time, map pin, crew member, &quot;Verified: captured in app, unedited&quot;.</li>
+<li>Click <strong>Compare with After</strong> → side-by-side of the same area.</li>
+<li>Select both → <strong>Share</strong> → choose recipient type (Customer) → link created with an expiry → copy/send.</li>
+<li>Customer opens the <strong>shared proof page</strong>: before/after, date, location, verification note.</li>
+</ol>
+<p><strong>Secondary flow: insurer packet (Priya)</strong></p>
+<ul>
+<li>Open the job → filter &quot;Existing damage&quot; → select photos → <strong>Evidence pack (PDF)</strong> → the system flags any photo missing date/location <strong>before</strong> export → export.</li>
+</ul>
+<h2>B3. Screen hierarchy</h2>
+<p><strong>D1 Job lookup</strong></p>
+<ol>
+<li>Search field (job ID, address, customer), focused on load</li>
+<li>Recent jobs</li>
+<li>Result rows: job ID · address · date · completeness · warnings</li>
+</ol>
+<p><strong>D2 Job evidence</strong> <em>(core screen)</em></p>
+<ol>
+<li>Header: job ID, address, customer, crew, dates</li>
+<li><strong>Completeness + trust summary:</strong> per phase done/skipped/missing; count of unverified or no-location photos</li>
+<li>Filters bar</li>
+<li>Timeline grouped by phase → grid of thumbnails with small badges (verified, no GPS, imported, skipped reason)</li>
+<li>Selection bar (appears on select): Compare · Share · Evidence pack</li>
+</ol>
+<p><strong>D3 Photo proof detail</strong> <em>(side panel, keeps context)</em></p>
+<ol>
+<li>Large photo (zoom)</li>
+<li>Proof block: capture time (device + received), location + map + accuracy, crew member, device, verification status</li>
+<li>Tags (AI-suggested vs confirmed, labelled)</li>
+<li>Related: same area in other phases (before ↔ after)</li>
+<li>Activity: viewed / shared history</li>
+</ol>
+<p><strong>D4 Share / evidence pack dialog</strong></p>
+<ol>
+<li>Selected photos (removable)</li>
+<li>Recipient type: Customer / Insurer</li>
+<li>Options: include map, include metadata, link expiry</li>
+<li>Warnings (missing data, unverified photos)</li>
+<li><strong>Create link</strong> / <strong>Export PDF</strong></li>
+</ol>
+<p><strong>D5 Shared proof page</strong> <em>(external, read-only)</em></p>
+<ol>
+<li>Company + job address (no internal data)</li>
+<li>Before → After photos with date, location</li>
+<li>Plain-language verification note</li>
+<li>Link expiry note</li>
+</ol>
+<h2>B4. Critical interactions</h2>
+<ul>
+<li><strong>Lookup by job ID:</strong> exact match jumps straight to the job; a partial match shows a list.</li>
+<li><strong>Filters stack and stay visible</strong> as chips; one click clears each.</li>
+<li><strong>Side panel detail</strong> keeps the grid visible, so you don&#39;t lose your place; arrow keys move to the next photo.</li>
+<li><strong>Before ↔ After pairing</strong> by area: one click to compare.</li>
+<li><strong>Trust badges are consistent</strong> across grid, panel, share page and PDF (same words, same icons).</li>
+<li><strong>Warnings before sharing</strong>, not after: missing GPS or unverified photos are flagged in the dialog.</li>
+<li><strong>Share links are revocable</strong> and show who opened them (activity).</li>
+<li><strong>AI tags are labelled &quot;Suggested&quot;</strong> until a person confirms them. (E13)</li>
+</ul>
+<h2>B5. Empty, loading and error states</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>State</th>
+<th>Screen</th>
+<th>What the user sees</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Empty: no search yet</td>
+<td>D1</td>
+<td>Recent jobs + hint &quot;Search by job ID, address or customer&quot;.</td>
+</tr>
+<tr>
+<td>Empty: no results</td>
+<td>D1</td>
+<td>&quot;No job found for &#39;HR-2041&#39;. Check the ID or search by address.&quot;</td>
+</tr>
+<tr>
+<td>Empty: job has no photos</td>
+<td>D2</td>
+<td>&quot;No photos uploaded yet. Crew may still be offline.&quot; + last sync time per crew device.</td>
+</tr>
+<tr>
+<td>Empty: filter shows 0</td>
+<td>D2</td>
+<td>&quot;No Before photos of Gutters.&quot; + &quot;Clear filters&quot; · if the shot was skipped, show the reason.</td>
+</tr>
+<tr>
+<td>Loading: job</td>
+<td>D2</td>
+<td>Header first, thumbnail skeletons; photos load progressively.</td>
+</tr>
+<tr>
+<td>Loading: full image</td>
+<td>D3</td>
+<td>Blurred thumbnail → full resolution.</td>
+</tr>
+<tr>
+<td>Loading: creating PDF</td>
+<td>D4</td>
+<td>Progress + &quot;You can keep working&quot;.</td>
+</tr>
+<tr>
+<td>Partial: photos still syncing</td>
+<td>D2</td>
+<td>Banner: &quot;12 photos from Ravi&#39;s phone are still uploading (last seen 2 h ago).&quot;</td>
+</tr>
+<tr>
+<td>Warning: no location / imported</td>
+<td>D2/D3</td>
+<td>Badge + explanation; not hidden.</td>
+</tr>
+<tr>
+<td>Warning: device vs server time mismatch</td>
+<td>D3</td>
+<td>&quot;Device clock differed by 3 h. Server received at …&quot;</td>
+</tr>
+<tr>
+<td>Error: link expired / revoked</td>
+<td>D5</td>
+<td>&quot;This link has expired. Contact Halden Roofing.&quot;</td>
+</tr>
+<tr>
+<td>Error: export failed</td>
+<td>D4</td>
+<td>Retry; selection kept.</td>
+</tr>
+<tr>
+<td>Error: no permission for job</td>
+<td>D2</td>
+<td>&quot;You don&#39;t have access to this job.&quot;</td>
+</tr>
+</tbody></table></div>
+<h2>B6. Accessibility, per step (♿)</h2>
+<ul>
+<li>♿ <strong>Lookup:</strong> search field has a visible label; results announced (&quot;3 jobs found&quot;); fully keyboard operable.</li>
+<li>♿ <strong>Grid:</strong> every thumbnail has <strong>auto alt text</strong> from metadata (&quot;Before · Gutters · 14 Elm St · 9:12 am, 24 Oct&quot;); badges have text labels, not just icons or colours.</li>
+<li>♿ <strong>Keyboard:</strong> logical focus order: header → filters → grid → panel; arrow keys in the grid; Esc closes the panel; visible focus ring.</li>
+<li>♿ <strong>Side panel:</strong> focus moves into the panel on open and returns to the thumbnail on close.</li>
+<li>♿ <strong>Map:</strong> location also given as text (address + coordinates + accuracy), so the map is never the only source.</li>
+<li>♿ <strong>Compare view:</strong> labelled &quot;Before&quot; / &quot;After&quot; in text; not dependent on position or colour.</li>
+<li>♿ <strong>Dialogs:</strong> focus trapped and labelled; warnings use role=&quot;alert&quot;-style announcements.</li>
+<li>♿ <strong>Contrast</strong> ≥4.5:1 text, ≥3:1 UI components; supports 200% zoom and 320 px reflow.</li>
+<li>♿ <strong>Shared page (external):</strong> plain language, works on mobile, no login, readable by a screen reader. The customer may be older or non-technical.</li>
+</ul>
+<h2>B7. Acceptance criteria: desktop evidence review</h2>
+<ul>
+<li><strong>AC-D1</strong> Given a valid job ID, when the user searches, then the Job evidence screen opens directly.</li>
+<li><strong>AC-D2</strong> Given an unknown ID, then a clear no-results message suggests searching by address.</li>
+<li><strong>AC-D3</strong> Given a job, then the header shows completeness per phase (done / skipped / missing) and the count of unverified or no-location photos.</li>
+<li><strong>AC-D4</strong> Given filters Phase=Before and Area=Gutters, then only matching photos show, and the active filters are visible and clearable.</li>
+<li><strong>AC-D5</strong> Given a photo is opened, then the detail shows capture time, server-received time, location (map <strong>and</strong> text), crew member and verification status.</li>
+<li><strong>AC-D6</strong> Given a photo was imported or has no GPS, then it is visibly badged in the grid, the detail, the share dialog and the export.</li>
+<li><strong>AC-D7</strong> Given a before photo exists for an area, then the user can compare it with the after photo of the same area in one action.</li>
+<li><strong>AC-D8</strong> Given selected photos include missing data, when sharing, then a warning appears <strong>before</strong> the link or PDF is created.</li>
+<li><strong>AC-D9</strong> Given a share link is created, then it has an expiry, can be revoked, and opens without login showing only the selected photos.</li>
+<li><strong>AC-D10</strong> Given photos are still uploading from a crew device, then the job shows a &quot;still syncing&quot; banner with the last-seen time.</li>
+<li><strong>AC-D11</strong> AI tags are visibly marked &quot;Suggested&quot; until confirmed by a person.</li>
+<li><strong>AC-D12</strong> The full flow (lookup → filter → detail → share) is keyboard-only operable, and all thumbnails have meaningful alt text.</li>
+</ul>
+<hr>
+<h2>Global accessibility baseline</h2>
+<ul>
+<li>WCAG 2.1 <strong>AA</strong> as the floor; aim for AAA contrast on the crew&#39;s mobile screens (sunlight).</li>
+<li>Never rely on <strong>colour alone</strong> for status (done, failed, verified, unverified).</li>
+<li>Every status change is <strong>announced</strong> (screen reader) and, on mobile, confirmed with <strong>haptics</strong>.</li>
+<li><strong>Plain language</strong> everywhere; error messages say what happened, what&#39;s safe, and what to do.</li>
+<li>Same trust vocabulary everywhere: <em>Verified · Imported · No location · Skipped (reason)</em>.</li>
+</ul>
+<h2>Next step (after this plan is approved)</h2>
+<ul>
+<li>Low-fidelity flows for Part A (M1–M6), then Part B (D1–D5), using the gutter-dispute story as test data.</li>
+<li>Quick hallway test of Part A against AC-M1 to AC-M10 before moving to visuals.</li>
+</ul>
+</article>
+</main>
+<footer class="footer">
+  <p>Generated on 2026-10-25 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
+</footer>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

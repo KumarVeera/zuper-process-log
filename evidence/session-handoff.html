@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session handoff · Process log</title>
+<meta name="description" content="process-log/SESSION_HANDOFF.md">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="doc">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">Z</span><span>Process log<span class="brand__sub"> · Zuper take-home</span></span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" class="nav" aria-label="Sections">
+    <a href="../index.html#overview">Overview</a>
+    <a href="../index.html#log">Process log</a>
+    <a href="../index.html#outcomes">Kept, rejected, AI errors</a>
+    <a href="../index.html#evidence">Evidence</a>
+    <a href="../index.html#tools">Tools</a>
+    <a href="../index.html#reflection">Reflection</a>
+  </nav>
+</header>
+<main id="main">
+<article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>process-log/SESSION_HANDOFF.md</code></p><h1>Session Handoff: where things stand</h1>
+<p>Read this first in any new session, then <code>CLAUDE.md</code> (logging rules) and <code>process-log/PROCESS_LOG.md</code>.
+Last updated: 2026-10-25, after prompt 027. Prompt 027 (connect crew and office through a shared store) is <strong>planned but not built</strong>: see its prompt file for the plan. The next prompt file is <strong><code>028_…</code></strong>.</p>
+<h2>The assignment (one line)</h2>
+<p>Zuper take-home (Senior AI-Native Product Designer): design how a roofing crew takes job photos and how the office
+finds and shares them as proof. Deliverables: <strong>prototype link</strong> (crew phone + one office or customer view) and a
+<strong>process log</strong> (prompts that mattered, what was thrown away, where the AI got it wrong). Brief: <a href="https://spd-take-home.vercel.app/" target="_blank" rel="noopener">https://spd-take-home.vercel.app/</a></p>
+<h2>What exists</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Where</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Requirements, assumptions, UX plan</td>
+<td><code>docs/01</code>–<code>03</code></td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Crew and office flows plus SVG diagrams</td>
+<td><code>docs/04</code>, <code>docs/05</code>, <code>docs/diagrams/</code></td>
+<td>Done</td>
+</tr>
+<tr>
+<td>Usability check (6 points, evidence)</td>
+<td><code>docs/06-usability-check.md</code></td>
+<td>Done, all pass</td>
+</tr>
+<tr>
+<td><strong>React crew app</strong> (main prototype)</td>
+<td><code>app/roofing-crew-mobile/</code></td>
+<td>Working, tested at 320/375px</td>
+</tr>
+<tr>
+<td><strong>Office portal + customer page</strong></td>
+<td>same app, <code>?view=office</code> / <code>?view=share</code> (<code>src/office/</code>)</td>
+<td>Dashboard with 4 key metrics → job review page (job · required photos · missing/questionable · trust · next) → photo panel with approve / reject → compare → share. Prompts 024 and 026, tested at 1366/375/320px</td>
+</tr>
+<tr>
+<td>Claude Design canvas (earlier prototype)</td>
+<td><code>prototype/crew-mobile/</code> · <a href="https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz" target="_blank" rel="noopener">https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz</a> (v19, private)</td>
+<td>Older flow; Manrope font. Not updated with the later Home/Jobs redesign</td>
+</tr>
+<tr>
+<td>Process log</td>
+<td><code>process-log/PROCESS_LOG.md</code>, <code>process-log/prompts/001–026</code>, <code>TOOLS_AND_SKILLS.md</code></td>
+<td>Up to date</td>
+</tr>
+</tbody></table></div>
+<h2>React app at a glance</h2>
+<ul>
+<li>Run: <code>npm --prefix app/roofing-crew-mobile run dev</code> (preview config: <code>.claude/launch.json</code>, name <code>roofing-crew-mobile</code>).
+Jump to any screen with <code>?state=</code> (list in <code>app/roofing-crew-mobile/README.md</code>).</li>
+<li><strong>Home:</strong> Today&#39;s progress (live) → Quick actions (2×2: Today / My schedule / Action required / For my review; each opens its own page) → My schedule (by day, Next up card).</li>
+<li><strong>Tabs:</strong> Home · Jobs · Photos · Profile (bottom nav; hidden only during full-screen capture).</li>
+<li><strong>Jobs</strong> → <strong>Job detail</strong> (Overview / Photo diary / Work order / Assets).</li>
+<li><strong>Capture:</strong> simulated camera + Gallery + phone camera → quality check (real on actual photos) → Retake / Choose a different photo → note and tags → Save to job folder (toast) → uploads (simulated).</li>
+<li><strong>Style:</strong> Manrope; page bg <code>#F5F5F7</code>; headings <code>#2B2826</code>, labels <code>#3D3A37</code>, sub text <code>#514F4D</code>; blue primary; green / orange / red / blue status tints; text plus icon, never colour alone; 44px targets.</li>
+<li><strong>Honesty rule:</strong> no GPS, &quot;verified&quot; or original-file claims; demo photos and uploads are labelled as simulated.</li>
+</ul>
+<h2>Not done yet / likely next</h2>
+<ul>
+<li><del>Office or customer view</del>: built (prompt 024). It leaves out the doc 05 GPS map, &quot;Verified&quot; badges and AI tag confirmation (not built in the crew app).</li>
+<li>Deploy the prototype to a shareable link, and share the Design canvas if it&#39;s used.</li>
+<li>Fill the &quot;My notes&quot; sections in the prompt files; write the UX case study from the process log.</li>
+<li>Optional: update the Design canvas to match the current React app.</li>
+</ul>
+<h2>Working agreements with the user</h2>
+<ul>
+<li>Log <strong>every</strong> prompt verbatim (see <code>CLAUDE.md</code>). Commit only when asked, ending with the Co-Authored-By line.</li>
+<li>The user often invokes Figma skills, but the target has been the <strong>React app</strong> (no Figma file exists).</li>
+<li>Test changes in the browser preview at phone size before reporting.</li>
+</ul>
+</article>
+</main>
+<footer class="footer">
+  <p>Generated on 2026-10-25 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
+</footer>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>
