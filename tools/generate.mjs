@@ -335,12 +335,10 @@ function promptCard(p) {
     <summary>What the AI produced <span class="muted">(recorded in the prompt file${p.rest.length ? `: ${p.rest.map((s) => esc(s.heading)).join(', ')}` : ''})</span></summary>
     ${p.rest.map((s) => `<section class="prompt__sub"><h5>${esc(s.heading)}</h5>${s.html}</section>`).join('\n') || UNDOC('No AI output is recorded for this prompt.')}
   </details>
-  <section class="prompt__block" id="p-${p.num}-notes">
+  ${p.filledNotes.length ? `<section class="prompt__block" id="p-${p.num}-notes">
     <h4 class="label">My notes: kept · changed / overruled · thrown away</h4>
-    ${p.filledNotes.length
-      ? `<ul>${p.filledNotes.map((n) => `<li><strong>${esc(n.label)}:</strong> ${esc(n.text)}</li>`).join('')}</ul>`
-      : UNDOC('The “My notes” section in this prompt file was left blank.')}
-  </section>
+    <ul>${p.filledNotes.map((n) => `<li><strong>${esc(n.label)}:</strong> ${esc(n.text)}</li>`).join('')}</ul>
+  </section>` : ''}
   <p class="prompt__source">Source: <a href="sources/prompts/${esc(p.file)}" target="_blank" rel="noopener"><code>process-log/prompts/${esc(p.file)}</code> · view original file</a></p>
 </article>`
 }
@@ -437,9 +435,9 @@ const indexBody = `
     ${TO_CONFIRM.length ? `<li><strong>Confirm the “record screen” reading.</strong> The AI read “record screen” in the first prompt as “screens to design”, and the AI-errors row is still marked <em>To confirm</em> (<a href="#p-001">prompt 001</a>, <a href="#wrong">AI-errors table</a>).</li>` : ''}
     ${placeholderEntries.length ? `<li><strong>Fill in “AI got wrong / I overruled”</strong> for the define-stage entries still showing a placeholder: ${placeholderEntries.map((e) => `<a href="#p-${e.prompts[0]}">${e.prompts[0]}</a>`).join(', ')}.</li>` : ''}
     <li><strong>Write your own final reflection.</strong> The <a href="#reflection">reflection</a> is drafted from the log only.</li>
-    <li><strong>My notes for <a href="#p-002-notes">prompt 002</a></strong>, facts vs guesses: the step that reframed the brief.</li>
-    <li><strong>My notes for <a href="#p-008-notes">prompt 008</a> and <a href="#p-024-notes">024</a></strong>, the honesty rule: why GPS and “Verified” were left out.</li>
-    <li><strong>My notes for <a href="#p-022-notes">prompt 022</a> and <a href="#p-026-notes">026</a></strong>, the usability audit and the office review workflow.</li>
+    <li><strong>My notes for <a href="#p-002">prompt 002</a></strong>, facts vs guesses: the step that reframed the brief.</li>
+    <li><strong>My notes for <a href="#p-008">prompt 008</a> and <a href="#p-024">024</a></strong>, the honesty rule: why GPS and “Verified” were left out.</li>
+    <li><strong>My notes for <a href="#p-022">prompt 022</a> and <a href="#p-026">026</a></strong>, the usability audit and the office review workflow.</li>
   </ol>
 </section>
 
