@@ -45,11 +45,11 @@ interview walk-through. The brief asks for three things, which have their own se
     <span class="undoc" data-prototype-missing><span class="undoc__tag">Undocumented</span> The deployed prototype URL is not recorded in the repository. Add it in <code>assets/config.js</code>.</span>
   </div>
   <dl class="stats">
-    <div><dt>Prompts logged</dt><dd>27</dd></div>
+    <div><dt>Prompts logged</dt><dd>29</dd></div>
     <div><dt>Working days</dt><dd>2</dd><dd class="stats__sub">2026-10-24 – 2026-10-25</dd></div>
-    <div><dt>Commits</dt><dd>12</dd></div>
-    <div><dt>AI errors logged</dt><dd>15</dd></div>
-    <div><dt>“My notes” filled</dt><dd>0 of 27</dd></div>
+    <div><dt>Commits</dt><dd>14</dd></div>
+    <div><dt>AI errors logged</dt><dd>17</dd></div>
+    <div><dt>“My notes” filled</dt><dd>0 of 29</dd></div>
   </dl>
 </section>
 
@@ -63,15 +63,15 @@ interview walk-through. The brief asks for three things, which have their own se
   <h2 id="log-title">Chronological process log</h2>
   <p>Every prompt in order, quoted exactly from its prompt file, with the matching process-log entry. “What the AI produced” is the record kept in each prompt file; it was written during the work with the AI, so treat it as the AI’s account. My own notes are shown where I wrote them.</p>
   <div class="filters" role="group" aria-label="Filter prompts">
-    <button type="button" class="chip" aria-pressed="true" data-phase="all">All <span>27</span></button>
+    <button type="button" class="chip" aria-pressed="true" data-phase="all">All <span>29</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="0">0 · Understand <span>1</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="1">1 · Define <span>6</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="3">3 · Prototype <span>17</span></button>
-    <button type="button" class="chip" aria-pressed="false" data-phase="4">4 · Test &amp; refine <span>3</span></button>
+    <button type="button" class="chip" aria-pressed="false" data-phase="4">4 · Test &amp; refine <span>5</span></button>
     <label class="search"><span class="visually-hidden">Search prompts</span><input type="search" placeholder="Search prompts and outputs" data-search-input></label>
     <button type="button" class="link" data-toggle-all>Expand all AI outputs</button>
   </div>
-  <p class="count" role="status" aria-live="polite" data-count>27 prompts</p>
+  <p class="count" role="status" aria-live="polite" data-count>29 prompts</p>
   <div class="prompts">
     <h3 class="day">2026-10-24</h3>
 <article class="prompt" id="p-001" data-phase="0" data-search="# prompt 001: kickoff: read and break down the brief
@@ -2918,6 +2918,235 @@ reached before any code changed.</li>
   </section>
   <p class="prompt__source">Source: <code>process-log/prompts/027_2026-10-25_connect-crew-office.md</code></p>
 </article>
+<article class="prompt" id="p-028" data-phase="4" data-search="# prompt 028: static metrics, job cards, start review in the job card
+
+- **date:** 2026-10-25
+- **input type:** text prompt (via `/figma-generate-design`), likely dictated by voice
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview
+- **phase:** 4 · test &amp; refine (office view)
+
+## prompt (verbatim)
+
+&gt; from office team dashboard, we have key metrics, then review now card. after that, all jobs are there. so once you click on the key metrics, each key metrics goes to different section. no need to go for different section. remove the navigation from the key metrics. just add the key metrics only. but after that, they have review now card. that should be there. so after that, all jobs are there, including search bar, and it's like a table format. can you convert into card format? so it is easy to scan from the user end. so convert into card format. then once you click on the review now, user can able to see the photos, how many photos they're uploaded, how many are record, those details are there. but there are one card is there. on the card, some details are there: job, date, crew, your view, review, everything is there. and there are there is a button called selected photos to share. so near to, i mean, beside that, can you add that button called start review? because it is in this after scroll, you can able to see the start review button. but can you change the perspective of what do next? so that card, and it is mismatching in the file. can you change that card? because start review is important for here. so as a office team, they have to review the things. so for that, that is important. so how are you going to change that as intuitive and seamless experience for the office team?
+
+## how the ai read it
+- `/figma-generate-design` was invoked, but there is no figma file, so (as before) the change went into the react office portal.
+
+## what the ai did
+- **dashboard:**
+  - **key metrics:** now read-only. they no longer filter the job list.
+  - **review now card:** kept.
+  - **all jobs:** rows became **cards** in a 3 / 2 / 1-column grid. each card shows the job id, a status chip, the address, the job type, the date and the photo count. jobs needing review come first. only hr-2041 opens; the others say &quot;photos not in this demo&quot;.
+- **job card on the review page:**
+  - **start review** is now the primary button beside *select photos to share*, which became secondary. the button changes from *continue review · n left* to *mark job reviewed* and then *job reviewed*.
+  - a **review progress** bar shows approved and rejected out of 15.
+  - &quot;your review&quot; in the facts row became &quot;photos: received · uploading · skipped&quot;.
+  - on phones, start review sits above share.
+- **what to do next:**
+  - **the review comes first:** it now leads with a blue review row (start / continue / mark reviewed) instead of a list item.
+  - **follow-ups:** the rest share one style: a tinted icon, the text, and a consistent link-style action (*open photo ›*, *compare ›*). this replaces the mix of large primary and secondary buttons.
+- **fixed while testing:** the violet &quot;total jobs&quot; metric showed a dark border, because the stylesheet load order overrode its colour. it was not a &quot;selected&quot; state.
+- **tested:** desktop at 1366px, phones at 320px.
+  - dashboard cards: no overflow
+  - start review → approve → *continue review · 14 left* → all decided → *mark job reviewed* → *job reviewed*
+
+## where the ai got it wrong
+- the violet metric's dark border existed since prompt 026. i read it as a selected state and didn't catch it until now.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the office dashboard and start review changes with the log updates.
+
+- committed the office changes and the log updates. prompt 027's plan file and its timeline entry went in too, because the log links to them.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">028</span>
+    <div>
+      <h3 class="prompt__title">Static metrics, job cards, Start review in the job card</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt (via `/figma-generate-design`), likely dictated by voice</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (office view)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">From Office team dashboard, we have key metrics, then review now card. After that, all jobs are there. So once you click on the key metrics, each key metrics goes to different section. No need to go for different section. Remove the navigation from the key metrics. Just add the key metrics only. But after that, they have review now card. That should be there. So after that, all jobs are there, including search bar, and it's like a table format. Can you convert into card format? So it is easy to scan from the user end. So convert into card format. Then once you click on the review now, user can able to see the photos, how many photos they're uploaded, how many are record, those details are there. But there are one card is there. On the card, some details are there: job, date, crew, your view, review, everything is there. And there are there is a button called selected photos to share. So near to, I mean, beside that, can you add that button called start review? Because it is in this after scroll, you can able to see the start review button. But can you change the perspective of what do next? So that card, and it is mismatching in the file. Can you change that card? Because start review is important for here. So as a office team, they have to review the things. So for that, that is important. So how are you going to change that as intuitive and seamless experience for the office team?</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Static metrics, job cards, Start review up front</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-028">Prompt 028</a> (text)</li>
+<li><strong>What happened:</strong><ul>
+<li><strong>Dashboard:</strong> the metrics are now read-only, and the job table became scannable cards with jobs needing review first.</li>
+<li><strong>Job review page:</strong> <strong>Start review</strong> sits beside Share, with a review progress bar in the job card. &quot;What to do next&quot; leads with the review, and its follow-ups share one style.</li>
+</ul>
+</li>
+<li><strong>Key decision:</strong> The review is the office&#39;s main task, so its action lives in the job card. It always shows the next step: Start, then Continue, then Mark reviewed.</li>
+<li><strong>AI got wrong / I overruled:</strong> A dark border on the violet metric card, there since prompt 026, came from stylesheet load order. Fixed.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: How the AI read it, What the AI did, Where the AI got it wrong, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>How the AI read it</h5><ul>
+<li><code>/figma-generate-design</code> was invoked, but there is no Figma file, so (as before) the change went into the React office portal.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Dashboard:</strong><ul>
+<li><strong>Key metrics:</strong> now read-only. They no longer filter the job list.</li>
+<li><strong>Review now card:</strong> kept.</li>
+<li><strong>All jobs:</strong> rows became <strong>cards</strong> in a 3 / 2 / 1-column grid. Each card shows the job ID, a status chip, the address, the job type, the date and the photo count. Jobs needing review come first. Only HR-2041 opens; the others say &quot;Photos not in this demo&quot;.</li>
+</ul>
+</li>
+<li><strong>Job card on the review page:</strong><ul>
+<li><strong>Start review</strong> is now the primary button beside <em>Select photos to share</em>, which became secondary. The button changes from <em>Continue review · N left</em> to <em>Mark job reviewed</em> and then <em>Job reviewed</em>.</li>
+<li>A <strong>review progress</strong> bar shows approved and rejected out of 15.</li>
+<li>&quot;Your review&quot; in the facts row became &quot;Photos: received · uploading · skipped&quot;.</li>
+<li>On phones, Start review sits above Share.</li>
+</ul>
+</li>
+<li><strong>What to do next:</strong><ul>
+<li><strong>The review comes first:</strong> it now leads with a blue review row (Start / Continue / Mark reviewed) instead of a list item.</li>
+<li><strong>Follow-ups:</strong> the rest share one style: a tinted icon, the text, and a consistent link-style action (<em>Open photo ›</em>, <em>Compare ›</em>). This replaces the mix of large primary and secondary buttons.</li>
+</ul>
+</li>
+<li><strong>Fixed while testing:</strong> the violet &quot;Total jobs&quot; metric showed a dark border, because the stylesheet load order overrode its colour. It was not a &quot;selected&quot; state.</li>
+<li><strong>Tested:</strong> desktop at 1366px, phones at 320px.<ul>
+<li>dashboard cards: no overflow</li>
+<li>Start review → Approve → <em>Continue review · 14 left</em> → all decided → <em>Mark job reviewed</em> → <em>Job reviewed</em></li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Where the AI got it wrong</h5><ul>
+<li>The violet metric&#39;s dark border existed since prompt 026. I read it as a selected state and didn&#39;t catch it until now.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the office dashboard and Start review changes with the log updates.</blockquote>
+<ul>
+<li>Committed the office changes and the log updates. Prompt 027&#39;s plan file and its timeline entry went in too, because the log links to them.</li>
+</ul>
+</section>
+  </details>
+  <section class="prompt__block">
+    <h4 class="label">My notes: kept · changed / overruled · thrown away</h4>
+    <p class="undoc"><span class="undoc__tag">Undocumented</span> The “My notes” section in this prompt file was left blank.</p>
+  </section>
+  <p class="prompt__source">Source: <code>process-log/prompts/028_2026-10-25_office-dashboard-cards-start-review.md</code></p>
+</article>
+<article class="prompt" id="p-029" data-phase="4" data-search="# prompt 029: job tabs on the office dashboard, needs review first
+
+- **date:** 2026-10-25
+- **input type:** text prompt (via `/figma-generate-design`), likely dictated by voice
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview · pptxgenjs + keynote for the deck
+- **phase:** 4 · test &amp; refine (office view)
+
+## prompt (verbatim)
+
+&gt; after review, after review cut, there are all jobs cuts are there. so can you change into tab format, ongoing, completed, needs to review, total job. so can you make it as a tab, and needs to review should be active stage, and others are once you click the particular tab, then only it will show. so again, it should be card format only. and these changes reflect in process log, ux case study, and prototype.
+
+## how the ai read it
+- `/figma-generate-design` was invoked, but there is no figma file, so the change went into the react office portal, as before.
+- &quot;reflect in process log, ux case study and prototype&quot; meant three updates:
+  1. this log entry
+  2. regenerating the process-log website
+  3. rebuilding the case-study deck with a new dashboard screenshot
+
+## what the ai did
+- **prototype:** below the review now card, &quot;all jobs&quot; became **jobs** with four tabs in the key-metrics order:
+  - **tabs:** ongoing · completed · **needs review** · total jobs, each with a count. needs review is selected when the page opens.
+  - **cards:** each tab shows only its own jobs, as cards.
+  - **keyboard:** the tabs follow the aria tab pattern (← / →, home / end).
+  - **search:** searches all jobs, so a job id is never hidden behind the wrong tab, and the count says &quot;found across all tabs&quot;.
+  - **phones:** at narrow widths the tabs turn into a 2 × 2 grid. a scrolling row hid the active tab off-screen at 320px; this was caught in the browser and fixed.
+- **process log:** this file, a timeline entry and a regenerated process-log site.
+- **case study:** recaptured the office dashboard screenshot and updated slide 11. the deck now reads its prompt, commit and ai-error counts from the repository instead of hard-coding them.
+
+## where the ai got it wrong
+- the first version of the tabs scrolled sideways on phones and hid the active tab. found at 320px and fixed with the 2 × 2 grid.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the job tabs, process log, regenerated site and the case-study folder together.
+
+- committed in one commit, including the case-study deck, its build script and screenshots, which were committed for the first time.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">029</span>
+    <div>
+      <h3 class="prompt__title">Job tabs on the office dashboard, Needs review first</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt (via `/figma-generate-design`), likely dictated by voice</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (office view)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview · pptxgenjs + Keynote for the deck</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">after review, after review cut, there are all jobs cuts are there. So can you change into tab format, ongoing, completed, needs to review, total job. So can you make it as a tab, and needs to review should be active stage, and others are once you click the particular tab, then only it will show. So again, it should be card format only. And these changes reflect in process log, UX case study, and prototype.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Job tabs on the office dashboard</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-029">Prompt 029</a> (text)</li>
+<li><strong>What happened:</strong> The job list became tabs with cards (Ongoing, Completed, Needs review, Total jobs), with <strong>Needs review</strong>
+open by default. Search still covers every job. The same change went into the process-log site and the case-study deck.</li>
+<li><strong>Key decision:</strong> Open on the office&#39;s main task (review) instead of every job at once. The tab order matches the key metrics so the two read together.</li>
+<li><strong>AI got wrong / I overruled:</strong> On phones the scrolling tab row hid the active tab. Changed to a 2 × 2 grid.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: How the AI read it, What the AI did, Where the AI got it wrong, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>How the AI read it</h5><ul>
+<li><code>/figma-generate-design</code> was invoked, but there is no Figma file, so the change went into the React office portal, as before.</li>
+<li>&quot;Reflect in process log, UX case study and prototype&quot; meant three updates:<ol>
+<li>this log entry</li>
+<li>regenerating the process-log website</li>
+<li>rebuilding the case-study deck with a new dashboard screenshot</li>
+</ol>
+</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Prototype:</strong> below the Review now card, &quot;All jobs&quot; became <strong>Jobs</strong> with four tabs in the key-metrics order:<ul>
+<li><strong>Tabs:</strong> Ongoing · Completed · <strong>Needs review</strong> · Total jobs, each with a count. Needs review is selected when the page opens.</li>
+<li><strong>Cards:</strong> each tab shows only its own jobs, as cards.</li>
+<li><strong>Keyboard:</strong> the tabs follow the ARIA tab pattern (← / →, Home / End).</li>
+<li><strong>Search:</strong> searches all jobs, so a job ID is never hidden behind the wrong tab, and the count says &quot;found across all tabs&quot;.</li>
+<li><strong>Phones:</strong> at narrow widths the tabs turn into a 2 × 2 grid. A scrolling row hid the active tab off-screen at 320px; this was caught in the browser and fixed.</li>
+</ul>
+</li>
+<li><strong>Process log:</strong> this file, a timeline entry and a regenerated process-log site.</li>
+<li><strong>Case study:</strong> recaptured the office dashboard screenshot and updated slide 11. The deck now reads its prompt, commit and AI-error counts from the repository instead of hard-coding them.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Where the AI got it wrong</h5><ul>
+<li>The first version of the tabs scrolled sideways on phones and hid the active tab. Found at 320px and fixed with the 2 × 2 grid.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the job tabs, process log, regenerated site and the case-study folder together.</blockquote>
+<ul>
+<li>Committed in one commit, including the case-study deck, its build script and screenshots, which were committed for the first time.</li>
+</ul>
+</section>
+  </details>
+  <section class="prompt__block">
+    <h4 class="label">My notes: kept · changed / overruled · thrown away</h4>
+    <p class="undoc"><span class="undoc__tag">Undocumented</span> The “My notes” section in this prompt file was left blank.</p>
+  </section>
+  <p class="prompt__source">Source: <code>process-log/prompts/029_2026-10-25_office-job-tabs.md</code></p>
+</article>
     
   </div>
   
@@ -3046,6 +3275,16 @@ reached before any code changed.</li>
 </thead>
 <tbody><tr>
 <td>2026-10-25</td>
+<td>Office job tabs scrolled sideways on phones and hid the active Needs review tab (prompt 029).</td>
+<td>Caught at 320px; tabs become a 2 × 2 grid on phones.</td>
+</tr>
+<tr>
+<td>2026-10-25</td>
+<td>The violet &quot;Total jobs&quot; metric had a dark border, overridden by stylesheet load order; the AI read it as a selected state (prompt 026).</td>
+<td>Found while reworking the dashboard in prompt 028; fixed with a more specific selector.</td>
+</tr>
+<tr>
+<td>2026-10-25</td>
 <td>Prompt 025 claimed the colour change was everywhere, but the quick-action labels kept a hard-coded grey. Office review: Reject border hidden by CSS order, focus lost after a decision, 320px top bar overflow.</td>
 <td>Found while testing prompt 026; label moved to the token, selector made more specific, focus moved to &quot;Next to review&quot;, brand text hidden under 380px.</td>
 </tr>
@@ -3121,7 +3360,7 @@ reached before any code changed.</li>
 </tr>
 </tbody></table></div>
 </section>
-  <p class="undoc"><span class="undoc__tag">Undocumented</span> Per-prompt “kept / changed / thrown away” notes: 27 of 27 prompt files have this section blank, so decisions beyond the tables above are not documented.</p>
+  <p class="undoc"><span class="undoc__tag">Undocumented</span> Per-prompt “kept / changed / thrown away” notes: 29 of 29 prompt files have this section blank, so decisions beyond the tables above are not documented.</p>
 </section>
 
 <section class="section" id="evidence" aria-labelledby="evidence-title">
@@ -3161,7 +3400,9 @@ reached before any code changed.</li>
 <li><code>3995f12</code><span class="muted">2026-10-25 14:46</span><span>Close capture usability gaps: gallery, replace, save toast, touch targets</span></li>
 <li><code>0e05f79</code><span class="muted">2026-10-25 14:48</span><span>Add session handoff note for continuity</span></li>
 <li><code>b9c9d4a</code><span class="muted">2026-10-25 15:35</span><span>Add office evidence review view and warm text colours</span></li>
-<li><code>28b857e</code><span class="muted">2026-10-25 15:47</span><span>Turn office portal into a review dashboard with approve and reject</span></li></ol>
+<li><code>28b857e</code><span class="muted">2026-10-25 15:47</span><span>Turn office portal into a review dashboard with approve and reject</span></li>
+<li><code>f6ce417</code><span class="muted">2026-10-25 18:19</span><span>Add AI design process log website</span></li>
+<li><code>9859745</code><span class="muted">2026-10-25 18:50</span><span>Put Start review up front in the office portal; show jobs as cards</span></li></ol>
 </section>
 
 <section class="section" id="tools" aria-labelledby="tools-title">
@@ -3258,7 +3499,7 @@ direction (neutral ground, dark text, blue primary, green/amber/red states).</p>
     <li><strong>The AI kept adding things nobody asked for.</strong> An intro panel on desktop, weather above the schedule, a Cards/Table switch, banners repeating the tapped card. Each one was removed by a later prompt (<a href="#p-015">015</a>, <a href="#p-019">019</a>, <a href="#p-020">020</a>).</li>
     <li><strong>Testing in a real browser caught what reading the code didn’t.</strong> A regex cleanup that deleted CSS rules, a photo panel that shrank to nothing on short screens, keyboard focus lost after a decision. All were found at phone size in the browser preview (<a href="#wrong">AI-errors table</a>).</li>
     <li><strong>An honesty rule set at the start held throughout.</strong> No GPS, “verified” or original-file claims unless they were built. The office view dropped the map and Verified badge from its own design because the crew app doesn’t record them (<a href="#p-008">008</a>, <a href="#p-024">024</a>, <a href="#thrown">thrown-away table</a>).</li>
-    <li><strong>Not everything was finished.</strong> Connecting the crew app and office view through shared state was planned but not built (<a href="#p-027">027</a>), and 27 of 27 prompt files still have blank personal notes.</li>
+    <li><strong>Not everything was finished.</strong> Connecting the crew app and office view through shared state was planned but not built (<a href="#p-027">027</a>), and 29 of 29 prompt files still have blank personal notes.</li>
   </ol>
 </section>
 
