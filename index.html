@@ -46,11 +46,11 @@ interview walk-through. The brief asks for three things, which have their own se
     <a class="btn btn--primary" data-prototype-link href="https://zuper-product-designer-role-assignm.vercel.app/" target="_blank" rel="noopener">Open the prototype</a>
   </div>
   <dl class="stats">
-    <div><dt>Prompts logged</dt><dd>30</dd></div>
+    <div><dt>Prompts logged</dt><dd>38</dd></div>
     <div><dt>Working days</dt><dd>2</dd><dd class="stats__sub">2026-10-24 – 2026-10-25</dd></div>
-    <div><dt>Commits</dt><dd>17</dd></div>
-    <div><dt>AI errors logged</dt><dd>18</dd></div>
-    <div><dt>“My notes” filled</dt><dd>0 of 30</dd></div>
+    <div><dt>Commits</dt><dd>33</dd></div>
+    <div><dt>AI errors logged</dt><dd>19</dd></div>
+    <div><dt>“My notes” filled</dt><dd>0 of 38</dd></div>
   </dl>
 </section>
 
@@ -74,7 +74,7 @@ interview walk-through. The brief asks for three things, which have their own se
         <li><a class="summary__ref" href="#p-022">Prompt 022</a> Audit before building. Only the gaps were built, and each fix was re-tested with real files.</li>
         <li><a class="summary__ref" href="#p-028">Prompt 028</a> The review is the office&#39;s main task, so its action lives in the job card. It always shows the next step: Start, then Continue, then Mark reviewed.</li>
       </ol>
-      <a class="summary__more" href="#decisions">All 23 recorded decisions</a>
+      <a class="summary__more" href="#decisions">All 31 recorded decisions</a>
     </section>
     <section class="summary__col" aria-labelledby="sum-discarded">
       <h3 id="sum-discarded">What was thrown away</h3>
@@ -96,14 +96,14 @@ interview walk-through. The brief asks for three things, which have their own se
         <li>Sample data had Priya (insurance claims) scheduling jobs, which is off-persona. <span class="summary__fix">→ Changed to Sean Doyle (PM).</span></li>
         <li>Office job tabs scrolled sideways on phones and hid the active Needs review tab (prompt 029). <span class="summary__fix">→ Caught at 320px; tabs become a 2 × 2 grid on phones.</span></li>
       </ul>
-      <a class="summary__more" href="#wrong">All 18 logged AI errors</a>
+      <a class="summary__more" href="#wrong">All 19 logged AI errors</a>
     </section>
   </div>
 </section>
 
 <section class="section" id="needs-input" aria-labelledby="needs-title">
   <h2 id="needs-title">Needs your input before deployment</h2>
-  <p>The scan found <strong>30 of 30</strong> “My notes” sections blank, <strong>5</strong> timeline placeholders and <strong>1</strong> row marked “To confirm”. These are the ones that matter most. Nothing below has been filled in for you.</p>
+  <p>The scan found <strong>38 of 38</strong> “My notes” sections blank, <strong>5</strong> timeline placeholders and <strong>1</strong> row marked “To confirm”. These are the ones that matter most. Nothing below has been filled in for you.</p>
   <ol class="needs">
     
     <li><strong>Confirm the “record screen” reading.</strong> The AI read “record screen” in the first prompt as “screens to design”, and the AI-errors row is still marked <em>To confirm</em> (<a href="#p-001">prompt 001</a>, <a href="#wrong">AI-errors table</a>).</li>
@@ -145,6 +145,14 @@ interview walk-through. The brief asks for three things, which have their own se
       <tr><td><a href="#p-028">028</a></td><td>The review is the office&#39;s main task, so its action lives in the job card. It always shows the next step: Start, then Continue, then Mark reviewed.</td></tr>
       <tr><td><a href="#p-029">029</a></td><td>Open on the office&#39;s main task (review) instead of every job at once. The tab order matches the key metrics so the two read together.</td></tr>
       <tr><td><a href="#p-030">030</a></td><td>Show gaps instead of filling them. The prototype URL, personal notes and reflection are listed as missing, not invented.</td></tr>
+      <tr><td><a href="#p-031">031</a></td><td>The tiles are already coloured cards, so a second white card around them added nothing.</td></tr>
+      <tr><td><a href="#p-032">032</a></td><td>The reference had no link, so the whole card became the way into the live job. The visible &quot;Continue&quot; link was dropped.</td></tr>
+      <tr><td><a href="#p-033">033</a></td><td>A single token instead of per-screen margins, so the rhythm can&#39;t drift again.</td></tr>
+      <tr><td><a href="#p-034">034</a></td><td>One visual for one number. The ring replaces both the big figure and the bar.</td></tr>
+      <tr><td><a href="#p-035">035</a></td><td>Items that aren&#39;t built (Schedule, Customers, Settings, Log out) are shown but say &quot;isn&#39;t part of this prototype&quot; when tapped, so they don&#39;t pretend to work.</td></tr>
+      <tr><td><a href="#p-036">036</a></td><td>Keep 16px side padding on phones, in line with the crew app&#39;s mobile spacing.</td></tr>
+      <tr><td><a href="#p-037">037</a></td><td>The title names how the card is organised (status tabs) rather than repeating &quot;Jobs&quot;.</td></tr>
+      <tr><td><a href="#p-038">038</a></td><td>The office&#39;s main task leads the page; the numbers follow.</td></tr>
     </tbody>
   </table></div>
   <h3>Before / after: the usability check</h3>
@@ -235,16 +243,16 @@ interview walk-through. The brief asks for three things, which have their own se
   <h2 id="log-title">Chronological process log</h2>
   <p>Every prompt in order, quoted exactly from its prompt file, with the matching process-log entry. “What the AI produced” is the record kept in each prompt file; it was written during the work with the AI, so treat it as the AI’s account. My own notes are shown where I wrote them.</p>
   <div class="filters" role="group" aria-label="Filter prompts">
-    <button type="button" class="chip" aria-pressed="true" data-phase="all">All <span>30</span></button>
+    <button type="button" class="chip" aria-pressed="true" data-phase="all">All <span>38</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="0">0 · Understand <span>1</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="1">1 · Define <span>6</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="3">3 · Prototype <span>17</span></button>
-    <button type="button" class="chip" aria-pressed="false" data-phase="4">4 · Test &amp; refine <span>5</span></button>
+    <button type="button" class="chip" aria-pressed="false" data-phase="4">4 · Test &amp; refine <span>13</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="5">5 · Submit <span>1</span></button>
     <label class="search"><span class="visually-hidden">Search prompts</span><input type="search" placeholder="Search prompts and outputs" data-search-input></label>
     <button type="button" class="link" data-toggle-all>Expand all AI outputs</button>
   </div>
-  <p class="count" role="status" aria-live="polite" data-count>30 prompts</p>
+  <p class="count" role="status" aria-live="polite" data-count>38 prompts</p>
   <div class="prompts">
     <h3 class="day">2026-10-24</h3>
 <article class="prompt" id="p-001" data-phase="0" data-search="# prompt 001: kickoff: read and break down the brief
@@ -3353,6 +3361,707 @@ prototype screenshots, links to every original file, and a link / verbatim / pla
   
   <p class="prompt__source">Source: <a href="sources/prompts/030_2026-10-25_improve-process-log-site.md" target="_blank" rel="noopener"><code>process-log/prompts/030_2026-10-25_improve-process-log-site.md</code> · view original file</a></p>
 </article>
+<article class="prompt" id="p-031" data-phase="4" data-search="# prompt 031: quick actions above today's progress, without a card
+
+- **date:** 2026-10-25
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview
+- **phase:** 4 · test &amp; refine (crew app)
+
+## prompt (verbatim)
+
+&gt; from crew mobile app application on the home page, there is a quick action card. so it should be above today's progress card. and remove the background of quick actions, white color and stroke.
+
+## what the ai did
+- **home order** (`homescreen.jsx`): greeting → **quick actions** → today's progress → my schedule.
+- **quick actions:** removed the white card behind them (background, border and shadow). the title and the four coloured tiles now sit directly on the `#f5f5f7` page, lined up with the cards below. the tiles themselves are unchanged.
+- **tested** at 375 and 320px: quick actions sit above progress, with no wrapper background, border or shadow, no sideways scrolling, and tapping **today** still opens its page.
+- **app readme:** the home description now matches the new order.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the home change and log, regenerate the process-log site, and commit that too.
+
+- committed the app change and the log, then regenerated the process-log site and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">031</span>
+    <div>
+      <h3 class="prompt__title">Quick actions above Today's progress, without a card</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (crew app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">from crew mobile app application on the home page, there is a quick action card. So it should be above today's progress card. And remove the background of quick actions, white color and stroke.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Quick actions first on crew Home</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-031">Prompt 031</a> (text)</li>
+<li><strong>What happened:</strong> Quick actions moved above Today&#39;s progress, and their white card (background, border, shadow)
+was removed so the four tiles sit directly on the page.</li>
+<li><strong>Key decision:</strong> The tiles are already coloured cards, so a second white card around them added nothing.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: What the AI did, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Home order</strong> (<code>HomeScreen.jsx</code>): greeting → <strong>Quick actions</strong> → Today&#39;s progress → My schedule.</li>
+<li><strong>Quick actions:</strong> removed the white card behind them (background, border and shadow). The title and the four coloured tiles now sit directly on the <code>#F5F5F7</code> page, lined up with the cards below. The tiles themselves are unchanged.</li>
+<li><strong>Tested</strong> at 375 and 320px: quick actions sit above progress, with no wrapper background, border or shadow, no sideways scrolling, and tapping <strong>Today</strong> still opens its page.</li>
+<li><strong>App README:</strong> the Home description now matches the new order.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the Home change and log, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed the app change and the log, then regenerated the process-log site and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/031_2026-10-25_quick-actions-above-progress.md" target="_blank" rel="noopener"><code>process-log/prompts/031_2026-10-25_quick-actions-above-progress.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-032" data-phase="4" data-search="# prompt 032: restyle today's progress from a reference image
+
+- **date:** 2026-10-25
+- **input type:** text prompt with an attached reference image (screenshot of a progress card)
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview
+- **phase:** 4 · test &amp; refine (crew app)
+
+## prompt (verbatim)
+
+&gt; today's progress card in the homepage crew application. change the structure or style into what i have attached now. similar to or similar inspiration you can take and design the today's progress card.
+
+## the reference (as attached)
+a white rounded card with these parts:
+- &quot;today's progress&quot; in small grey capitals
+- &quot;1 of 3 jobs complete&quot; in bold, with a large blue &quot;33%&quot; on the right
+- a slim blue progress bar on a light grey track
+- a grey footer with &quot;8:12 am started&quot; on the left and &quot;5 photos uploaded&quot; on the right
+
+the image is not stored in the repository.
+
+## what the ai did
+- **new layout** (`homescreen.jsx`): label and headline on the left, a large blue percentage on the right, then a slim progress bar, then a footer with the start time and photos uploaded. all the numbers are still live (jobs complete, %, start time, photos uploaded).
+- **removed:** the old progress ring, the green top stroke, the two tinted stat tiles, and the visible &quot;continue 14 elm street&quot; link.
+- **the whole card is now a button** that opens the live job. a full spoken label covers screen readers (&quot;today's progress: 1 of 3 jobs complete, 33%. started 8:12 am, 5 photos uploaded. open 14 elm street.&quot;).
+- **motion:** the bar animates its width, except when the phone is set to reduce motion.
+- **tested at 375 and 320px:**
+  - the card matches the reference layout
+  - nothing scrolls sideways
+  - the footer stays on one line
+  - tapping the card opens 14 elm street
+- **app readme:** the home description is updated.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the progress card change and log, regenerate the process-log site, and commit that too.
+
+- committed the app change and the log, then regenerated the process-log site and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">032</span>
+    <div>
+      <h3 class="prompt__title">Restyle Today's progress from a reference image</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt with an attached reference image (screenshot of a progress card)</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (crew app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">Today's progress card in the homepage crew application. Change the structure or style into what I have attached now. Similar to or similar inspiration you can take and design the today's progress card.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Today's progress card restyled from a reference</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-032">Prompt 032</a> (text + reference image)</li>
+<li><strong>What happened:</strong> Rebuilt the crew Home progress card after my reference. It has the label and headline, a large blue
+percentage on the right, a slim progress bar, and a quiet footer with the start time and photos uploaded. The ring and the two tinted stat tiles are gone.</li>
+<li><strong>Key decision:</strong> The reference had no link, so the whole card became the way into the live job. The visible &quot;Continue&quot; link was dropped.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: The reference (as attached), What the AI did, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>The reference (as attached)</h5><p>A white rounded card with these parts:</p>
+<ul>
+<li>&quot;TODAY&#39;S PROGRESS&quot; in small grey capitals</li>
+<li>&quot;1 of 3 jobs complete&quot; in bold, with a large blue &quot;33%&quot; on the right</li>
+<li>a slim blue progress bar on a light grey track</li>
+<li>a grey footer with &quot;8:12 AM started&quot; on the left and &quot;5 photos uploaded&quot; on the right</li>
+</ul>
+<p>The image is not stored in the repository.</p>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>New layout</strong> (<code>HomeScreen.jsx</code>): label and headline on the left, a large blue percentage on the right, then a slim progress bar, then a footer with the start time and photos uploaded. All the numbers are still live (jobs complete, %, start time, photos uploaded).</li>
+<li><strong>Removed:</strong> the old progress ring, the green top stroke, the two tinted stat tiles, and the visible &quot;Continue 14 Elm Street&quot; link.</li>
+<li><strong>The whole card is now a button</strong> that opens the live job. A full spoken label covers screen readers (&quot;Today&#39;s progress: 1 of 3 jobs complete, 33%. Started 8:12 AM, 5 photos uploaded. Open 14 Elm Street.&quot;).</li>
+<li><strong>Motion:</strong> the bar animates its width, except when the phone is set to reduce motion.</li>
+<li><strong>Tested at 375 and 320px:</strong><ul>
+<li>the card matches the reference layout</li>
+<li>nothing scrolls sideways</li>
+<li>the footer stays on one line</li>
+<li>tapping the card opens 14 Elm Street</li>
+</ul>
+</li>
+<li><strong>App README:</strong> the Home description is updated.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the progress card change and log, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed the app change and the log, then regenerated the process-log site and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/032_2026-10-25_progress-card-from-reference.md" target="_blank" rel="noopener"><code>process-log/prompts/032_2026-10-25_progress-card-from-reference.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-033" data-phase="4" data-search="# prompt 033: consistent spacing between cards and sections
+
+- **date:** 2026-10-25
+- **input type:** text prompt, then a correction mid-task
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview
+- **phase:** 4 · test &amp; refine (crew app + office web app)
+
+## prompt (verbatim)
+
+&gt; gap between all the codes one after one . it should be 24 pixels. so the consistency should be everywhere, not only home page, it should be all the pages. including the web app also.
+
+## correction (verbatim, sent while the work was in progress)
+
+&gt; the gap between section to section and cards, it should be 16 pixel, because 24 pixel is huge, the white space are more, so reduce into 16 pixel. it should be applicable for only the mobile version.
+
+## how the ai read it
+- &quot;codes&quot; was read as &quot;cards&quot;.
+- the correction applies to the crew **mobile** app (16px). the office **web** app keeps the 24px from the first prompt.
+
+## what the ai did
+- **measured first.** a script ran in the browser on every crew screen and the office pages. card-to-card gaps were 8, 10, 12 or 14px depending on the screen.
+- **one token, `--card-gap`:**
+  - **16px in the crew app:** quick-action tiles, home cards, job lists, shot list, uploads, tasks, timeline, job detail, jobs metrics and crew cards, profile stats, and section headings (which now start 16px below the card above). also the extra 4px under the jobs header.
+  - **24px in the office web app and customer page** (scoped to `.office, .share`): page sections, the 2 × 2 review cards, key metrics, job cards, photo evidence cards, and customer share groups.
+  - **unchanged:** spacing inside cards (rows, chips, photo thumbnails).
+- **narrow phones:** at 320px the profile stats no longer fitted &quot;completed&quot;, so below 360px they now stack one per row with the number beside the label.
+- **re-measured all pages:**
+  - **crew app** (375 and 320px): every card-to-card gap is 16px. the only larger gaps have a section heading in between.
+  - **office** (1366 and 375px): every card-to-card gap is 24px, apart from the photo groups, which have a heading in between.
+  - no horizontal overflow anywhere.
+- **readme and handoff:** both now describe the token.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the spacing change and log, regenerate the process-log site, and commit that too.
+
+- committed the app change and the log, then regenerated the process-log site and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">033</span>
+    <div>
+      <h3 class="prompt__title">Consistent spacing between cards and sections</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt, then a correction mid-task</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (crew app + office web app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">gap between all the codes one after one . It should be 24 pixels. So the consistency should be everywhere, not only home page, it should be all the pages. Including the web app also.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: One spacing rule for cards and sections</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-033">Prompt 033</a> (text, then a correction)</li>
+<li><strong>What happened:</strong><ul>
+<li>Card-to-card spacing was a mix of 8, 10, 12 and 14px across screens.</li>
+<li>Added one <code>--card-gap</code> token. I first asked for 24px everywhere, then cut the crew mobile app to <strong>16px</strong> because 24px left too much white space. The office web app and customer page stay at <strong>24px</strong>.</li>
+<li>Every page was measured with a script after the change.</li>
+</ul>
+</li>
+<li><strong>Key decision:</strong> A single token instead of per-screen margins, so the rhythm can&#39;t drift again.</li>
+<li><strong>AI got wrong / I overruled:</strong> 24px everywhere was my first call; on the phone it was too airy, so I overruled it to 16px. The wider gaps also pushed the profile stats out of their boxes at 320px, now one per row on narrow phones.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: Correction (verbatim, sent while the work was in progress), How the AI read it, What the AI did, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>Correction (verbatim, sent while the work was in progress)</h5><blockquote class="verbatim">the gap between section to section and cards, it should be 16 pixel, because 24 pixel is huge, the white space are more, so reduce into 16 pixel. It should be applicable for only the mobile version.</blockquote></section>
+<section class="prompt__sub"><h5>How the AI read it</h5><ul>
+<li>&quot;codes&quot; was read as &quot;cards&quot;.</li>
+<li>The correction applies to the crew <strong>mobile</strong> app (16px). The office <strong>web</strong> app keeps the 24px from the first prompt.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Measured first.</strong> A script ran in the browser on every crew screen and the office pages. Card-to-card gaps were 8, 10, 12 or 14px depending on the screen.</li>
+<li><strong>One token, <code>--card-gap</code>:</strong><ul>
+<li><strong>16px in the crew app:</strong> quick-action tiles, Home cards, job lists, shot list, uploads, tasks, timeline, job detail, Jobs metrics and crew cards, profile stats, and section headings (which now start 16px below the card above). Also the extra 4px under the Jobs header.</li>
+<li><strong>24px in the office web app and customer page</strong> (scoped to <code>.office, .share</code>): page sections, the 2 × 2 review cards, key metrics, job cards, photo evidence cards, and customer share groups.</li>
+<li><strong>Unchanged:</strong> spacing inside cards (rows, chips, photo thumbnails).</li>
+</ul>
+</li>
+<li><strong>Narrow phones:</strong> at 320px the profile stats no longer fitted &quot;completed&quot;, so below 360px they now stack one per row with the number beside the label.</li>
+<li><strong>Re-measured all pages:</strong><ul>
+<li><strong>Crew app</strong> (375 and 320px): every card-to-card gap is 16px. The only larger gaps have a section heading in between.</li>
+<li><strong>Office</strong> (1366 and 375px): every card-to-card gap is 24px, apart from the photo groups, which have a heading in between.</li>
+<li>No horizontal overflow anywhere.</li>
+</ul>
+</li>
+<li><strong>README and handoff:</strong> both now describe the token.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the spacing change and log, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed the app change and the log, then regenerated the process-log site and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/033_2026-10-25_card-spacing-token.md" target="_blank" rel="noopener"><code>process-log/prompts/033_2026-10-25_card-spacing-token.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-034" data-phase="4" data-search="# prompt 034: show today's percentage as a ring
+
+- **date:** 2026-10-25
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview
+- **phase:** 4 · test &amp; refine (crew app)
+
+## prompt (verbatim)
+
+&gt; today's progress card, there is a percentage of 33%. it should be show it as data visualization, something like circle way. inside the circle we can show the 33%. so and reduce the little bit font size of the 33%.
+
+## what the ai did
+- **new ring** (`homescreen.jsx`): a `progressring` component, a 68px blue donut on a light grey track with the percentage in the middle.
+  - **percentage size:** reduced from 30px to 16px.
+  - **live value:** the ring fills from the live value (33% = 1 of 3 jobs).
+  - **motion:** it animates unless the phone is set to reduce motion.
+- **removed the horizontal progress bar**, so the same number isn't drawn twice. this wasn't asked for; it's noted in case you want the bar back.
+- **layout:** the headline sits beside the ring, and the footer (start time, photos uploaded) stays. screen readers still hear the card's full label. tapping the card still opens the job.
+- **tested:** at 375px the ring sits beside the headline. at 320px there's no overflow, and the headline wraps onto two lines beside the ring.
+- **app readme:** the home description is updated.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the progress ring change and log, regenerate the process-log site, and commit that too.
+
+- committed the app change and the log, then regenerated the process-log site and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">034</span>
+    <div>
+      <h3 class="prompt__title">Show today's percentage as a ring</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (crew app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">Today's progress card, there is a percentage of 33%. It should be show it as data visualization, something like circle way. Inside the circle we can show the 33%. So and reduce the little bit font size of the 33%.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Progress shown as a ring</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-034">Prompt 034</a> (text)</li>
+<li><strong>What happened:</strong> The large &quot;33%&quot; on Today&#39;s progress became a blue donut ring with the percentage inside, in a
+smaller font (16px, down from 30px). The horizontal bar was removed so the same number isn&#39;t drawn twice.</li>
+<li><strong>Key decision:</strong> One visual for one number. The ring replaces both the big figure and the bar.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: What the AI did, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>New ring</strong> (<code>HomeScreen.jsx</code>): a <code>ProgressRing</code> component, a 68px blue donut on a light grey track with the percentage in the middle.<ul>
+<li><strong>Percentage size:</strong> reduced from 30px to 16px.</li>
+<li><strong>Live value:</strong> the ring fills from the live value (33% = 1 of 3 jobs).</li>
+<li><strong>Motion:</strong> it animates unless the phone is set to reduce motion.</li>
+</ul>
+</li>
+<li><strong>Removed the horizontal progress bar</strong>, so the same number isn&#39;t drawn twice. This wasn&#39;t asked for; it&#39;s noted in case you want the bar back.</li>
+<li><strong>Layout:</strong> the headline sits beside the ring, and the footer (start time, photos uploaded) stays. Screen readers still hear the card&#39;s full label. Tapping the card still opens the job.</li>
+<li><strong>Tested:</strong> at 375px the ring sits beside the headline. At 320px there&#39;s no overflow, and the headline wraps onto two lines beside the ring.</li>
+<li><strong>App README:</strong> the Home description is updated.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the progress ring change and log, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed the app change and the log, then regenerated the process-log site and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/034_2026-10-25_progress-ring.md" target="_blank" rel="noopener"><code>process-log/prompts/034_2026-10-25_progress-ring.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-035" data-phase="4" data-search="# prompt 035: office navigation as a sidebar; jobs section as a card
+
+- **date:** 2026-10-25
+- **input type:** text prompt (followed by &quot;try again&quot; after a tool interruption)
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview
+- **phase:** 4 · test &amp; refine (office web app)
+
+## prompt (verbatim)
+
+&gt; from office team dashboard, can you make it navbar as a sidebar? office, dashboard, schedule, customers, these are the options are there. can you add other option called settings, logout? so it should be in the sidebar, and background also same as how it is there in the horizontal way, it should be in the vertical way. and one more thing, below review now card, there are jobs section. so it should be designed a way, something like how the other card designed. i mean, background is white and it should be stroke as well, and should be maintenance consistency as well.
+
+&gt; try again
+
+## what the ai did
+- **sidebar** (`officeapp.jsx`, `office.css`): replaced the top bar with a 240px white sidebar with a right border, the same look as the old top bar.
+  - **top:** the halden roofing · office brand.
+  - **navigation:** dashboard (current), schedule, customers.
+  - **bottom group:** crew phone view, **settings** and **log out** (new), and the signed-in user (sean doyle, project manager).
+  - **new icons:** settings, log out, menu and customers.
+- **honest placeholders:** schedule, customers, settings and log out aren't built. they're shown in grey and, when tapped, show &quot;… isn't part of this prototype&quot; with an info icon (not a tick).
+- **narrow screens** (under 860px): the sidebar becomes a slide-in menu opened from a slim top bar.
+  - it has a dimmed backdrop and a close button, and esc or a backdrop tap closes it.
+  - focus moves into the menu when it opens and back to menu when it closes.
+- **jobs section:** the title, search, tabs and job cards now sit inside a white outlined card (`card` class, 20px padding, 16px on phones), matching the other dashboard cards.
+- **photo panel:** it now sits flush to the top, since there's no top bar.
+- **tested:**
+  - **desktop (1366px):** sidebar, jobs card, the settings message, and the job page with the photo panel open (no overlap).
+  - **tablet (1024 and 900px):** sidebar visible, no overflow.
+  - **phones (375px and 320px):** the slide-in menu opens and closes, with focus in and out; no overflow.
+
+## where the ai got it wrong
+- the first version didn't move focus into the slide-in menu, because it was still hidden by its slide animation when focus was set. it now becomes visible immediately and hides only after sliding out.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the sidebar and jobs card change and log, regenerate the process-log site, and commit that too.
+
+- committed the app change and the log, then regenerated the process-log site and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">035</span>
+    <div>
+      <h3 class="prompt__title">Office navigation as a sidebar; Jobs section as a card</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt (followed by &quot;Try again&quot; after a tool interruption)</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (office web app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">From Office team dashboard, can you make it navbar as a sidebar? Office, dashboard, schedule, customers, these are the options are there. Can you add other option called settings, logout? So it should be in the sidebar, and background also same as how it is there in the horizontal way, it should be in the vertical way. And one more thing, below review now card, there are jobs section. So it should be designed a way, something like how the other card designed. I mean, background is white and it should be stroke as well, and should be maintenance consistency as well.</blockquote>
+
+<blockquote class="verbatim">Try again</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Office sidebar and a Jobs card</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-035">Prompt 035</a> (text)</li>
+<li><strong>What happened:</strong><ul>
+<li>The office top bar became a white vertical sidebar with Dashboard, Schedule, Customers, the crew phone view, Settings and Log out, plus the signed-in user.</li>
+<li>Below 860px the sidebar is a slide-in menu.</li>
+<li>The Jobs section now sits in a white outlined card like the others.</li>
+</ul>
+</li>
+<li><strong>Key decision:</strong> Items that aren&#39;t built (Schedule, Customers, Settings, Log out) are shown but say &quot;isn&#39;t part of this prototype&quot; when tapped, so they don&#39;t pretend to work.</li>
+<li><strong>AI got wrong / I overruled:</strong> Focus didn&#39;t move into the slide-in menu at first, because the menu was still hidden when it tried. Fixed so the menu is visible the moment it opens.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: What the AI did, Where the AI got it wrong, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Sidebar</strong> (<code>OfficeApp.jsx</code>, <code>office.css</code>): replaced the top bar with a 240px white sidebar with a right border, the same look as the old top bar.<ul>
+<li><strong>Top:</strong> the Halden Roofing · Office brand.</li>
+<li><strong>Navigation:</strong> Dashboard (current), Schedule, Customers.</li>
+<li><strong>Bottom group:</strong> Crew phone view, <strong>Settings</strong> and <strong>Log out</strong> (new), and the signed-in user (Sean Doyle, Project manager).</li>
+<li><strong>New icons:</strong> settings, log out, menu and customers.</li>
+</ul>
+</li>
+<li><strong>Honest placeholders:</strong> Schedule, Customers, Settings and Log out aren&#39;t built. They&#39;re shown in grey and, when tapped, show &quot;… isn&#39;t part of this prototype&quot; with an info icon (not a tick).</li>
+<li><strong>Narrow screens</strong> (under 860px): the sidebar becomes a slide-in menu opened from a slim top bar.<ul>
+<li>It has a dimmed backdrop and a close button, and Esc or a backdrop tap closes it.</li>
+<li>Focus moves into the menu when it opens and back to Menu when it closes.</li>
+</ul>
+</li>
+<li><strong>Jobs section:</strong> the title, search, tabs and job cards now sit inside a white outlined card (<code>card</code> class, 20px padding, 16px on phones), matching the other dashboard cards.</li>
+<li><strong>Photo panel:</strong> it now sits flush to the top, since there&#39;s no top bar.</li>
+<li><strong>Tested:</strong><ul>
+<li><strong>Desktop (1366px):</strong> sidebar, Jobs card, the Settings message, and the job page with the photo panel open (no overlap).</li>
+<li><strong>Tablet (1024 and 900px):</strong> sidebar visible, no overflow.</li>
+<li><strong>Phones (375px and 320px):</strong> the slide-in menu opens and closes, with focus in and out; no overflow.</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Where the AI got it wrong</h5><ul>
+<li>The first version didn&#39;t move focus into the slide-in menu, because it was still hidden by its slide animation when focus was set. It now becomes visible immediately and hides only after sliding out.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the sidebar and Jobs card change and log, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed the app change and the log, then regenerated the process-log site and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/035_2026-10-25_office-sidebar-jobs-card.md" target="_blank" rel="noopener"><code>process-log/prompts/035_2026-10-25_office-sidebar-jobs-card.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-036" data-phase="4" data-search="# prompt 036: office page width and the search button
+
+- **date:** 2026-10-25
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview
+- **phase:** 4 · test &amp; refine (office web app)
+
+## prompt (verbatim)
+
+&gt; in web portal, there are spaces after sidebar and right edge of the screen. so there are too much spaces there. reduce into right and left should be 24. after sidebar also should be 24. and remove the button from the search bar.
+
+## what the ai did
+- **page width** (`office.css`): removed the 1180px maximum width and centring on `.o-page`. content now fills the space beside the sidebar, with 24px padding on each side (16px on phones, as before).
+- **search** (`dashboardscreen.jsx`): removed the &quot;open&quot; button. pressing enter in the field still opens an exact job id, and the hidden screen-reader label now says so. the field padding was evened up.
+- **measured** at 1366px and 1920px, on the dashboard, the job page and the job page with the photo panel open:
+  - 24px from the sidebar and 24px from the right edge (or from the panel) everywhere
+  - no overflow
+  - enter on &quot;hr-2041&quot; opens the job
+- **app readme:** updated.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the full-width and search change and log, regenerate the process-log site, and commit that too.
+
+- committed the app change and the log, then regenerated the process-log site and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">036</span>
+    <div>
+      <h3 class="prompt__title">Office page width and the search button</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (office web app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">In web portal, there are spaces after sidebar and right edge of the screen. So there are too much spaces there. Reduce into right and left should be 24. After sidebar also should be 24. And remove the button from the search bar.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Office pages use the full width</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-036">Prompt 036</a> (text)</li>
+<li><strong>What happened:</strong> Removed the 1180px maximum width, so office pages fill the space beside the sidebar: 24px from the
+sidebar and 24px from the right edge at every width. Removed the &quot;Open&quot; button from job search; Enter still opens an exact job ID.</li>
+<li><strong>Key decision:</strong> Keep 16px side padding on phones, in line with the crew app&#39;s mobile spacing.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: What the AI did, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Page width</strong> (<code>office.css</code>): removed the 1180px maximum width and centring on <code>.o-page</code>. Content now fills the space beside the sidebar, with 24px padding on each side (16px on phones, as before).</li>
+<li><strong>Search</strong> (<code>DashboardScreen.jsx</code>): removed the &quot;Open&quot; button. Pressing Enter in the field still opens an exact job ID, and the hidden screen-reader label now says so. The field padding was evened up.</li>
+<li><strong>Measured</strong> at 1366px and 1920px, on the dashboard, the job page and the job page with the photo panel open:<ul>
+<li>24px from the sidebar and 24px from the right edge (or from the panel) everywhere</li>
+<li>no overflow</li>
+<li>Enter on &quot;HR-2041&quot; opens the job</li>
+</ul>
+</li>
+<li><strong>App README:</strong> updated.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the full-width and search change and log, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed the app change and the log, then regenerated the process-log site and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/036_2026-10-25_office-full-width-search.md" target="_blank" rel="noopener"><code>process-log/prompts/036_2026-10-25_office-full-width-search.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-037" data-phase="4" data-search="# prompt 037: slimmer search bar; a better title than &quot;jobs&quot;
+
+- **date:** 2026-10-25
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview
+- **phase:** 4 · test &amp; refine (office web app)
+
+## prompt (verbatim)
+
+&gt; in web portal, reduce the search bar height and change the title from jobs to any other suggested title. it's related to the particular code.
+
+## how the ai read it
+- &quot;related to the particular code&quot; was read as &quot;related to that card&quot;: the title should describe the card's content.
+
+## what the ai did
+- **search bar** (`office.css`):
+  - **desktop:** 48px → **40px** tall, with a 1px border and a slightly smaller corner radius.
+  - **phones:** kept at **44px** so it stays easy to tap.
+- **title** (`dashboardscreen.jsx`): &quot;jobs&quot; → **&quot;jobs by status&quot;**, because the card is organised by the ongoing / completed / needs review / total jobs tabs. the tab list's hidden screen-reader label changed to &quot;job status&quot; so it doesn't repeat the heading.
+  - **other titles considered:** &quot;job board&quot;, &quot;job tracker&quot;.
+- **measured:** search height 40px at 1366px and 44px at 375px; no overflow.
+- **app readme:** updated.
+
+## follow-up: approve and commit (text prompt, verbatim)
+
+&gt; keep jobs by status. commit the change and log, regenerate the process-log site, and commit that too.
+
+- &quot;jobs by status&quot; confirmed. committed the app change and the log, then regenerated the process-log site and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">037</span>
+    <div>
+      <h3 class="prompt__title">Slimmer search bar; a better title than &quot;Jobs&quot;</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (office web app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">in web portal, reduce the search bar height and change the title from jobs to any other suggested title. It's related to the particular code.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: &quot;Jobs by status&quot; and a slimmer search</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-037">Prompt 037</a> (text)</li>
+<li><strong>What happened:</strong> The office search bar went from 48px to 40px on desktop (44px kept on phones for touch). The dashboard section &quot;Jobs&quot;
+was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI suggested.</li>
+<li><strong>Key decision:</strong> The title names how the card is organised (status tabs) rather than repeating &quot;Jobs&quot;.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: How the AI read it, What the AI did, Follow-up: approve and commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>How the AI read it</h5><ul>
+<li>&quot;Related to the particular code&quot; was read as &quot;related to that card&quot;: the title should describe the card&#39;s content.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Search bar</strong> (<code>office.css</code>):<ul>
+<li><strong>Desktop:</strong> 48px → <strong>40px</strong> tall, with a 1px border and a slightly smaller corner radius.</li>
+<li><strong>Phones:</strong> kept at <strong>44px</strong> so it stays easy to tap.</li>
+</ul>
+</li>
+<li><strong>Title</strong> (<code>DashboardScreen.jsx</code>): &quot;Jobs&quot; → <strong>&quot;Jobs by status&quot;</strong>, because the card is organised by the Ongoing / Completed / Needs review / Total jobs tabs. The tab list&#39;s hidden screen-reader label changed to &quot;Job status&quot; so it doesn&#39;t repeat the heading.<ul>
+<li><strong>Other titles considered:</strong> &quot;Job board&quot;, &quot;Job tracker&quot;.</li>
+</ul>
+</li>
+<li><strong>Measured:</strong> search height 40px at 1366px and 44px at 375px; no overflow.</li>
+<li><strong>App README:</strong> updated.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: approve and commit (text prompt, verbatim)</h5><blockquote class="verbatim">Keep Jobs by status. Commit the change and log, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>&quot;Jobs by status&quot; confirmed. Committed the app change and the log, then regenerated the process-log site and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/037_2026-10-25_jobs-by-status-search-height.md" target="_blank" rel="noopener"><code>process-log/prompts/037_2026-10-25_jobs-by-status-search-height.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-038" data-phase="4" data-search="# prompt 038: review now above key metrics
+
+- **date:** 2026-10-25
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · react app · built-in browser preview
+- **phase:** 4 · test &amp; refine (office web app)
+
+## prompt (verbatim)
+
+&gt; review now section should be above the key metrics card.
+
+## what the ai did
+- **new order** (`dashboardscreen.jsx`): the &quot;hr-2041 has 15 photos waiting for your review · review now&quot; card moved above the key metrics card. the dashboard now reads: heading → review now → key metrics → jobs by status.
+- **comment:** the one at the top of the component is updated to match.
+- **when nothing is waiting:** once the job is marked reviewed, the card disappears as before, and key metrics comes first.
+- **measured** at 1366 and 375px: the order is right, review now → key metrics is 24px, and nothing overflows.
+- **app readme and handoff:** updated.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the review now change and log, regenerate the process-log site, and commit that too.
+
+- committed the app change and the log, then regenerated the process-log site and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">038</span>
+    <div>
+      <h3 class="prompt__title">Review now above key metrics</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (office web app)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · React app · built-in browser preview</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">Review Now section should be above the key metrics card.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 4 Test &amp; refine: Review now first on the office dashboard</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-038">Prompt 038</a> (text)</li>
+<li><strong>What happened:</strong> Moved the Review now card above Key metrics. The dashboard now reads: Review now → Key metrics → Jobs by status.</li>
+<li><strong>Key decision:</strong> The office&#39;s main task leads the page; the numbers follow.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: What the AI did, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>New order</strong> (<code>DashboardScreen.jsx</code>): the &quot;HR-2041 has 15 photos waiting for your review · Review now&quot; card moved above the Key metrics card. The dashboard now reads: heading → Review now → Key metrics → Jobs by status.</li>
+<li><strong>Comment:</strong> the one at the top of the component is updated to match.</li>
+<li><strong>When nothing is waiting:</strong> once the job is marked reviewed, the card disappears as before, and Key metrics comes first.</li>
+<li><strong>Measured</strong> at 1366 and 375px: the order is right, Review now → Key metrics is 24px, and nothing overflows.</li>
+<li><strong>App README and handoff:</strong> updated.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the Review now change and log, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed the app change and the log, then regenerated the process-log site and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/038_2026-10-25_review-now-first.md" target="_blank" rel="noopener"><code>process-log/prompts/038_2026-10-25_review-now-first.md</code> · view original file</a></p>
+</article>
     
   </div>
   
@@ -3481,6 +4190,11 @@ prototype screenshots, links to every original file, and a link / verbatim / pla
 </thead>
 <tbody><tr>
 <td>2026-10-25</td>
+<td>The office slide-in menu didn&#39;t take keyboard focus when opened: it was still visibility-hidden during its slide (prompt 035).</td>
+<td>Caught in the browser check; the menu now becomes visible immediately and hides only after sliding out.</td>
+</tr>
+<tr>
+<td>2026-10-25</td>
 <td>The process-log site&#39;s reflection said the AI added the weather card and Cards/Table switch, but prompts 016 and 018 show I asked for them (prompt 030).</td>
 <td>Corrected the reflection; cut ideas are now tagged with their real source.</td>
 </tr>
@@ -3571,7 +4285,7 @@ prototype screenshots, links to every original file, and a link / verbatim / pla
 </tr>
 </tbody></table></div>
 </section>
-  <p class="undoc"><span class="undoc__tag">Undocumented</span> Per-prompt “kept / changed / thrown away” notes: 30 of 30 prompt files have this section blank, so decisions beyond the tables above are not documented.</p>
+  <p class="undoc"><span class="undoc__tag">Undocumented</span> Per-prompt “kept / changed / thrown away” notes: 38 of 38 prompt files have this section blank, so decisions beyond the tables above are not documented.</p>
 </section>
 
 <section class="section" id="evidence" aria-labelledby="evidence-title">
@@ -3602,7 +4316,7 @@ prototype screenshots, links to every original file, and a link / verbatim / pla
     <li><span class="repo-path">app/roofing-crew-mobile/</span> <span class="muted small">React + Vite source of the prototype, in the repository</span></li>
   </ul>
   <h3>Commit history</h3>
-  <p class="muted small">As of 2026-10-25 19:27 (<code>aa36b7e</code>), when this site was generated. Later commits are not listed until the site is regenerated.</p>
+  <p class="muted small">As of 2026-10-25 23:12 (<code>0e5b74b</code>), when this site was generated. Later commits are not listed until the site is regenerated.</p>
   <ol class="commits"><li><code>c757d35</code><span class="muted">2026-10-24 21:08</span><span>Add assignment breakdown, UX plan and process log</span></li>
 <li><code>6d44ee8</code><span class="muted">2026-10-24 21:56</span><span>Add crew and office user flows with SVG diagrams</span></li>
 <li><code>959e03d</code><span class="muted">2026-10-24 22:57</span><span>Add crew mobile prototype: design canvas source and React app</span></li>
@@ -3619,7 +4333,23 @@ prototype screenshots, links to every original file, and a link / verbatim / pla
 <li><code>9859745</code><span class="muted">2026-10-25 18:50</span><span>Put Start review up front in the office portal; show jobs as cards</span></li>
 <li><code>c8a614d</code><span class="muted">2026-10-25 18:58</span><span>Add job tabs to the office dashboard; add the UX case study deck</span></li>
 <li><code>9ad22b9</code><span class="muted">2026-10-25 19:16</span><span>Make the process-log site review-ready</span></li>
-<li><code>aa36b7e</code><span class="muted">2026-10-25 19:27</span><span>Link the process-log site to the deployed prototype</span></li></ol>
+<li><code>aa36b7e</code><span class="muted">2026-10-25 19:27</span><span>Link the process-log site to the deployed prototype</span></li>
+<li><code>fcd2a37</code><span class="muted">2026-10-25 19:51</span><span>Hide empty My notes blocks on the process-log site</span></li>
+<li><code>8caedc7</code><span class="muted">2026-10-25 22:25</span><span>Put quick actions first on crew Home, without a card</span></li>
+<li><code>472036e</code><span class="muted">2026-10-25 22:25</span><span>Regenerate the process-log site with prompt 031</span></li>
+<li><code>f69e3f5</code><span class="muted">2026-10-25 22:28</span><span>Restyle crew Home progress card after a reference</span></li>
+<li><code>14b9706</code><span class="muted">2026-10-25 22:28</span><span>Regenerate the process-log site with prompt 032</span></li>
+<li><code>c1d5d9b</code><span class="muted">2026-10-25 22:35</span><span>Use one card-gap token: 16px in the crew app, 24px in the office</span></li>
+<li><code>9abddda</code><span class="muted">2026-10-25 22:35</span><span>Regenerate the process-log site with prompt 033</span></li>
+<li><code>dcbe71c</code><span class="muted">2026-10-25 22:38</span><span>Show today's progress as a ring on crew Home</span></li>
+<li><code>2828913</code><span class="muted">2026-10-25 22:38</span><span>Regenerate the process-log site with prompt 034</span></li>
+<li><code>366c26e</code><span class="muted">2026-10-25 23:01</span><span>Move office navigation to a sidebar; put Jobs in a card</span></li>
+<li><code>365dc2b</code><span class="muted">2026-10-25 23:01</span><span>Regenerate the process-log site with prompt 035</span></li>
+<li><code>d96da5e</code><span class="muted">2026-10-25 23:03</span><span>Fill the office page width; drop the search button</span></li>
+<li><code>5ece424</code><span class="muted">2026-10-25 23:03</span><span>Regenerate the process-log site with prompt 036</span></li>
+<li><code>c8b8a02</code><span class="muted">2026-10-25 23:11</span><span>Rename office Jobs to &quot;Jobs by status&quot;; slimmer search bar</span></li>
+<li><code>283a002</code><span class="muted">2026-10-25 23:11</span><span>Regenerate the process-log site with prompt 037</span></li>
+<li><code>0e5b74b</code><span class="muted">2026-10-25 23:12</span><span>Put Review now above key metrics on the office dashboard</span></li></ol>
 </section>
 
 <section class="section" id="tools" aria-labelledby="tools-title">
@@ -3716,7 +4446,7 @@ direction (neutral ground, dark text, blue primary, green/amber/red states).</p>
     <li><strong>Not every cut idea was the AI’s.</strong> The AI added a desktop intro panel and banners repeating the tapped quick action (removed in <a href="#p-015">015</a> and <a href="#p-020">020</a>). The weather card and the Cards/Table switch came from the prompts themselves (<a href="#p-016">016</a>, <a href="#p-018">018</a>) and were cut in <a href="#p-020">020</a> and <a href="#p-019">019</a>.</li>
     <li><strong>Testing in a real browser caught what reading the code didn’t.</strong> A regex cleanup that deleted CSS rules, a photo panel that shrank to nothing on short screens, keyboard focus lost after a decision. All were found at phone size in the browser preview (<a href="#wrong">AI-errors table</a>).</li>
     <li><strong>An honesty rule set at the start held throughout.</strong> No GPS, “verified” or original-file claims unless they were built. The office view dropped the map and Verified badge from its own design because the crew app doesn’t record them (<a href="#p-008">008</a>, <a href="#p-024">024</a>, <a href="#thrown">thrown-away table</a>).</li>
-    <li><strong>Not everything was finished.</strong> Connecting the crew app and office view through shared state was planned but not built (<a href="#p-027">027</a>), and 30 of 30 prompt files still have blank personal notes.</li>
+    <li><strong>Not everything was finished.</strong> Connecting the crew app and office view through shared state was planned but not built (<a href="#p-027">027</a>), and 38 of 38 prompt files still have blank personal notes.</li>
   </ol>
 </section>
 

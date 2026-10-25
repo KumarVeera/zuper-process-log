@@ -1,7 +1,7 @@
 # Session Handoff: where things stand
 
 Read this first in any new session, then `CLAUDE.md` (logging rules) and `process-log/PROCESS_LOG.md`.
-Last updated: 2026-10-25, after prompt 030 (process-log site made review-ready). Prompt 027 (connect crew and office through a shared store) is still **planned but not built**: see its prompt file. The next prompt file is **`031_…`**.
+Last updated: 2026-10-25, after prompt 038 (Review now above key metrics). Prompt 027 (connect crew and office through a shared store) is still **planned but not built**: see its prompt file. The next prompt file is **`039_…`**.
 
 ## The assignment (one line)
 Zuper take-home (Senior AI-Native Product Designer): design how a roofing crew takes job photos and how the office
@@ -15,18 +15,18 @@ finds and shares them as proof. Deliverables: **prototype link** (crew phone + o
 | Crew and office flows plus SVG diagrams | `docs/04`, `docs/05`, `docs/diagrams/` | Done |
 | Usability check (6 points, evidence) | `docs/06-usability-check.md` | Done, all pass |
 | **React crew app** (main prototype) | `app/roofing-crew-mobile/` | Working, tested at 320/375px |
-| **Office portal + customer page** | same app, `?view=office` / `?view=share` (`src/office/`) | Dashboard (4 read-only metrics, Review now card, job tabs with cards, Needs review first) → job review page (job · required photos · missing/questionable · trust · next) → photo panel with approve / reject → compare → share. Prompts 024, 026, 028, 029, tested at 1366/375/320px |
+| **Office portal + customer page** | same app, `?view=office` / `?view=share` (`src/office/`) | Sidebar navigation; Dashboard (Review now card, 4 read-only metrics, Jobs by status card with tabs, Needs review first) → job review page (job · required photos · missing/questionable · trust · next) → photo panel with approve / reject → compare → share. Prompts 024, 026, 028, 029, tested at 1366/375/320px |
 | Claude Design canvas (earlier prototype) | `prototype/crew-mobile/` · https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz (v19, private) | Older flow; Manrope font. Not updated with the later Home/Jobs redesign |
-| Process log | `process-log/PROCESS_LOG.md`, `process-log/prompts/001–030`, `TOOLS_AND_SKILLS.md` | Up to date |
+| Process log | `process-log/PROCESS_LOG.md`, `process-log/prompts/001–038`, `TOOLS_AND_SKILLS.md` | Up to date |
 
 ## React app at a glance
 - Run: `npm --prefix app/roofing-crew-mobile run dev` (preview config: `.claude/launch.json`, name `roofing-crew-mobile`).
   Jump to any screen with `?state=` (list in `app/roofing-crew-mobile/README.md`).
-- **Home:** Today's progress (live) → Quick actions (2×2: Today / My schedule / Action required / For my review; each opens its own page) → My schedule (by day, Next up card).
+- **Home:** Quick actions (2×2, no card: Today / My schedule / Action required / For my review; each opens its own page) → Today's progress (live: progress ring with %, start time, uploads) → My schedule (by day, Next up card).
 - **Tabs:** Home · Jobs · Photos · Profile (bottom nav; hidden only during full-screen capture).
 - **Jobs** → **Job detail** (Overview / Photo diary / Work order / Assets).
 - **Capture:** simulated camera + Gallery + phone camera → quality check (real on actual photos) → Retake / Choose a different photo → note and tags → Save to job folder (toast) → uploads (simulated).
-- **Style:** Manrope; page bg `#F5F5F7`; headings `#2B2826`, labels `#3D3A37`, sub text `#514F4D`; blue primary; green / orange / red / blue status tints; text plus icon, never colour alone; 44px targets.
+- **Style:** Manrope; page bg `#F5F5F7`; headings `#2B2826`, labels `#3D3A37`, sub text `#514F4D`; blue primary; green / orange / red / blue status tints; text plus icon, never colour alone; 44px targets; `--card-gap` 16px between crew cards, 24px in the office.
 - **Honesty rule:** no GPS, "verified" or original-file claims; demo photos and uploads are labelled as simulated.
 
 ## Not done yet / likely next

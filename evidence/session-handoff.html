@@ -27,7 +27,7 @@
 <main id="main">
 <article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>process-log/SESSION_HANDOFF.md</code> · <a href="../sources/process-log/SESSION_HANDOFF.md" target="_blank" rel="noopener">original .md</a></p><h1>Session Handoff: where things stand</h1>
 <p>Read this first in any new session, then <code>CLAUDE.md</code> (logging rules) and <code>process-log/PROCESS_LOG.md</code>.
-Last updated: 2026-10-25, after prompt 030 (process-log site made review-ready). Prompt 027 (connect crew and office through a shared store) is still <strong>planned but not built</strong>: see its prompt file. The next prompt file is <strong><code>031_…</code></strong>.</p>
+Last updated: 2026-10-25, after prompt 038 (Review now above key metrics). Prompt 027 (connect crew and office through a shared store) is still <strong>planned but not built</strong>: see its prompt file. The next prompt file is <strong><code>039_…</code></strong>.</p>
 <h2>The assignment (one line)</h2>
 <p>Zuper take-home (Senior AI-Native Product Designer): design how a roofing crew takes job photos and how the office
 finds and shares them as proof. Deliverables: <strong>prototype link</strong> (crew phone + one office or customer view) and a
@@ -64,7 +64,7 @@ finds and shares them as proof. Deliverables: <strong>prototype link</strong> (c
 <tr>
 <td><strong>Office portal + customer page</strong></td>
 <td>same app, <code>?view=office</code> / <code>?view=share</code> (<code>src/office/</code>)</td>
-<td>Dashboard (4 read-only metrics, Review now card, job tabs with cards, Needs review first) → job review page (job · required photos · missing/questionable · trust · next) → photo panel with approve / reject → compare → share. Prompts 024, 026, 028, 029, tested at 1366/375/320px</td>
+<td>Sidebar navigation; Dashboard (Review now card, 4 read-only metrics, Jobs by status card with tabs, Needs review first) → job review page (job · required photos · missing/questionable · trust · next) → photo panel with approve / reject → compare → share. Prompts 024, 026, 028, 029, tested at 1366/375/320px</td>
 </tr>
 <tr>
 <td>Claude Design canvas (earlier prototype)</td>
@@ -73,7 +73,7 @@ finds and shares them as proof. Deliverables: <strong>prototype link</strong> (c
 </tr>
 <tr>
 <td>Process log</td>
-<td><code>process-log/PROCESS_LOG.md</code>, <code>process-log/prompts/001–030</code>, <code>TOOLS_AND_SKILLS.md</code></td>
+<td><code>process-log/PROCESS_LOG.md</code>, <code>process-log/prompts/001–038</code>, <code>TOOLS_AND_SKILLS.md</code></td>
 <td>Up to date</td>
 </tr>
 </tbody></table></div>
@@ -81,11 +81,11 @@ finds and shares them as proof. Deliverables: <strong>prototype link</strong> (c
 <ul>
 <li>Run: <code>npm --prefix app/roofing-crew-mobile run dev</code> (preview config: <code>.claude/launch.json</code>, name <code>roofing-crew-mobile</code>).
 Jump to any screen with <code>?state=</code> (list in <code>app/roofing-crew-mobile/README.md</code>).</li>
-<li><strong>Home:</strong> Today&#39;s progress (live) → Quick actions (2×2: Today / My schedule / Action required / For my review; each opens its own page) → My schedule (by day, Next up card).</li>
+<li><strong>Home:</strong> Quick actions (2×2, no card: Today / My schedule / Action required / For my review; each opens its own page) → Today&#39;s progress (live: progress ring with %, start time, uploads) → My schedule (by day, Next up card).</li>
 <li><strong>Tabs:</strong> Home · Jobs · Photos · Profile (bottom nav; hidden only during full-screen capture).</li>
 <li><strong>Jobs</strong> → <strong>Job detail</strong> (Overview / Photo diary / Work order / Assets).</li>
 <li><strong>Capture:</strong> simulated camera + Gallery + phone camera → quality check (real on actual photos) → Retake / Choose a different photo → note and tags → Save to job folder (toast) → uploads (simulated).</li>
-<li><strong>Style:</strong> Manrope; page bg <code>#F5F5F7</code>; headings <code>#2B2826</code>, labels <code>#3D3A37</code>, sub text <code>#514F4D</code>; blue primary; green / orange / red / blue status tints; text plus icon, never colour alone; 44px targets.</li>
+<li><strong>Style:</strong> Manrope; page bg <code>#F5F5F7</code>; headings <code>#2B2826</code>, labels <code>#3D3A37</code>, sub text <code>#514F4D</code>; blue primary; green / orange / red / blue status tints; text plus icon, never colour alone; 44px targets; <code>--card-gap</code> 16px between crew cards, 24px in the office.</li>
 <li><strong>Honesty rule:</strong> no GPS, &quot;verified&quot; or original-file claims; demo photos and uploads are labelled as simulated.</li>
 </ul>
 <h2>Not done yet / likely next</h2>

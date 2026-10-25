@@ -310,6 +310,59 @@ interview walk-through. The brief asks for three things, which have their own se
 - **Key decision:** Show gaps instead of filling them. The prototype URL, personal notes and reflection are listed as missing, not invented.
 - **AI got wrong / I overruled:** The site's earlier reflection credited my own ideas (weather card, Cards/Table switch) to the AI. Corrected.
 
+### 2026-10-25 · Phase 4 Test & refine: Quick actions first on crew Home
+- **Input:** [Prompt 031](prompts/031_2026-10-25_quick-actions-above-progress.md) (text)
+- **What happened:** Quick actions moved above Today's progress, and their white card (background, border, shadow)
+  was removed so the four tiles sit directly on the page.
+- **Key decision:** The tiles are already coloured cards, so a second white card around them added nothing.
+
+### 2026-10-25 · Phase 4 Test & refine: Today's progress card restyled from a reference
+- **Input:** [Prompt 032](prompts/032_2026-10-25_progress-card-from-reference.md) (text + reference image)
+- **What happened:** Rebuilt the crew Home progress card after my reference. It has the label and headline, a large blue
+  percentage on the right, a slim progress bar, and a quiet footer with the start time and photos uploaded. The ring and the two tinted stat tiles are gone.
+- **Key decision:** The reference had no link, so the whole card became the way into the live job. The visible "Continue" link was dropped.
+
+### 2026-10-25 · Phase 4 Test & refine: One spacing rule for cards and sections
+- **Input:** [Prompt 033](prompts/033_2026-10-25_card-spacing-token.md) (text, then a correction)
+- **What happened:**
+  - Card-to-card spacing was a mix of 8, 10, 12 and 14px across screens.
+  - Added one `--card-gap` token. I first asked for 24px everywhere, then cut the crew mobile app to **16px** because 24px left too much white space. The office web app and customer page stay at **24px**.
+  - Every page was measured with a script after the change.
+- **Key decision:** A single token instead of per-screen margins, so the rhythm can't drift again.
+- **AI got wrong / I overruled:** 24px everywhere was my first call; on the phone it was too airy, so I overruled it to 16px. The wider gaps also pushed the profile stats out of their boxes at 320px, now one per row on narrow phones.
+
+### 2026-10-25 · Phase 4 Test & refine: Progress shown as a ring
+- **Input:** [Prompt 034](prompts/034_2026-10-25_progress-ring.md) (text)
+- **What happened:** The large "33%" on Today's progress became a blue donut ring with the percentage inside, in a
+  smaller font (16px, down from 30px). The horizontal bar was removed so the same number isn't drawn twice.
+- **Key decision:** One visual for one number. The ring replaces both the big figure and the bar.
+
+### 2026-10-25 · Phase 4 Test & refine: Office sidebar and a Jobs card
+- **Input:** [Prompt 035](prompts/035_2026-10-25_office-sidebar-jobs-card.md) (text)
+- **What happened:**
+  - The office top bar became a white vertical sidebar with Dashboard, Schedule, Customers, the crew phone view, Settings and Log out, plus the signed-in user.
+  - Below 860px the sidebar is a slide-in menu.
+  - The Jobs section now sits in a white outlined card like the others.
+- **Key decision:** Items that aren't built (Schedule, Customers, Settings, Log out) are shown but say "isn't part of this prototype" when tapped, so they don't pretend to work.
+- **AI got wrong / I overruled:** Focus didn't move into the slide-in menu at first, because the menu was still hidden when it tried. Fixed so the menu is visible the moment it opens.
+
+### 2026-10-25 · Phase 4 Test & refine: Office pages use the full width
+- **Input:** [Prompt 036](prompts/036_2026-10-25_office-full-width-search.md) (text)
+- **What happened:** Removed the 1180px maximum width, so office pages fill the space beside the sidebar: 24px from the
+  sidebar and 24px from the right edge at every width. Removed the "Open" button from job search; Enter still opens an exact job ID.
+- **Key decision:** Keep 16px side padding on phones, in line with the crew app's mobile spacing.
+
+### 2026-10-25 · Phase 4 Test & refine: "Jobs by status" and a slimmer search
+- **Input:** [Prompt 037](prompts/037_2026-10-25_jobs-by-status-search-height.md) (text)
+- **What happened:** The office search bar went from 48px to 40px on desktop (44px kept on phones for touch). The dashboard section "Jobs"
+  was renamed **"Jobs by status"**, the title the AI suggested.
+- **Key decision:** The title names how the card is organised (status tabs) rather than repeating "Jobs".
+
+### 2026-10-25 · Phase 4 Test & refine: Review now first on the office dashboard
+- **Input:** [Prompt 038](prompts/038_2026-10-25_review-now-first.md) (text)
+- **What happened:** Moved the Review now card above Key metrics. The dashboard now reads: Review now → Key metrics → Jobs by status.
+- **Key decision:** The office's main task leads the page; the numbers follow.
+
 <!-- New entries go below, newest last. Template:
 ### YYYY-MM-DD · Phase N <name>: <title>
 - **Input:** [Prompt NNN](prompts/NNN_...) (text | voice note)
@@ -351,6 +404,7 @@ interview walk-through. The brief asks for three things, which have their own se
 ## Where the AI got it wrong (and what I did)
 | When | What the AI did | What I did instead |
 |---|---|---|
+| 2026-10-25 | The office slide-in menu didn't take keyboard focus when opened: it was still visibility-hidden during its slide (prompt 035). | Caught in the browser check; the menu now becomes visible immediately and hides only after sliding out. |
 | 2026-10-25 | The process-log site's reflection said the AI added the weather card and Cards/Table switch, but prompts 016 and 018 show I asked for them (prompt 030). | Corrected the reflection; cut ideas are now tagged with their real source. |
 | 2026-10-25 | Office job tabs scrolled sideways on phones and hid the active Needs review tab (prompt 029). | Caught at 320px; tabs become a 2 × 2 grid on phones. |
 | 2026-10-25 | The violet "Total jobs" metric had a dark border, overridden by stylesheet load order; the AI read it as a selected state (prompt 026). | Found while reworking the dashboard in prompt 028; fixed with a more specific selector. |
