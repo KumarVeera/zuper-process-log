@@ -23,11 +23,14 @@ scaled it down to a **2-day take-home**: desk research, roofing videos, 2–3 gu
 test, instead of a formal study.
 
 | `/design` → **Design** artifact type | Claude (built-in Artifact type: a canvas of live artboards) | Me | Prompt 008 | Hosted the crew mobile prototype: 1 interactive artboard + 15 state snapshots. Link: https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz |
-
 | `figma-code-connect` | Anthropic skills | Me | Prompt 009 | **Not used as intended:** it maps published Figma components to existing code, and this project had neither. Used the request as a design-to-code conversion instead. |
 | React 18 + Vite 5 | Open source | AI (my request) | Prompt 009 | Code version of the crew prototype, `app/crew-mobile/` |
 | Built-in browser preview | Claude desktop app | AI | Prompt 009 | Ran and tested the React app at phone size |
 | Native `<dialog>` + URL-encoded share links | Web platform | AI | Prompt 024 | Accessible modals (focus trap, Esc) for Compare and Share; share links that really open the customer page without a backend |
+| Headless Chrome via the DevTools Protocol | Google Chrome + a Node script (in the AI's scratch folder) | AI | Prompt 043 | Recaptured all 15 case-study screenshots from the running prototype at 2× |
+| Keynote (export as slide images) | Apple Keynote, driven by AppleScript | AI | Prompt 043 | Rendered the 22-slide deck to PNG so each slide could be checked for overflow |
+| axe-core 4.10.2 | Open source, from npm; served from a temporary `public/__audit/` folder and deleted after each run | AI (my request) | Prompts 039, 047, 048 | WCAG 2.1 AA scans: 35 screens for v1, then 41 for the v2 redesign (0 violations after fixes) |
+| `figma-generate-design` skill | Figma plugin skills | Me | Prompt 048 | **Not used as intended:** it builds Figma screens, and this project has no Figma file. The request was carried out in the v2 React app instead, as with earlier Figma skill invocations. |
 
 **Design systems:** two saved design systems were offered; I chose **none** and gave my own visual
 direction (neutral ground, dark text, blue primary, green/amber/red states).

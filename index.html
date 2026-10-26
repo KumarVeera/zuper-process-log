@@ -46,11 +46,11 @@ interview walk-through. The brief asks for three things, which have their own se
     <a class="btn btn--primary" data-prototype-link href="https://zuper-product-designer-role-assignm.vercel.app/" target="_blank" rel="noopener">Open the prototype</a>
   </div>
   <dl class="stats">
-    <div><dt>Prompts logged</dt><dd>41</dd></div>
-    <div><dt>Working days</dt><dd>2</dd><dd class="stats__sub">2026-10-24 – 2026-10-25</dd></div>
-    <div><dt>Commits</dt><dd>37</dd></div>
-    <div><dt>AI errors logged</dt><dd>20</dd></div>
-    <div><dt>“My notes” filled</dt><dd>0 of 41</dd></div>
+    <div><dt>Prompts logged</dt><dd>48</dd></div>
+    <div><dt>Working days</dt><dd>3</dd><dd class="stats__sub">2026-10-24 – 2026-10-25 – 2026-10-26</dd></div>
+    <div><dt>Commits</dt><dd>45</dd></div>
+    <div><dt>AI errors logged</dt><dd>23</dd></div>
+    <div><dt>“My notes” filled</dt><dd>0 of 48</dd></div>
   </dl>
 </section>
 
@@ -74,7 +74,7 @@ interview walk-through. The brief asks for three things, which have their own se
         <li><a class="summary__ref" href="#p-022">Prompt 022</a> Audit before building. Only the gaps were built, and each fix was re-tested with real files.</li>
         <li><a class="summary__ref" href="#p-028">Prompt 028</a> The review is the office&#39;s main task, so its action lives in the job card. It always shows the next step: Start, then Continue, then Mark reviewed.</li>
       </ol>
-      <a class="summary__more" href="#decisions">All 34 recorded decisions</a>
+      <a class="summary__more" href="#decisions">All 40 recorded decisions</a>
     </section>
     <section class="summary__col" aria-labelledby="sum-discarded">
       <h3 id="sum-discarded">What was thrown away</h3>
@@ -84,6 +84,7 @@ interview walk-through. The brief asks for three things, which have their own se
         <li><span class="source-tag source-tag--me">My idea</span> <strong>Cards / Table switch on the phone schedule</strong>: my idea in prompt 018; cards only from then on (<a href="#p-019">prompt 019</a>)</li>
         <li><span class="source-tag source-tag--me">My idea</span> <strong>Weather card on Home</strong>: my idea in prompt 016; removed (<a href="#p-020">prompt 020</a>)</li>
         <li><span class="source-tag source-tag--ai">AI added</span> <strong>Quick-action pages repeating the tapped card</strong>: removed; heading and details only (<a href="#p-020">prompt 020</a>)</li>
+        <li><span class="source-tag source-tag--design">Design</span> <strong>The v2 office review inbox column (prompt 047)</strong>: It read as a second sidebar beside the rail; replaced by filter tiles and a jobs table in the page (prompt 048). (<a href="#thrown">thrown-away table</a>)</li>
         <li><span class="source-tag source-tag--design">Design</span> <strong>GPS map, &quot;Verified&quot; badge and AI &quot;Suggested → Confirmed&quot; tags from the doc 05 office design</strong>: Not built in the crew app, so the office view can&#39;t honestly show them. Kept as future work. (<a href="#thrown">thrown-away table</a>)</li>
       </ul>
     </section>
@@ -96,14 +97,14 @@ interview walk-through. The brief asks for three things, which have their own se
         <li>Sample data had Priya (insurance claims) scheduling jobs, which is off-persona. <span class="summary__fix">→ Changed to Sean Doyle (PM).</span></li>
         <li>Office job tabs scrolled sideways on phones and hid the active Needs review tab (prompt 029). <span class="summary__fix">→ Caught at 320px; tabs become a 2 × 2 grid on phones.</span></li>
       </ul>
-      <a class="summary__more" href="#wrong">All 20 logged AI errors</a>
+      <a class="summary__more" href="#wrong">All 23 logged AI errors</a>
     </section>
   </div>
 </section>
 
 <section class="section" id="needs-input" aria-labelledby="needs-title">
   <h2 id="needs-title">Needs your input before deployment</h2>
-  <p>The scan found <strong>41 of 41</strong> “My notes” sections blank, <strong>5</strong> timeline placeholders and <strong>1</strong> row marked “To confirm”. These are the ones that matter most. Nothing below has been filled in for you.</p>
+  <p>The scan found <strong>48 of 48</strong> “My notes” sections blank, <strong>5</strong> timeline placeholders and <strong>1</strong> row marked “To confirm”. These are the ones that matter most. Nothing below has been filled in for you.</p>
   <ol class="needs">
     
     <li><strong>Confirm the “record screen” reading.</strong> The AI read “record screen” in the first prompt as “screens to design”, and the AI-errors row is still marked <em>To confirm</em> (<a href="#p-001">prompt 001</a>, <a href="#wrong">AI-errors table</a>).</li>
@@ -156,6 +157,12 @@ interview walk-through. The brief asks for three things, which have their own se
       <tr><td><a href="#p-039">039</a></td><td>Fix every objective accessibility failure. Keep the heuristic issues that are design trade-offs as recommendations (bulk approve, metric tiles that look tappable, office help).</td></tr>
       <tr><td><a href="#p-040">040</a></td><td>Show the exceptions, not every received shot. A full checklist of green ticks hid the two things that need attention.</td></tr>
       <tr><td><a href="#p-041">041</a></td><td>Every line on the review page either asks for a decision or says why none is needed. Ownership tags make &quot;is this mine?&quot; instant.</td></tr>
+      <tr><td><a href="#p-043">043</a></td><td>Present the docs/07 findings as recommendations I chose not to build yet, not as finished work.</td></tr>
+      <tr><td><a href="#p-044">044</a></td><td>Evolve a copy rather than redesign from scratch, so v2 is measured against a working v1. The log, docs and deck stay shared.</td></tr>
+      <tr><td><a href="#p-045">045</a></td><td>Each side writes only its own part of the job. A decision is tied to the exact photo (<code>rev</code>), so a retake can&#39;t inherit an old approval. With no backend, the limitation (one browser only) is stated on the demo page and in the README.</td></tr>
+      <tr><td><a href="#p-046">046</a></td><td>Colour stays only in the icons, so Home reads as one set of cards and colour points to the action.</td></tr>
+      <tr><td><a href="#p-047">047</a></td><td>Change the pattern, not just the paint. Each screen answers &quot;what do I do next?&quot; with one primary action, and the live store, retakes and sharing all keep working underneath.</td></tr>
+      <tr><td><a href="#p-048">048</a></td><td>Scanning means comparing the same fact across jobs, so the facts go in columns. The tiles become the filters, which also closes the docs/07 &quot;looks tappable but isn&#39;t&quot; finding.</td></tr>
     </tbody>
   </table></div>
   <h3>Before / after: the usability check</h3>
@@ -246,16 +253,17 @@ interview walk-through. The brief asks for three things, which have their own se
   <h2 id="log-title">Chronological process log</h2>
   <p>Every prompt in order, quoted exactly from its prompt file, with the matching process-log entry. “What the AI produced” is the record kept in each prompt file; it was written during the work with the AI, so treat it as the AI’s account. My own notes are shown where I wrote them.</p>
   <div class="filters" role="group" aria-label="Filter prompts">
-    <button type="button" class="chip" aria-pressed="true" data-phase="all">All <span>41</span></button>
+    <button type="button" class="chip" aria-pressed="true" data-phase="all">All <span>48</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="0">0 · Understand <span>1</span></button>
     <button type="button" class="chip" aria-pressed="false" data-phase="1">1 · Define <span>6</span></button>
-    <button type="button" class="chip" aria-pressed="false" data-phase="3">3 · Prototype <span>17</span></button>
-    <button type="button" class="chip" aria-pressed="false" data-phase="4">4 · Test &amp; refine <span>16</span></button>
-    <button type="button" class="chip" aria-pressed="false" data-phase="5">5 · Submit <span>1</span></button>
+    <button type="button" class="chip" aria-pressed="false" data-phase="2">2 · Explore <span>2</span></button>
+    <button type="button" class="chip" aria-pressed="false" data-phase="3">3 · Prototype <span>18</span></button>
+    <button type="button" class="chip" aria-pressed="false" data-phase="4">4 · Test &amp; refine <span>18</span></button>
+    <button type="button" class="chip" aria-pressed="false" data-phase="5">5 · Submit <span>3</span></button>
     <label class="search"><span class="visually-hidden">Search prompts</span><input type="search" placeholder="Search prompts and outputs" data-search-input></label>
     <button type="button" class="link" data-toggle-all>Expand all AI outputs</button>
   </div>
-  <p class="count" role="status" aria-live="polite" data-count>41 prompts</p>
+  <p class="count" role="status" aria-live="polite" data-count>48 prompts</p>
   <div class="prompts">
     <h3 class="day">2026-10-24</h3>
 <article class="prompt" id="p-001" data-phase="0" data-search="# prompt 001: kickoff: read and break down the brief
@@ -4440,6 +4448,933 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
   
   <p class="prompt__source">Source: <a href="sources/prompts/041_2026-10-25_needs-attention-evidence-check.md" target="_blank" rel="noopener"><code>process-log/prompts/041_2026-10-25_needs-attention-evidence-check.md</code> · view original file</a></p>
 </article>
+<article class="prompt" id="p-042" data-phase="5" data-search="# prompt 042: continue in a new session (second handoff)
+
+- **date:** 2026-10-25
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · desktop app sessions
+- **phase:** 5 · submit (process)
+
+## prompt (verbatim)
+
+&gt; need to open new session, but i need to do the continuity from here.
+
+## what the ai did
+- **rewrote `process-log/session_handoff.md`** so a fresh session can carry on without this conversation:
+  - **live links:** the prototype and process-log urls, how to redeploy without a git remote, and the vercel settings.
+  - **current state:** what exists and the state of each part. the case-study deck is marked as stale.
+  - **crew and office apps:** each described at a glance as they are now (prompts 031–041).
+  - **the per-prompt routine:**
+    1. change and test.
+    2. log.
+    3. commit when asked.
+    4. regenerate and check the process-log site, then commit it.
+    5. use axe only temporarily.
+  - **what's not done:** the crew ↔ office shared store, the docs/07 recommendations, the user's own notes and reflection, the deck refresh, and redeploying.
+  - **next prompt number:** 043.
+- **started a new session** with a brief that tells it to read the handoff and `claude.md` first and carry on from prompt 043.
+- **not committed:** the handoff and this prompt file weren't committed; the user didn't ask.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">042</span>
+    <div>
+      <h3 class="prompt__title">Continue in a new session (second handoff)</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 5 · Submit (process)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · desktop app sessions</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">Need to open new session, but I need to do the continuity from here.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Process: Second handoff to a new session</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-042">Prompt 042</a> (text)</li>
+<li><strong>What happened:</strong> Rewrote <a href="evidence/session-handoff.html">SESSION_HANDOFF.md</a> with the live URLs, the current state of both apps,
+the per-prompt routine (log → commit when asked → regenerate the site) and what&#39;s left. Then started a new session from it.
+The process log carries on from prompt 043.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: What the AI did)</span></summary>
+    <section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Rewrote <code>process-log/SESSION_HANDOFF.md</code></strong> so a fresh session can carry on without this conversation:<ul>
+<li><strong>Live links:</strong> the prototype and process-log URLs, how to redeploy without a Git remote, and the Vercel settings.</li>
+<li><strong>Current state:</strong> what exists and the state of each part. The case-study deck is marked as stale.</li>
+<li><strong>Crew and office apps:</strong> each described at a glance as they are now (prompts 031–041).</li>
+<li><strong>The per-prompt routine:</strong><ol>
+<li>Change and test.</li>
+<li>Log.</li>
+<li>Commit when asked.</li>
+<li>Regenerate and check the process-log site, then commit it.</li>
+<li>Use axe only temporarily.</li>
+</ol>
+</li>
+<li><strong>What&#39;s not done:</strong> the crew ↔ office shared store, the docs/07 recommendations, the user&#39;s own notes and reflection, the deck refresh, and redeploying.</li>
+<li><strong>Next prompt number:</strong> 043.</li>
+</ul>
+</li>
+<li><strong>Started a new session</strong> with a brief that tells it to read the handoff and <code>CLAUDE.md</code> first and carry on from prompt 043.</li>
+<li><strong>Not committed:</strong> the handoff and this prompt file weren&#39;t committed; the user didn&#39;t ask.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/042_2026-10-25_new-session-handoff.md" target="_blank" rel="noopener"><code>process-log/prompts/042_2026-10-25_new-session-handoff.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-043" data-phase="5" data-search="# prompt 043: bring the ux case study deck up to date
+
+- **date:** 2026-10-25
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · desktop app
+- **phase:** 5 · submit
+
+## prompt (verbatim)
+
+&gt; till now, what we have changed that should be reflected in the ux case study also.
+
+## how the ai read it
+- the deck (`case-study/`) was built in prompt 029. everything changed since then (prompts 030–041) should show in it: both the screenshots and the slide text.
+
+## what the ai did
+- **screenshots:** recaptured all 15 in `case-study/screens/` from the running prototype with a headless-chrome script, at the same sizes as before.
+  - **crew phone screens:** now include the bezel on every side, so they are 824 × 1732 px (was 804).
+  - **the office dashboard search box:** captured without its focus ring.
+- **slides changed** (`build-deck.js`):
+  - **8 · timeline:** the office stage is now prompts 024–038, followed by a new &quot;audit and refine&quot; stage (039 onwards).
+  - **9 · crew home:** new screenshot and caption: quick actions first, then a progress ring, then the next job (prompts 031–034).
+  - **11 · office dashboard:** sidebar, review now above key metrics, &quot;jobs by status&quot;, search with enter (035–038).
+  - **12 · five review questions:** new screenshot; the answers now point to the job card, required photos (gaps only), needs attention (owner tags and one action) and evidence check (040–041).
+  - **13 · decide and share:** new captures. the approve button now shows the darker, accessible green.
+  - **14 · honest by design:** adds &quot;schedule, customers, settings: say they aren't built&quot;.
+  - **17 · how i used ai:** the browser preview row now mentions the axe-core scans.
+  - **19 · where the ai got it wrong:** the approve contrast error (4.4:1, found by axe) replaces the profile switch row.
+  - **21 · next:** a new item, &quot;close the review findings&quot;, covering the docs/07 recommendations.
+- **new slide 16, heuristic and accessibility review** (prompt 039):
+  - **numbers:** 35 scans; violations 5 → 0; small tap-target kinds 13 → 0; heuristics passed: 10 (crew) and 7 (office).
+  - **lists:** what was fixed, and what is left as recommendations.
+- **speaker notes:** updated on the changed slides.
+- **checked:** rendered all 22 slides through keynote and looked at each changed slide for overflow and overlap. on the new slide, the bottom cards were too tall for their text, so they were shortened.
+- **readme:** now says 22 slides.
+- **not changed:** the prototype app.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit the case-study refresh and the log for prompts 042 and 043, regenerate the process-log site, and commit that too.
+
+- committed the deck, its screenshots and build script, and the log for prompts 042 and 043. then regenerated the process-log site, checked it and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">043</span>
+    <div>
+      <h3 class="prompt__title">Bring the UX case study deck up to date</h3>
+      <p class="prompt__meta"><span>2026-10-25</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 5 · Submit</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · desktop app</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">till now, what we have changed that should be reflected in the UX case study also.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-25 · Phase 5 Submit: Case-study deck brought up to date</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-043">Prompt 043</a> (text)</li>
+<li><strong>What happened:</strong><ul>
+<li><strong>Screenshots:</strong> all 15 in <code>case-study/screens/</code> were captured again from the running prototype. The old ones predated prompts 030–041.</li>
+<li><strong>Slides:</strong> the timeline, crew Home, office dashboard, the five review questions, the honesty slide, the AI tools, the AI mistakes and next steps were updated to match.</li>
+<li><strong>New slide:</strong> the heuristic and accessibility review (prompt 039). The deck now has 22 slides.</li>
+</ul>
+</li>
+<li><strong>Key decision:</strong> Present the docs/07 findings as recommendations I chose not to build yet, not as finished work.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: How the AI read it, What the AI did, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>How the AI read it</h5><ul>
+<li>The deck (<code>case-study/</code>) was built in prompt 029. Everything changed since then (prompts 030–041) should show in it: both the screenshots and the slide text.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Screenshots:</strong> recaptured all 15 in <code>case-study/screens/</code> from the running prototype with a headless-Chrome script, at the same sizes as before.<ul>
+<li><strong>Crew phone screens:</strong> now include the bezel on every side, so they are 824 × 1732 px (was 804).</li>
+<li><strong>The office dashboard search box:</strong> captured without its focus ring.</li>
+</ul>
+</li>
+<li><strong>Slides changed</strong> (<code>build-deck.js</code>):<ul>
+<li><strong>8 · Timeline:</strong> the office stage is now prompts 024–038, followed by a new &quot;Audit and refine&quot; stage (039 onwards).</li>
+<li><strong>9 · Crew Home:</strong> new screenshot and caption: quick actions first, then a progress ring, then the next job (prompts 031–034).</li>
+<li><strong>11 · Office dashboard:</strong> sidebar, Review now above Key metrics, &quot;Jobs by status&quot;, search with Enter (035–038).</li>
+<li><strong>12 · Five review questions:</strong> new screenshot; the answers now point to the job card, Required photos (gaps only), Needs attention (owner tags and one action) and Evidence check (040–041).</li>
+<li><strong>13 · Decide and share:</strong> new captures. The Approve button now shows the darker, accessible green.</li>
+<li><strong>14 · Honest by design:</strong> adds &quot;Schedule, Customers, Settings: say they aren&#39;t built&quot;.</li>
+<li><strong>17 · How I used AI:</strong> the browser preview row now mentions the axe-core scans.</li>
+<li><strong>19 · Where the AI got it wrong:</strong> the Approve contrast error (4.4:1, found by axe) replaces the Profile switch row.</li>
+<li><strong>21 · Next:</strong> a new item, &quot;Close the review findings&quot;, covering the docs/07 recommendations.</li>
+</ul>
+</li>
+<li><strong>New slide 16, heuristic and accessibility review</strong> (prompt 039):<ul>
+<li><strong>Numbers:</strong> 35 scans; violations 5 → 0; small tap-target kinds 13 → 0; heuristics passed: 10 (crew) and 7 (office).</li>
+<li><strong>Lists:</strong> what was fixed, and what is left as recommendations.</li>
+</ul>
+</li>
+<li><strong>Speaker notes:</strong> updated on the changed slides.</li>
+<li><strong>Checked:</strong> rendered all 22 slides through Keynote and looked at each changed slide for overflow and overlap. On the new slide, the bottom cards were too tall for their text, so they were shortened.</li>
+<li><strong>README:</strong> now says 22 slides.</li>
+<li><strong>Not changed:</strong> the prototype app.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit the case-study refresh and the log for prompts 042 and 043, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed the deck, its screenshots and build script, and the log for prompts 042 and 043. Then regenerated the process-log site, checked it and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/043_2026-10-25_refresh-case-study-deck.md" target="_blank" rel="noopener"><code>process-log/prompts/043_2026-10-25_refresh-case-study-deck.md</code> · view original file</a></p>
+</article>
+<h3 class="day">2026-10-26</h3>
+<article class="prompt" id="p-044" data-phase="2" data-search="# prompt 044: start a version 2 in its own folder
+
+- **date:** 2026-10-26
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · desktop app
+- **phase:** 2 · explore (version 2)
+
+## prompt (verbatim)
+
+&gt; can i make version 2 for this problem statement and that should save as separate folder in the zuper main folder?
+
+## decisions asked
+- **what v2 is:** answer: **copy v1, then evolve.** v2 starts as an exact copy of the current app; the open items get built there (the live crew ↔ office link from prompt 027, the docs/07 recommendations). v1 stays untouched.
+- **what goes in the folder:** answer: **the prototype only.** the process log, docs and case-study deck stay shared, and logging carries on from prompt 044.
+
+## what the ai did
+- **new folder `v2/`** at the top of the project: a copy of `app/roofing-crew-mobile/`, without `node_modules` or `dist`.
+  - `package.json` is renamed `crew-mobile-v2`, version 0.2.0.
+  - the browser tab title ends in &quot;· v2&quot;, so it can't be mistaken for v1.
+- **readme:** a v2 header explains where v2 came from, what it is for, and how it differs from v1 (nothing yet). relative links to `docs/` are fixed for the new folder depth.
+- **preview:** a new `roofing-crew-mobile-v2` entry in `.claude/launch.json` (port 5174; it fell back to another free port when 5174 was busy). the file stays uncommitted.
+- **checked:** `npm install` and `npm run build` pass. in the preview, the crew home and the office job page both load from v2, with no console errors.
+- **not changed:** v1 (`app/roofing-crew-mobile/`) and its deployed site.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">044</span>
+    <div>
+      <h3 class="prompt__title">Start a version 2 in its own folder</h3>
+      <p class="prompt__meta"><span>2026-10-26</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 2 · Explore (version 2)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · desktop app</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">Can I make version 2 for this problem statement and that should save as separate folder in the Zuper main folder?</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-26 · Phase 2 Explore: Version 2 started in its own folder</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-044">Prompt 044</a> (text)</li>
+<li><strong>What happened:</strong> Created <code>v2/</code>, an exact copy of the v1 prototype, with its own preview entry and a README that says how it differs from v1. v1 and its deployed site are unchanged.</li>
+<li><strong>Key decision:</strong> Evolve a copy rather than redesign from scratch, so v2 is measured against a working v1. The log, docs and deck stay shared.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: Decisions asked, What the AI did)</span></summary>
+    <section class="prompt__sub"><h5>Decisions asked</h5><ul>
+<li><strong>What v2 is:</strong> answer: <strong>copy v1, then evolve.</strong> v2 starts as an exact copy of the current app; the open items get built there (the live crew ↔ office link from prompt 027, the docs/07 recommendations). v1 stays untouched.</li>
+<li><strong>What goes in the folder:</strong> answer: <strong>the prototype only.</strong> The process log, docs and case-study deck stay shared, and logging carries on from prompt 044.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>New folder <code>v2/</code></strong> at the top of the project: a copy of <code>app/roofing-crew-mobile/</code>, without <code>node_modules</code> or <code>dist</code>.<ul>
+<li><code>package.json</code> is renamed <code>crew-mobile-v2</code>, version 0.2.0.</li>
+<li>The browser tab title ends in &quot;· v2&quot;, so it can&#39;t be mistaken for v1.</li>
+</ul>
+</li>
+<li><strong>README:</strong> a v2 header explains where v2 came from, what it is for, and how it differs from v1 (nothing yet). Relative links to <code>docs/</code> are fixed for the new folder depth.</li>
+<li><strong>Preview:</strong> a new <code>roofing-crew-mobile-v2</code> entry in <code>.claude/launch.json</code> (port 5174; it fell back to another free port when 5174 was busy). The file stays uncommitted.</li>
+<li><strong>Checked:</strong> <code>npm install</code> and <code>npm run build</code> pass. In the preview, the crew Home and the office job page both load from v2, with no console errors.</li>
+<li><strong>Not changed:</strong> v1 (<code>app/roofing-crew-mobile/</code>) and its deployed site.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/044_2026-10-26_version-2-folder.md" target="_blank" rel="noopener"><code>process-log/prompts/044_2026-10-26_version-2-folder.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-045" data-phase="3" data-search="# prompt 045: v2, connect the crew phone and the office live
+
+- **date:** 2026-10-26
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · desktop app
+- **phase:** 3 · prototype (v2)
+
+## prompt (verbatim)
+
+&gt; in v2, build the live crew ↔ office shared store from the prompt 027 plan.
+
+## how the ai read it
+- build the plan written in prompt 027 (left unbuilt when that session hit its usage limit), in `v2/` only. v1 stays as it is.
+
+## what the ai did
+- **shared store** (`v2/src/store/jobstore.js`): one copy of job hr-2041 in this browser's localstorage, read through a react hook. other tabs and frames update through `storage` events.
+  - **the crew phone writes its part:** shots and uploads.
+  - **the office writes its part:** reviews, &quot;job reviewed&quot; and share links.
+  - each side replaces only its own part.
+  - **two starting points:** end of day (the default; v1's office snapshot, now moved into the store) and start of day.
+- **crew phone** (`app.jsx`, `state.js`, checklist and quick-action screens):
+  - **live by default:** with no `?state=` preset, it loads from the store and writes every save, skip and upload back.
+  - **upload times:** each upload records when the office received it, and when the phone was last online.
+  - **each saved photo also records:** the crew member, the quality result (ok, blurry or dark), the date and a `rev` number.
+  - **real photos:** camera and gallery photos are stored as a small jpeg (longest side 720px).
+  - **office rejections show as &quot;retake requested · reason&quot;:**
+    - on the checklist row
+    - under action required
+    - in for my review, with the office's note and a *retake photo* button
+- **office** (`evidence.js`, `officeapp.jsx` and the screens):
+  - **source:** evidence comes from the store, not the fixed snapshot.
+  - **statuses:** received, still on the phone, skipped, or **not taken yet**. untaken shots get grid tiles and a &quot;required photos not taken yet&quot; warning.
+  - **live updates:** approvals, rejections, &quot;job reviewed&quot; and share links are saved to the store, and a &quot;new from the crew&quot; toast appears when a photo arrives.
+  - **retakes:** a decision counts only for the photo it was made on. a retaken photo returns to review as &quot;retaken after your rejection&quot;.
+  - **real photos** show as photos, with no &quot;demo&quot; label.
+  - **removed claims:** &quot;sending it to the crew app isn't part of this demo&quot; is gone, because it now does send. the gutter comparison item and the dashboard's &quot;gutter photos are in&quot; only show when both photos are in.
+- **demo page `?view=split`:**
+  - the crew phone and the office side by side
+  - *reset to: start of day / end of day* buttons
+  - a note that there is no server
+  - a message on screens narrower than 1000px
+  - links to it from the crew page and the office sidebar
+- **limitation, stated in the readme and on the demo page:** with no backend, data lives in one browser's localstorage. another device, browser or private window has its own copy, and share links only work in the browser that made them.
+
+## tested (browser preview)
+- **side by side at 1440px:**
+  1. uploading the 2 waiting photos on the phone → office goes from 15 to 17 received, with a toast.
+  2. office rejects front elevation with a reason and note → the phone shows it in for my review and on the checklist.
+  3. the crew retakes it → the office first shows it as &quot;still on ravi menon's phone&quot;, then after upload as &quot;retaken after your rejection&quot;, dated mon 26 oct.
+  4. a generated jpeg through the gallery input → stored at about 29 kb and shown in the office grid as a real photo.
+  5. reset to start of day → 13 shots &quot;not taken yet&quot;, and the gutter item hidden.
+- **office at 375px:** no horizontal overflow. **crew at 320px:** checklist with a retake request, no overflow.
+- **presets:** `?state=` presets still open and don't touch the store.
+- **build and console:** `npm run build` passes, and there are no console errors after a fresh load.
+- **not tested:**
+  - two separate browser windows (only the frames and tabs of one browser)
+  - storage running out
+  - a screen reader
+  - an axe re-scan of the new states
+
+## where the ai got it wrong
+- **the &quot;retake requested · reason&quot; chip** ran past the edge of the checklist card at 320px, because chips don't wrap. caught in the browser check; it now wraps inside the card.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit v2 and the log for prompts 044 and 045, regenerate the process-log site, and commit that too.
+
+- committed `v2/` and the log for prompts 044 and 045 together, then regenerated the process-log site, checked it and committed it separately.
+
+## follow-up: question (text prompt, verbatim)
+
+&gt; now if i ask some changes, it should reflect in v2 right?
+
+- confirmed: from now on, prototype changes go into `v2/` only. v1 (`app/roofing-crew-mobile/`) stays as it is unless asked. the session handoff already records this.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">045</span>
+    <div>
+      <h3 class="prompt__title">v2, connect the crew phone and the office live</h3>
+      <p class="prompt__meta"><span>2026-10-26</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 3 · Prototype (v2)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · desktop app</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">In v2, build the live crew ↔ office shared store from the prompt 027 plan.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-26 · Phase 3 Prototype (v2): Crew phone and office connected live</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-045">Prompt 045</a> (text)</li>
+<li><strong>What happened:</strong><ul>
+<li><strong>Built in v2:</strong> the prompt 027 plan. One shared store in localStorage now connects the crew phone and the office.</li>
+<li><strong>Crew to office:</strong> saves and uploads on the phone appear in the office review, and untaken shots raise missing-photo warnings.</li>
+<li><strong>Office to crew:</strong> rejections reach the phone as retake requests, and a retaken photo comes back to review.</li>
+<li><strong>Real photos:</strong> camera and gallery photos travel as small JPEGs.</li>
+<li><strong>Demo page:</strong> <code>?view=split</code> shows both apps side by side, with Start of day / End of day reset buttons.</li>
+</ul>
+</li>
+<li><strong>Key decision:</strong> Each side writes only its own part of the job. A decision is tied to the exact photo (<code>rev</code>), so a retake can&#39;t inherit an old approval. With no backend, the limitation (one browser only) is stated on the demo page and in the README.</li>
+<li><strong>AI got wrong / I overruled:</strong> the new retake chip overflowed the checklist card at 320px; caught in the browser check and fixed.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: How the AI read it, What the AI did, Tested (browser preview), Where the AI got it wrong, Follow-up: commit (text prompt, verbatim), Follow-up: question (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>How the AI read it</h5><ul>
+<li>Build the plan written in prompt 027 (left unbuilt when that session hit its usage limit), in <code>v2/</code> only. v1 stays as it is.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Shared store</strong> (<code>v2/src/store/jobStore.js</code>): one copy of job HR-2041 in this browser&#39;s localStorage, read through a React hook. Other tabs and frames update through <code>storage</code> events.<ul>
+<li><strong>The crew phone writes its part:</strong> shots and uploads.</li>
+<li><strong>The office writes its part:</strong> reviews, &quot;job reviewed&quot; and share links.</li>
+<li>Each side replaces only its own part.</li>
+<li><strong>Two starting points:</strong> End of day (the default; v1&#39;s office snapshot, now moved into the store) and Start of day.</li>
+</ul>
+</li>
+<li><strong>Crew phone</strong> (<code>App.jsx</code>, <code>state.js</code>, checklist and quick-action screens):<ul>
+<li><strong>Live by default:</strong> with no <code>?state=</code> preset, it loads from the store and writes every save, skip and upload back.</li>
+<li><strong>Upload times:</strong> each upload records when the office received it, and when the phone was last online.</li>
+<li><strong>Each saved photo also records:</strong> the crew member, the quality result (ok, blurry or dark), the date and a <code>rev</code> number.</li>
+<li><strong>Real photos:</strong> camera and gallery photos are stored as a small JPEG (longest side 720px).</li>
+<li><strong>Office rejections show as &quot;Retake requested · reason&quot;:</strong><ul>
+<li>on the checklist row</li>
+<li>under Action required</li>
+<li>in For my review, with the office&#39;s note and a <em>Retake photo</em> button</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Office</strong> (<code>evidence.js</code>, <code>OfficeApp.jsx</code> and the screens):<ul>
+<li><strong>Source:</strong> evidence comes from the store, not the fixed snapshot.</li>
+<li><strong>Statuses:</strong> received, still on the phone, skipped, or <strong>not taken yet</strong>. Untaken shots get grid tiles and a &quot;required photos not taken yet&quot; warning.</li>
+<li><strong>Live updates:</strong> approvals, rejections, &quot;job reviewed&quot; and share links are saved to the store, and a &quot;New from the crew&quot; toast appears when a photo arrives.</li>
+<li><strong>Retakes:</strong> a decision counts only for the photo it was made on. A retaken photo returns to review as &quot;retaken after your rejection&quot;.</li>
+<li><strong>Real photos</strong> show as photos, with no &quot;Demo&quot; label.</li>
+<li><strong>Removed claims:</strong> &quot;Sending it to the crew app isn&#39;t part of this demo&quot; is gone, because it now does send. The gutter comparison item and the dashboard&#39;s &quot;gutter photos are in&quot; only show when both photos are in.</li>
+</ul>
+</li>
+<li><strong>Demo page <code>?view=split</code>:</strong><ul>
+<li>the crew phone and the office side by side</li>
+<li><em>Reset to: Start of day / End of day</em> buttons</li>
+<li>a note that there is no server</li>
+<li>a message on screens narrower than 1000px</li>
+<li>links to it from the crew page and the office sidebar</li>
+</ul>
+</li>
+<li><strong>Limitation, stated in the README and on the demo page:</strong> with no backend, data lives in one browser&#39;s localStorage. Another device, browser or private window has its own copy, and share links only work in the browser that made them.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Tested (browser preview)</h5><ul>
+<li><strong>Side by side at 1440px:</strong><ol>
+<li>Uploading the 2 waiting photos on the phone → office goes from 15 to 17 received, with a toast.</li>
+<li>Office rejects Front elevation with a reason and note → the phone shows it in For my review and on the checklist.</li>
+<li>The crew retakes it → the office first shows it as &quot;still on Ravi Menon&#39;s phone&quot;, then after upload as &quot;retaken after your rejection&quot;, dated Mon 26 Oct.</li>
+<li>A generated JPEG through the gallery input → stored at about 29 KB and shown in the office grid as a real photo.</li>
+<li>Reset to Start of day → 13 shots &quot;not taken yet&quot;, and the gutter item hidden.</li>
+</ol>
+</li>
+<li><strong>Office at 375px:</strong> no horizontal overflow. <strong>Crew at 320px:</strong> checklist with a retake request, no overflow.</li>
+<li><strong>Presets:</strong> <code>?state=</code> presets still open and don&#39;t touch the store.</li>
+<li><strong>Build and console:</strong> <code>npm run build</code> passes, and there are no console errors after a fresh load.</li>
+<li><strong>Not tested:</strong><ul>
+<li>two separate browser windows (only the frames and tabs of one browser)</li>
+<li>storage running out</li>
+<li>a screen reader</li>
+<li>an axe re-scan of the new states</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Where the AI got it wrong</h5><ul>
+<li><strong>The &quot;Retake requested · reason&quot; chip</strong> ran past the edge of the checklist card at 320px, because chips don&#39;t wrap. Caught in the browser check; it now wraps inside the card.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit v2 and the log for prompts 044 and 045, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed <code>v2/</code> and the log for prompts 044 and 045 together, then regenerated the process-log site, checked it and committed it separately.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: question (text prompt, verbatim)</h5><blockquote class="verbatim">now if I ask some changes, it should reflect in v2 right?</blockquote>
+<ul>
+<li>Confirmed: from now on, prototype changes go into <code>v2/</code> only. v1 (<code>app/roofing-crew-mobile/</code>) stays as it is unless asked. The session handoff already records this.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/045_2026-10-26_v2-live-shared-store.md" target="_blank" rel="noopener"><code>process-log/prompts/045_2026-10-26_v2-live-shared-store.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-046" data-phase="4" data-search="# prompt 046: v2, quick-action cards styled like the progress card
+
+- **date:** 2026-10-26
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · desktop app
+- **phase:** 4 · test &amp; refine (v2)
+
+## prompt (verbatim)
+
+&gt; from quick action, we have different type of cards are there. today, my schedule action record for my review. and different background color and stroke are there. can you change the background same as today's progress card? plus stroke also. but inside the icon, and other label plus text should be same. only change the stroke and background color. as same as progress card.
+
+## what the ai did
+- **change** (`v2/src/styles.css`): the four crew home quick-action tiles (today, my schedule, action required, for my review) now have the today's progress card's white background and `#e7eae4` 1px stroke. one rule scoped to `.quick-card .qa` does it.
+- **unchanged, as asked:**
+  - the coloured icon squares (green, orange, red, blue)
+  - labels, numbers, layout, size and corner radius
+- **shadow:** left out at first, because the prompt said to change only the background and stroke; added in the follow-up below.
+- **office key metrics:** they use the same tile classes but keep their tinted colours, because the rule only applies inside the crew quick actions section.
+- **tested** (v2 preview):
+  - **375px:** the computed background and border of all four tiles match the progress card, and the icon colours are unchanged.
+  - **320px:** no sideways scrolling.
+  - **office at 1366px:** the metric tiles are still tinted.
+- **readme:** the v1 vs v2 table and the home description are updated. v1 is unchanged.
+
+## follow-up (text prompt, verbatim)
+
+&gt; also give the quick-action tiles the same soft shadow as the progress card.
+
+- added the progress card's shadow (`var(--shadow)`) to the same scoped rule. at 375px the tiles' computed shadow is identical to the progress card's, with no overflow. office key metrics are unchanged.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">046</span>
+    <div>
+      <h3 class="prompt__title">v2, quick-action cards styled like the progress card</h3>
+      <p class="prompt__meta"><span>2026-10-26</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (v2)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · desktop app</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">From quick action, we have different type of cards are there. Today, my schedule action record for my review. And different background color and stroke are there. Can you change the background same as today's progress card? Plus stroke also. But inside the icon, and other label plus text should be same. Only change the stroke and background color. As same as progress card.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-26 · Phase 4 Test &amp; refine (v2): Quick actions as white cards</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-046">Prompt 046</a> (text)</li>
+<li><strong>What happened:</strong> In v2, the crew Home quick-action tiles took the progress card&#39;s white background, grey stroke and soft shadow (the shadow in a follow-up); the coloured icons stay. Office Key metrics are unchanged.</li>
+<li><strong>Key decision:</strong> Colour stays only in the icons, so Home reads as one set of cards and colour points to the action.</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: What the AI did, Follow-up (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Change</strong> (<code>v2/src/styles.css</code>): the four crew Home quick-action tiles (Today, My schedule, Action required, For my review) now have the Today&#39;s progress card&#39;s white background and <code>#E7EAE4</code> 1px stroke. One rule scoped to <code>.quick-card .qa</code> does it.</li>
+<li><strong>Unchanged, as asked:</strong><ul>
+<li>the coloured icon squares (green, orange, red, blue)</li>
+<li>labels, numbers, layout, size and corner radius</li>
+</ul>
+</li>
+<li><strong>Shadow:</strong> left out at first, because the prompt said to change only the background and stroke; added in the follow-up below.</li>
+<li><strong>Office Key metrics:</strong> they use the same tile classes but keep their tinted colours, because the rule only applies inside the crew Quick actions section.</li>
+<li><strong>Tested</strong> (v2 preview):<ul>
+<li><strong>375px:</strong> the computed background and border of all four tiles match the progress card, and the icon colours are unchanged.</li>
+<li><strong>320px:</strong> no sideways scrolling.</li>
+<li><strong>Office at 1366px:</strong> the metric tiles are still tinted.</li>
+</ul>
+</li>
+<li><strong>README:</strong> the v1 vs v2 table and the Home description are updated. v1 is unchanged.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up (text prompt, verbatim)</h5><blockquote class="verbatim">Also give the quick-action tiles the same soft shadow as the progress card.</blockquote>
+<ul>
+<li>Added the progress card&#39;s shadow (<code>var(--shadow)</code>) to the same scoped rule. At 375px the tiles&#39; computed shadow is identical to the progress card&#39;s, with no overflow. Office Key metrics are unchanged.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/046_2026-10-26_v2-quick-actions-white-cards.md" target="_blank" rel="noopener"><code>process-log/prompts/046_2026-10-26_v2-quick-actions-white-cards.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-047" data-phase="2" data-search="# prompt 047: redesign both apps with a new, modern design pattern
+
+- **date:** 2026-10-26
+- **input type:** text prompt
+- **tool:** claude code (claude opus 5.5) · desktop app
+- **phase:** 2 · explore (v2 redesign)
+
+## prompt (verbatim)
+
+&gt; change entire design as a different perspective, latest, modern, and intuitive, seamless experience for the user. the design should change in office view plus crew mobile view also. but change the entire design pattern, but it should be again easy to use for the user also.
+
+## decisions asked
+- **direction:** three options with sketches: *task-first, bold* · *soft and calm* · *dark, field-ready*. answer: **task-first, bold.**
+- **where:** answer: **in v2**, in place. the previous v2 is in git (commit aecdb44).
+
+## what the ai did
+- **new visual system** (`v2/src/styles.css` tokens and a new &quot;v2 redesign&quot; layer; `index.html`):
+  - inter replaces manrope.
+  - **colours:** near-black ink `#0b0b0c` for text, primary buttons and hero cards, and one blue accent `#3b5bfd` for progress, links and focus.
+  - **surfaces:** flat bordered cards with no shadow, and a tighter radius scale.
+  - **unchanged:** status colours (ok, warn, error) keep their text and icon.
+- **crew phone, new pattern:**
+  - **home is task-first:**
+    - an **&quot;on site now&quot; job card** in ink: address, photo progress bar, the **one next step** (an office retake first, then the next missing shot, or &quot;review and finish&quot;), and checklist and uploads buttons
+    - **needs you**: missing photos, uploads, office requests
+    - **today**: a compact list with status pills
+  - **removed from home:** the quick-action tiles, the progress ring, the schedule card and the separate sync bar (needs you covers uploads).
+  - **tab bar:** a central **camera** button that opens the next shot owed (`bottomnav.jsx`, `app.jsx`).
+  - **other screens:** they pick up the new system unchanged in structure (checklist, camera, quality check, notes, saved, uploads, finish, job detail). the loading skeleton matches the new home.
+- **office, new pattern** (`jobinbox.jsx` new, `dashboardscreen.jsx` rewritten, `officeapp.jsx`, `office.css`):
+  - **layout:** icon rail → **review inbox column** (search, status filter pills, compact job rows; the open job is highlighted) → job.
+  - **overview:** a dark &quot;next up for you&quot; card, then &quot;this week&quot; numbers as flat tiles.
+  - **photo panel shortcuts:** **a** approve, **r** reject, **j / k** next and previous (arrows still work), **esc** close. the buttons carry `aria-keyshortcuts`, and a hint shows on desktop.
+  - **responsive:**
+    - below 1600px the inbox column folds away while a photo is open, so the job keeps its width
+    - below 1100px the inbox moves into the overview
+    - below 860px the rail becomes the slide-in menu
+- **kept working:** the live crew ↔ office store, retakes, uploads, share links and `?view=split`.
+
+## tested (browser preview and headless captures)
+- **office:**
+  - **1440px:** overview, and the job page with hr-2041 highlighted in the inbox.
+  - **1366px:** with a photo open, the inbox folds away and the job is 842px wide. j moved to the next photo, a approved it (with a toast), k moved back, and r opened the reject form.
+  - **1024px:** the inbox moves into the overview.
+  - **375px:** no sideways overflow, and the only target under 44px (search) was fixed.
+- **crew:**
+  - **375 and 320px:** no overflow. the camera button opened &quot;driveway &amp; plants&quot;, the next shot.
+  - **visual pass:** job detail, camera, quality check, notes, saved, uploads and finish.
+- **build:** `npm run build` passes.
+- **accessibility:** an axe re-scan came afterwards (see the follow-up below). a screen-reader pass was not done.
+
+## where the ai got it wrong
+- **fixed in the browser check:**
+  - the office main area stopped short of the window bottom on the overview.
+  - the raised camera button crowded the checklist's finish job button.
+  - the needs you action label squeezed the text at 320px.
+  - the inbox search was 40px tall on phones.
+
+## follow-up (text prompt, verbatim)
+
+&gt; run an axe accessibility re-scan of the v2 redesign, fix anything it finds, then commit v2 and the log for prompts 046 and 047 and regenerate the process-log site.
+
+- **scan:** axe-core 4.10.2 (wcag 2.0 / 2.1 a and aa plus best practice), run in headless chrome on **41 screens**:
+  - every crew state at 375px, the live crew home and the crew desktop view
+  - office overview, job, photo panel, reject form, compare and share dialog at 1366px
+  - office overview at 1024px
+  - office overview, open menu, job and photo panel at 375px
+  - the customer page (live and expired)
+  - the side-by-side demo at 1440 and 375px
+
+  tap targets under 44px were checked on every phone-size screen.
+- **first run:** 2 violations, both on the new `?view=split` page (no `main` landmark, no level-one heading), and one 42px target (the office &quot;skip to content&quot; link, which shows only on keyboard focus).
+- **fixed:**
+  - the split page title is now an `h1`
+  - the frames and the narrow-screen message sit inside a `main`
+  - the skip link is 44px tall
+- **re-scan:** **0 violations in 41 scans**, and no targets under 44px.
+- **checked by hand:** axe could not decide contrast for text over photos (the white &quot;demo&quot; chips) and for selects with an arrow image. both are dark text on near-white, and they pass.
+- **clean-up:** axe-core was served from a temporary `v2/public/__audit/` folder and deleted afterwards.
+- **commit:** committed v2 with the log for prompts 046 and 047, then regenerated the process-log site, checked it and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">047</span>
+    <div>
+      <h3 class="prompt__title">Redesign both apps with a new, modern design pattern</h3>
+      <p class="prompt__meta"><span>2026-10-26</span><span aria-hidden="true">·</span><span>Text prompt</span><span aria-hidden="true">·</span><span>Phase 2 · Explore (v2 redesign)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · desktop app</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">Change entire design as a different perspective, latest, modern, and intuitive, seamless experience for the user. The design should change in office view plus crew mobile view also. But change the entire design pattern, but it should be again easy to use for the user also.</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-26 · Phase 3 Prototype (v2): Task-first, bold redesign of both apps</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-047">Prompt 047</a> (text)</li>
+<li><strong>What happened:</strong><ul>
+<li><strong>Direction:</strong> I chose <em>Task-first, bold</em> from three directions.</li>
+<li><strong>Crew:</strong> Home now leads with the job on site and its one next shot, followed by Needs you and Today, and the tab bar gained a Camera button that opens that shot.</li>
+<li><strong>Office:</strong> became an icon rail, a review inbox column and the job, with A / R / J / K review shortcuts.</li>
+<li><strong>Visual system:</strong> Inter, near-black ink, one blue accent and flat cards.</li>
+</ul>
+</li>
+<li><strong>Accessibility re-scan (follow-up):</strong> axe found 2 issues on the new split page and a 42px skip link. After the fixes: 0 violations in 41 scans, with no targets under 44px.</li>
+<li><strong>Key decision:</strong> Change the pattern, not just the paint. Each screen answers &quot;what do I do next?&quot; with one primary action, and the live store, retakes and sharing all keep working underneath.</li>
+<li><strong>AI got wrong / I overruled:</strong> 4 layout issues caught in the browser check and fixed:<ul>
+<li>the overview background stopped short</li>
+<li>the camera button crowded the Finish job button</li>
+<li>the Needs you label squeezed at 320px</li>
+<li>the inbox search was 40px tall on phones</li>
+</ul>
+</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: Decisions asked, What the AI did, Tested (browser preview and headless captures), Where the AI got it wrong, Follow-up (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>Decisions asked</h5><ul>
+<li><strong>Direction:</strong> three options with sketches: <em>Task-first, bold</em> · <em>Soft and calm</em> · <em>Dark, field-ready</em>. Answer: <strong>Task-first, bold.</strong></li>
+<li><strong>Where:</strong> answer: <strong>in v2</strong>, in place. The previous v2 is in git (commit aecdb44).</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>New visual system</strong> (<code>v2/src/styles.css</code> tokens and a new &quot;v2 redesign&quot; layer; <code>index.html</code>):<ul>
+<li>Inter replaces Manrope.</li>
+<li><strong>Colours:</strong> near-black ink <code>#0B0B0C</code> for text, primary buttons and hero cards, and one blue accent <code>#3B5BFD</code> for progress, links and focus.</li>
+<li><strong>Surfaces:</strong> flat bordered cards with no shadow, and a tighter radius scale.</li>
+<li><strong>Unchanged:</strong> status colours (ok, warn, error) keep their text and icon.</li>
+</ul>
+</li>
+<li><strong>Crew phone, new pattern:</strong><ul>
+<li><strong>Home is task-first:</strong><ul>
+<li>an <strong>&quot;On site now&quot; job card</strong> in ink: address, photo progress bar, the <strong>one next step</strong> (an office retake first, then the next missing shot, or &quot;Review and finish&quot;), and Checklist and uploads buttons</li>
+<li><strong>Needs you</strong>: missing photos, uploads, office requests</li>
+<li><strong>Today</strong>: a compact list with status pills</li>
+</ul>
+</li>
+<li><strong>Removed from Home:</strong> the quick-action tiles, the progress ring, the schedule card and the separate sync bar (Needs you covers uploads).</li>
+<li><strong>Tab bar:</strong> a central <strong>Camera</strong> button that opens the next shot owed (<code>BottomNav.jsx</code>, <code>App.jsx</code>).</li>
+<li><strong>Other screens:</strong> they pick up the new system unchanged in structure (checklist, camera, quality check, notes, saved, uploads, finish, job detail). The loading skeleton matches the new Home.</li>
+</ul>
+</li>
+<li><strong>Office, new pattern</strong> (<code>JobInbox.jsx</code> new, <code>DashboardScreen.jsx</code> rewritten, <code>OfficeApp.jsx</code>, <code>office.css</code>):<ul>
+<li><strong>Layout:</strong> icon rail → <strong>review inbox column</strong> (search, status filter pills, compact job rows; the open job is highlighted) → job.</li>
+<li><strong>Overview:</strong> a dark &quot;Next up for you&quot; card, then &quot;This week&quot; numbers as flat tiles.</li>
+<li><strong>Photo panel shortcuts:</strong> <strong>A</strong> approve, <strong>R</strong> reject, <strong>J / K</strong> next and previous (arrows still work), <strong>Esc</strong> close. The buttons carry <code>aria-keyshortcuts</code>, and a hint shows on desktop.</li>
+<li><strong>Responsive:</strong><ul>
+<li>below 1600px the inbox column folds away while a photo is open, so the job keeps its width</li>
+<li>below 1100px the inbox moves into the overview</li>
+<li>below 860px the rail becomes the slide-in menu</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Kept working:</strong> the live crew ↔ office store, retakes, uploads, share links and <code>?view=split</code>.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Tested (browser preview and headless captures)</h5><ul>
+<li><strong>Office:</strong><ul>
+<li><strong>1440px:</strong> overview, and the job page with HR-2041 highlighted in the inbox.</li>
+<li><strong>1366px:</strong> with a photo open, the inbox folds away and the job is 842px wide. J moved to the next photo, A approved it (with a toast), K moved back, and R opened the reject form.</li>
+<li><strong>1024px:</strong> the inbox moves into the overview.</li>
+<li><strong>375px:</strong> no sideways overflow, and the only target under 44px (search) was fixed.</li>
+</ul>
+</li>
+<li><strong>Crew:</strong><ul>
+<li><strong>375 and 320px:</strong> no overflow. The camera button opened &quot;Driveway &amp; plants&quot;, the next shot.</li>
+<li><strong>Visual pass:</strong> job detail, camera, quality check, notes, saved, uploads and finish.</li>
+</ul>
+</li>
+<li><strong>Build:</strong> <code>npm run build</code> passes.</li>
+<li><strong>Accessibility:</strong> an axe re-scan came afterwards (see the follow-up below). A screen-reader pass was not done.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Where the AI got it wrong</h5><ul>
+<li><strong>Fixed in the browser check:</strong><ul>
+<li>The office main area stopped short of the window bottom on the overview.</li>
+<li>The raised camera button crowded the checklist&#39;s Finish job button.</li>
+<li>The Needs you action label squeezed the text at 320px.</li>
+<li>The inbox search was 40px tall on phones.</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up (text prompt, verbatim)</h5><blockquote class="verbatim">Run an axe accessibility re-scan of the v2 redesign, fix anything it finds, then commit v2 and the log for prompts 046 and 047 and regenerate the process-log site.</blockquote>
+<ul>
+<li><p><strong>Scan:</strong> axe-core 4.10.2 (WCAG 2.0 / 2.1 A and AA plus best practice), run in headless Chrome on <strong>41 screens</strong>:</p>
+<ul>
+<li>every crew state at 375px, the live crew Home and the crew desktop view</li>
+<li>office overview, job, photo panel, reject form, compare and share dialog at 1366px</li>
+<li>office overview at 1024px</li>
+<li>office overview, open menu, job and photo panel at 375px</li>
+<li>the customer page (live and expired)</li>
+<li>the side-by-side demo at 1440 and 375px</li>
+</ul>
+<p>Tap targets under 44px were checked on every phone-size screen.</p>
+</li>
+<li><p><strong>First run:</strong> 2 violations, both on the new <code>?view=split</code> page (no <code>main</code> landmark, no level-one heading), and one 42px target (the office &quot;Skip to content&quot; link, which shows only on keyboard focus).</p>
+</li>
+<li><p><strong>Fixed:</strong></p>
+<ul>
+<li>the split page title is now an <code>h1</code></li>
+<li>the frames and the narrow-screen message sit inside a <code>main</code></li>
+<li>the skip link is 44px tall</li>
+</ul>
+</li>
+<li><p><strong>Re-scan:</strong> <strong>0 violations in 41 scans</strong>, and no targets under 44px.</p>
+</li>
+<li><p><strong>Checked by hand:</strong> axe could not decide contrast for text over photos (the white &quot;Demo&quot; chips) and for selects with an arrow image. Both are dark text on near-white, and they pass.</p>
+</li>
+<li><p><strong>Clean-up:</strong> axe-core was served from a temporary <code>v2/public/__audit/</code> folder and deleted afterwards.</p>
+</li>
+<li><p><strong>Commit:</strong> committed v2 with the log for prompts 046 and 047, then regenerated the process-log site, checked it and committed it separately.</p>
+</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/047_2026-10-26_v2-full-redesign.md" target="_blank" rel="noopener"><code>process-log/prompts/047_2026-10-26_v2-full-redesign.md</code> · view original file</a></p>
+</article>
+<article class="prompt" id="p-048" data-phase="4" data-search="# prompt 048: v2, rethink the office review inbox
+
+- **date:** 2026-10-26
+- **input type:** text prompt (sent with the `figma-generate-design` skill)
+- **tool:** claude code (claude opus 5.5) · desktop app
+- **phase:** 4 · test &amp; refine (v2)
+
+## prompt (verbatim)
+
+&gt; now i can see review inbox after the sidebar. so it's a kind of side panel for beside the sidebar. so can you change the review inbox something different perspective or change the style or structure so it will be easy to scan also. now it's like as a user perspective, it's little bit confusing, so can you change the design style or structure of the office view?
+
+## how the ai read it
+- **the problem:** the inbox column next to the icon rail read as a second sidebar, so the page had two navigation-like columns before any content. the job rows were also hard to compare, because each row was a small card with the facts in different places.
+- **the skill:** the `figma-generate-design` skill builds figma screens, but there is no figma file. as in earlier prompts, the change was made in the v2 react app.
+
+## what the ai did
+- **removed the inbox column** (`jobinbox.jsx` deleted). the office is now the slim icon rail plus one page.
+- **new overview structure** (`dashboardscreen.jsx`, new `jobstable.jsx`, `office.css`), top to bottom:
+  1. the dark **&quot;next up for you&quot;** card (unchanged).
+  2. **jobs this week:** four tiles (needs review · ongoing · completed · total jobs) that are now **real filter tabs**, with arrow keys and home / end. the active tile has a dark outline and a &quot;showing&quot; label, so it doesn't rely on colour alone. this also closes the docs/07 finding that the metric tiles looked tappable but weren't.
+  3. **the jobs table** those tiles filter, in fixed columns: **job** (id and address) · **type** · **date** · **photos** (bar, &quot;15 / 18&quot; and a note such as &quot;15 to review&quot;) · **status** · **action** (*review* for hr-2041, &quot;not in demo&quot; for the others). search sits in the table header; enter opens an exact job id.
+- **responsive:**
+  - below 1100px the type column is hidden
+  - below 860px each row becomes a labelled card with a full-width review button, and the rail becomes the slide-in menu
+- **job page:** the back link now reads &quot;all jobs&quot;. the job page, photo panel and shortcuts are unchanged.
+
+## tested
+- **1440px** (headless capture): the overview reads top to bottom with no second column.
+- **1024px:**
+  - the needs review filter shows 2 jobs, and completed shows 6
+  - the right arrow moves to total jobs (13)
+  - searching &quot;cedar&quot; finds hr-2038
+  - &quot;hr-2041&quot; plus enter opens the job
+  - no overflow
+- **320px:** rows show as cards, with no overflow.
+- **axe-core 4.10.2:**
+  - **first pass:** 41 screens, 0 violations, but the &quot;14 elm street&quot; address button was only 22px tall on phones.
+  - **fix:** 44px on touch screens, 28px on desktop.
+  - **re-scan:** 0 violations in 41 scans, with no targets under 44px. axe was served from a temporary folder and deleted afterwards.
+
+## where the ai got it wrong
+- **the prompt 047 inbox column itself:** putting a list column beside the rail read as a second sidebar. you flagged it, and this prompt replaces it.
+- **the address button** in the new table was 22px tall on phones; axe caught it, and it's fixed.
+
+## follow-up: commit (text prompt, verbatim)
+
+&gt; commit v2 and the log for prompt 048, regenerate the process-log site, and commit that too.
+
+- committed v2 and the log for prompt 048, then regenerated the process-log site, checked it and committed it separately.
+
+## my notes (fill in)
+- kept:
+- changed / overruled:
+- thrown away:
+">
+  <header class="prompt__head">
+    <span class="prompt__num">048</span>
+    <div>
+      <h3 class="prompt__title">v2, rethink the office review inbox</h3>
+      <p class="prompt__meta"><span>2026-10-26</span><span aria-hidden="true">·</span><span>Text prompt (sent with the `figma-generate-design` skill)</span><span aria-hidden="true">·</span><span>Phase 4 · Test &amp; refine (v2)</span></p>
+      <p class="prompt__tool">Claude Code (Claude Opus 5.5) · desktop app</p>
+    </div>
+  </header>
+  
+  <section class="prompt__block">
+    <h4 class="label">My prompt (verbatim)</h4>
+    <blockquote class="verbatim">Now I can see review inbox after the sidebar. So it's a kind of side panel for beside the sidebar. So can you change the review inbox something different perspective or change the style or structure so it will be easy to scan also. Now it's like as a user perspective, it's little bit confusing, so can you change the design style or structure of the office view?</blockquote>
+  </section>
+  <section class="prompt__block prompt__log">
+    <h4 class="label">Process-log entry · 2026-10-26 · Phase 4 Test &amp; refine (v2): Office overview as filter tiles and a jobs table</h4>
+    <ul>
+<li><strong>Input:</strong> <a href="index.html#p-048">Prompt 048</a> (text, sent with the Figma generate-design skill; built in React)</li>
+<li><strong>What happened:</strong><ul>
+<li><strong>Removed:</strong> the review inbox column, which read as a second sidebar.</li>
+<li><strong>New overview:</strong> one page reading Next up → <strong>Jobs this week</strong> tiles that now filter → a <strong>jobs table</strong> with fixed columns (job, type, date, photos, status, action). On phones each row becomes a labelled card.</li>
+<li><strong>Accessibility:</strong> the axe re-scan is clean after one target fix.</li>
+</ul>
+</li>
+<li><strong>Key decision:</strong> Scanning means comparing the same fact across jobs, so the facts go in columns. The tiles become the filters, which also closes the docs/07 &quot;looks tappable but isn&#39;t&quot; finding.</li>
+<li><strong>AI got wrong / I overruled:</strong><ul>
+<li>I said the prompt 047 inbox column was confusing (it read as a second sidebar), and it&#39;s replaced.</li>
+<li>axe caught the new address button at 22px on phones; it&#39;s fixed.</li>
+</ul>
+</li>
+</ul>
+
+  </section>
+  <details class="prompt__details">
+    <summary>What the AI produced <span class="muted">(recorded in the prompt file: How the AI read it, What the AI did, Tested, Where the AI got it wrong, Follow-up: commit (text prompt, verbatim))</span></summary>
+    <section class="prompt__sub"><h5>How the AI read it</h5><ul>
+<li><strong>The problem:</strong> the inbox column next to the icon rail read as a second sidebar, so the page had two navigation-like columns before any content. The job rows were also hard to compare, because each row was a small card with the facts in different places.</li>
+<li><strong>The skill:</strong> the <code>figma-generate-design</code> skill builds Figma screens, but there is no Figma file. As in earlier prompts, the change was made in the v2 React app.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>What the AI did</h5><ul>
+<li><strong>Removed the inbox column</strong> (<code>JobInbox.jsx</code> deleted). The office is now the slim icon rail plus one page.</li>
+<li><strong>New overview structure</strong> (<code>DashboardScreen.jsx</code>, new <code>JobsTable.jsx</code>, <code>office.css</code>), top to bottom:<ol>
+<li>The dark <strong>&quot;Next up for you&quot;</strong> card (unchanged).</li>
+<li><strong>Jobs this week:</strong> four tiles (Needs review · Ongoing · Completed · Total jobs) that are now <strong>real filter tabs</strong>, with arrow keys and Home / End. The active tile has a dark outline and a &quot;Showing&quot; label, so it doesn&#39;t rely on colour alone. This also closes the docs/07 finding that the metric tiles looked tappable but weren&#39;t.</li>
+<li><strong>The jobs table</strong> those tiles filter, in fixed columns: <strong>Job</strong> (ID and address) · <strong>Type</strong> · <strong>Date</strong> · <strong>Photos</strong> (bar, &quot;15 / 18&quot; and a note such as &quot;15 to review&quot;) · <strong>Status</strong> · <strong>Action</strong> (<em>Review</em> for HR-2041, &quot;Not in demo&quot; for the others). Search sits in the table header; Enter opens an exact job ID.</li>
+</ol>
+</li>
+<li><strong>Responsive:</strong><ul>
+<li>below 1100px the Type column is hidden</li>
+<li>below 860px each row becomes a labelled card with a full-width Review button, and the rail becomes the slide-in menu</li>
+</ul>
+</li>
+<li><strong>Job page:</strong> the back link now reads &quot;All jobs&quot;. The job page, photo panel and shortcuts are unchanged.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Tested</h5><ul>
+<li><strong>1440px</strong> (headless capture): the overview reads top to bottom with no second column.</li>
+<li><strong>1024px:</strong><ul>
+<li>the Needs review filter shows 2 jobs, and Completed shows 6</li>
+<li>the right arrow moves to Total jobs (13)</li>
+<li>searching &quot;cedar&quot; finds HR-2038</li>
+<li>&quot;HR-2041&quot; plus Enter opens the job</li>
+<li>no overflow</li>
+</ul>
+</li>
+<li><strong>320px:</strong> rows show as cards, with no overflow.</li>
+<li><strong>axe-core 4.10.2:</strong><ul>
+<li><strong>First pass:</strong> 41 screens, 0 violations, but the &quot;14 Elm Street&quot; address button was only 22px tall on phones.</li>
+<li><strong>Fix:</strong> 44px on touch screens, 28px on desktop.</li>
+<li><strong>Re-scan:</strong> 0 violations in 41 scans, with no targets under 44px. axe was served from a temporary folder and deleted afterwards.</li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Where the AI got it wrong</h5><ul>
+<li><strong>The prompt 047 inbox column itself:</strong> putting a list column beside the rail read as a second sidebar. You flagged it, and this prompt replaces it.</li>
+<li><strong>The address button</strong> in the new table was 22px tall on phones; axe caught it, and it&#39;s fixed.</li>
+</ul>
+</section>
+<section class="prompt__sub"><h5>Follow-up: commit (text prompt, verbatim)</h5><blockquote class="verbatim">Commit v2 and the log for prompt 048, regenerate the process-log site, and commit that too.</blockquote>
+<ul>
+<li>Committed v2 and the log for prompt 048, then regenerated the process-log site, checked it and committed it separately.</li>
+</ul>
+</section>
+  </details>
+  
+  <p class="prompt__source">Source: <a href="sources/prompts/048_2026-10-26_v2-office-jobs-table.md" target="_blank" rel="noopener"><code>process-log/prompts/048_2026-10-26_v2-office-jobs-table.md</code> · view original file</a></p>
+</article>
     
   </div>
   
@@ -4532,6 +5467,21 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 <td>Set the brand typeface through one token. <span class="replaced"><span class="replaced__tag">Later replaced</span> Typeface changed to Manrope in <a href="#p-014">prompt 014</a></span></td>
 </tr>
 <tr>
+<td>048</td>
+<td>v2: replace the office inbox column with filter tiles and a jobs table</td>
+<td>My usability call on the AI&#39;s layout: a side list read as a second sidebar; columns make jobs comparable.</td>
+</tr>
+<tr>
+<td>047</td>
+<td>v2: task-first, bold redesign of both apps</td>
+<td>Changed the interaction pattern (next-shot hero, camera tab, review inbox, shortcuts), not only the styling.</td>
+</tr>
+<tr>
+<td>045</td>
+<td>v2: connect crew phone and office live</td>
+<td>Closed the gap the brief names: a crew photo now becomes office evidence, and an office rejection becomes a crew retake.</td>
+</tr>
+<tr>
 <td>041</td>
 <td>Needs attention and Evidence check</td>
 <td>Turned the review page&#39;s information cards into an owned, actionable issue list and four trust verdicts.</td>
@@ -4562,6 +5512,11 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 </tr>
 </thead>
 <tbody><tr>
+<td>2026-10-26</td>
+<td>The v2 office review inbox column (prompt 047)</td>
+<td>It read as a second sidebar beside the rail; replaced by filter tiles and a jobs table in the page (prompt 048).</td>
+</tr>
+<tr>
 <td>2026-10-25</td>
 <td>GPS map, &quot;Verified&quot; badge and AI &quot;Suggested → Confirmed&quot; tags from the doc 05 office design</td>
 <td>Not built in the crew app, so the office view can&#39;t honestly show them. Kept as future work.</td>
@@ -4577,6 +5532,21 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 </tr>
 </thead>
 <tbody><tr>
+<td>2026-10-26</td>
+<td>Prompt 047 put the office job list in a column beside the icon rail, which read as a second sidebar (prompt 048).</td>
+<td>Asked for a clearer structure: one page with filter tiles and a jobs table.</td>
+</tr>
+<tr>
+<td>2026-10-26</td>
+<td>First pass of the v2 redesign (prompt 047): the office overview background stopped short, the raised camera button crowded the checklist&#39;s Finish job, a Needs you label squeezed the text at 320px, and the inbox search was 40px on phones.</td>
+<td>All caught in the browser check before reporting; fixed.</td>
+</tr>
+<tr>
+<td>2026-10-26</td>
+<td>The new &quot;Retake requested&quot; chip on the crew checklist overflowed the card at 320px (prompt 045).</td>
+<td>Caught in the browser check; the chip now wraps inside the card.</td>
+</tr>
+<tr>
 <td>2026-10-25</td>
 <td>The office Approve button (prompt 026) used white on #1A8A47, 4.4:1, below WCAG AA; the scrollable upload list wasn&#39;t keyboard-reachable (prompt 039 audit).</td>
 <td>Found by axe-core; button darkened to 6.75:1, list made focusable and labelled.</td>
@@ -4678,7 +5648,7 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 </tr>
 </tbody></table></div>
 </section>
-  <p class="undoc"><span class="undoc__tag">Undocumented</span> Per-prompt “kept / changed / thrown away” notes: 41 of 41 prompt files have this section blank, so decisions beyond the tables above are not documented.</p>
+  <p class="undoc"><span class="undoc__tag">Undocumented</span> Per-prompt “kept / changed / thrown away” notes: 48 of 48 prompt files have this section blank, so decisions beyond the tables above are not documented.</p>
 </section>
 
 <section class="section" id="evidence" aria-labelledby="evidence-title">
@@ -4710,7 +5680,7 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
     <li><span class="repo-path">app/roofing-crew-mobile/</span> <span class="muted small">React + Vite source of the prototype, in the repository</span></li>
   </ul>
   <h3>Commit history</h3>
-  <p class="muted small">As of 2026-10-25 23:36 (<code>709fe7b</code>), when this site was generated. Later commits are not listed until the site is regenerated.</p>
+  <p class="muted small">As of 2026-10-26 14:24 (<code>95fd2af</code>), when this site was generated. Later commits are not listed until the site is regenerated.</p>
   <ol class="commits"><li><code>c757d35</code><span class="muted">2026-10-24 21:08</span><span>Add assignment breakdown, UX plan and process log</span></li>
 <li><code>6d44ee8</code><span class="muted">2026-10-24 21:56</span><span>Add crew and office user flows with SVG diagrams</span></li>
 <li><code>959e03d</code><span class="muted">2026-10-24 22:57</span><span>Add crew mobile prototype: design canvas source and React app</span></li>
@@ -4747,7 +5717,15 @@ was renamed <strong>&quot;Jobs by status&quot;</strong>, the title the AI sugges
 <li><code>12ba961</code><span class="muted">2026-10-25 23:12</span><span>Regenerate the process-log site with prompt 038</span></li>
 <li><code>16b5560</code><span class="muted">2026-10-25 23:27</span><span>Fix accessibility findings; add heuristic and accessibility review</span></li>
 <li><code>fac27c3</code><span class="muted">2026-10-25 23:27</span><span>Regenerate the process-log site with prompt 039 and docs/07</span></li>
-<li><code>709fe7b</code><span class="muted">2026-10-25 23:36</span><span>Clean up the office job page: job card, Needs attention, Evidence check</span></li></ol>
+<li><code>709fe7b</code><span class="muted">2026-10-25 23:36</span><span>Clean up the office job page: job card, Needs attention, Evidence check</span></li>
+<li><code>5bab547</code><span class="muted">2026-10-25 23:36</span><span>Regenerate the process-log site with prompts 040 and 041</span></li>
+<li><code>ddbf1e5</code><span class="muted">2026-10-25 23:47</span><span>Refresh the UX case study deck to match prompts 030-041</span></li>
+<li><code>e36f73a</code><span class="muted">2026-10-25 23:47</span><span>Regenerate the process-log site with prompts 042 and 043</span></li>
+<li><code>aecdb44</code><span class="muted">2026-10-26 13:03</span><span>Add v2: crew phone and office connected through a shared store</span></li>
+<li><code>a894b74</code><span class="muted">2026-10-26 13:03</span><span>Regenerate the process-log site with prompts 044 and 045</span></li>
+<li><code>558e2b9</code><span class="muted">2026-10-26 14:16</span><span>Redesign v2 task-first and bold; accessibility re-scan</span></li>
+<li><code>e28fd32</code><span class="muted">2026-10-26 14:16</span><span>Regenerate the process-log site with prompts 046 and 047</span></li>
+<li><code>95fd2af</code><span class="muted">2026-10-26 14:24</span><span>Replace the v2 office inbox column with filter tiles and a jobs table</span></li></ol>
 </section>
 
 <section class="section" id="tools" aria-labelledby="tools-title">
@@ -4802,11 +5780,15 @@ data source (e.g. Figma, Google Drive). Skills come in <strong>plugins</strong>.
 <p><strong>How I steered it:</strong> the skill is generic (it assumes 2–4 week studies with 5–8 participants). I
 scaled it down to a <strong>2-day take-home</strong>: desk research, roofing videos, 2–3 guerrilla chats and a hallway
 test, instead of a formal study.</p>
-<p>| <code>/design</code> → <strong>Design</strong> artifact type | Claude (built-in Artifact type: a canvas of live artboards) | Me | Prompt 008 | Hosted the crew mobile prototype: 1 interactive artboard + 15 state snapshots. Link: <a href="https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz" target="_blank" rel="noopener">https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz</a> |</p>
-<p>| <code>figma-code-connect</code> | Anthropic skills | Me | Prompt 009 | <strong>Not used as intended:</strong> it maps published Figma components to existing code, and this project had neither. Used the request as a design-to-code conversion instead. |
+<p>| <code>/design</code> → <strong>Design</strong> artifact type | Claude (built-in Artifact type: a canvas of live artboards) | Me | Prompt 008 | Hosted the crew mobile prototype: 1 interactive artboard + 15 state snapshots. Link: <a href="https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz" target="_blank" rel="noopener">https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz</a> |
+| <code>figma-code-connect</code> | Anthropic skills | Me | Prompt 009 | <strong>Not used as intended:</strong> it maps published Figma components to existing code, and this project had neither. Used the request as a design-to-code conversion instead. |
 | React 18 + Vite 5 | Open source | AI (my request) | Prompt 009 | Code version of the crew prototype, <code>app/crew-mobile/</code> |
 | Built-in browser preview | Claude desktop app | AI | Prompt 009 | Ran and tested the React app at phone size |
-| Native <code>&lt;dialog&gt;</code> + URL-encoded share links | Web platform | AI | Prompt 024 | Accessible modals (focus trap, Esc) for Compare and Share; share links that really open the customer page without a backend |</p>
+| Native <code>&lt;dialog&gt;</code> + URL-encoded share links | Web platform | AI | Prompt 024 | Accessible modals (focus trap, Esc) for Compare and Share; share links that really open the customer page without a backend |
+| Headless Chrome via the DevTools Protocol | Google Chrome + a Node script (in the AI&#39;s scratch folder) | AI | Prompt 043 | Recaptured all 15 case-study screenshots from the running prototype at 2× |
+| Keynote (export as slide images) | Apple Keynote, driven by AppleScript | AI | Prompt 043 | Rendered the 22-slide deck to PNG so each slide could be checked for overflow |
+| axe-core 4.10.2 | Open source, from npm; served from a temporary <code>public/__audit/</code> folder and deleted after each run | AI (my request) | Prompts 039, 047, 048 | WCAG 2.1 AA scans: 35 screens for v1, then 41 for the v2 redesign (0 violations after fixes) |
+| <code>figma-generate-design</code> skill | Figma plugin skills | Me | Prompt 048 | <strong>Not used as intended:</strong> it builds Figma screens, and this project has no Figma file. The request was carried out in the v2 React app instead, as with earlier Figma skill invocations. |</p>
 <p><strong>Design systems:</strong> two saved design systems were offered; I chose <strong>none</strong> and gave my own visual
 direction (neutral ground, dark text, blue primary, green/amber/red states).</p>
 <h2>Other skills available but not (yet) used</h2>
@@ -4844,13 +5826,13 @@ direction (neutral ground, dark text, blue primary, green/amber/red states).</p>
     <li><strong>Not every cut idea was the AI’s.</strong> The AI added a desktop intro panel and banners repeating the tapped quick action (removed in <a href="#p-015">015</a> and <a href="#p-020">020</a>). The weather card and the Cards/Table switch came from the prompts themselves (<a href="#p-016">016</a>, <a href="#p-018">018</a>) and were cut in <a href="#p-020">020</a> and <a href="#p-019">019</a>.</li>
     <li><strong>Testing in a real browser caught what reading the code didn’t.</strong> A regex cleanup that deleted CSS rules, a photo panel that shrank to nothing on short screens, keyboard focus lost after a decision. All were found at phone size in the browser preview (<a href="#wrong">AI-errors table</a>).</li>
     <li><strong>An honesty rule set at the start held throughout.</strong> No GPS, “verified” or original-file claims unless they were built. The office view dropped the map and Verified badge from its own design because the crew app doesn’t record them (<a href="#p-008">008</a>, <a href="#p-024">024</a>, <a href="#thrown">thrown-away table</a>).</li>
-    <li><strong>Not everything was finished.</strong> Connecting the crew app and office view through shared state was planned but not built (<a href="#p-027">027</a>), and 41 of 41 prompt files still have blank personal notes.</li>
+    <li><strong>Not everything was finished.</strong> Connecting the crew app and office view through shared state was planned but not built (<a href="#p-027">027</a>), and 48 of 48 prompt files still have blank personal notes.</li>
   </ol>
 </section>
 
 </main>
 <footer class="footer">
-  <p>Generated on 2026-10-25 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
+  <p>Generated on 2026-10-26 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
   <p><a href="#main">Back to top</a></p>
 </footer>
 <a class="to-top" href="#main" aria-label="Back to top">↑ Top</a>

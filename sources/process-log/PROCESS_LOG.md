@@ -388,6 +388,67 @@ interview walk-through. The brief asks for three things, which have their own se
 - **Key decision:** Every line on the review page either asks for a decision or says why none is needed. Ownership tags make "is this mine?" instant.
 - **AI got wrong / I overruled:** On phones the action button first squeezed the text into a narrow column. Fixed so the button wraps under the text.
 
+### 2026-10-25 · Process: Second handoff to a new session
+- **Input:** [Prompt 042](prompts/042_2026-10-25_new-session-handoff.md) (text)
+- **What happened:** Rewrote [SESSION_HANDOFF.md](SESSION_HANDOFF.md) with the live URLs, the current state of both apps,
+  the per-prompt routine (log → commit when asked → regenerate the site) and what's left. Then started a new session from it.
+  The process log carries on from prompt 043.
+
+### 2026-10-25 · Phase 5 Submit: Case-study deck brought up to date
+- **Input:** [Prompt 043](prompts/043_2026-10-25_refresh-case-study-deck.md) (text)
+- **What happened:**
+  - **Screenshots:** all 15 in `case-study/screens/` were captured again from the running prototype. The old ones predated prompts 030–041.
+  - **Slides:** the timeline, crew Home, office dashboard, the five review questions, the honesty slide, the AI tools, the AI mistakes and next steps were updated to match.
+  - **New slide:** the heuristic and accessibility review (prompt 039). The deck now has 22 slides.
+- **Key decision:** Present the docs/07 findings as recommendations I chose not to build yet, not as finished work.
+
+### 2026-10-26 · Phase 2 Explore: Version 2 started in its own folder
+- **Input:** [Prompt 044](prompts/044_2026-10-26_version-2-folder.md) (text)
+- **What happened:** Created `v2/`, an exact copy of the v1 prototype, with its own preview entry and a README that says how it differs from v1. v1 and its deployed site are unchanged.
+- **Key decision:** Evolve a copy rather than redesign from scratch, so v2 is measured against a working v1. The log, docs and deck stay shared.
+
+### 2026-10-26 · Phase 3 Prototype (v2): Crew phone and office connected live
+- **Input:** [Prompt 045](prompts/045_2026-10-26_v2-live-shared-store.md) (text)
+- **What happened:**
+  - **Built in v2:** the prompt 027 plan. One shared store in localStorage now connects the crew phone and the office.
+  - **Crew to office:** saves and uploads on the phone appear in the office review, and untaken shots raise missing-photo warnings.
+  - **Office to crew:** rejections reach the phone as retake requests, and a retaken photo comes back to review.
+  - **Real photos:** camera and gallery photos travel as small JPEGs.
+  - **Demo page:** `?view=split` shows both apps side by side, with Start of day / End of day reset buttons.
+- **Key decision:** Each side writes only its own part of the job. A decision is tied to the exact photo (`rev`), so a retake can't inherit an old approval. With no backend, the limitation (one browser only) is stated on the demo page and in the README.
+- **AI got wrong / I overruled:** the new retake chip overflowed the checklist card at 320px; caught in the browser check and fixed.
+
+### 2026-10-26 · Phase 4 Test & refine (v2): Quick actions as white cards
+- **Input:** [Prompt 046](prompts/046_2026-10-26_v2-quick-actions-white-cards.md) (text)
+- **What happened:** In v2, the crew Home quick-action tiles took the progress card's white background, grey stroke and soft shadow (the shadow in a follow-up); the coloured icons stay. Office Key metrics are unchanged.
+- **Key decision:** Colour stays only in the icons, so Home reads as one set of cards and colour points to the action.
+
+### 2026-10-26 · Phase 3 Prototype (v2): Task-first, bold redesign of both apps
+- **Input:** [Prompt 047](prompts/047_2026-10-26_v2-full-redesign.md) (text)
+- **What happened:**
+  - **Direction:** I chose *Task-first, bold* from three directions.
+  - **Crew:** Home now leads with the job on site and its one next shot, followed by Needs you and Today, and the tab bar gained a Camera button that opens that shot.
+  - **Office:** became an icon rail, a review inbox column and the job, with A / R / J / K review shortcuts.
+  - **Visual system:** Inter, near-black ink, one blue accent and flat cards.
+- **Accessibility re-scan (follow-up):** axe found 2 issues on the new split page and a 42px skip link. After the fixes: 0 violations in 41 scans, with no targets under 44px.
+- **Key decision:** Change the pattern, not just the paint. Each screen answers "what do I do next?" with one primary action, and the live store, retakes and sharing all keep working underneath.
+- **AI got wrong / I overruled:** 4 layout issues caught in the browser check and fixed:
+  - the overview background stopped short
+  - the camera button crowded the Finish job button
+  - the Needs you label squeezed at 320px
+  - the inbox search was 40px tall on phones
+
+### 2026-10-26 · Phase 4 Test & refine (v2): Office overview as filter tiles and a jobs table
+- **Input:** [Prompt 048](prompts/048_2026-10-26_v2-office-jobs-table.md) (text, sent with the Figma generate-design skill; built in React)
+- **What happened:**
+  - **Removed:** the review inbox column, which read as a second sidebar.
+  - **New overview:** one page reading Next up → **Jobs this week** tiles that now filter → a **jobs table** with fixed columns (job, type, date, photos, status, action). On phones each row becomes a labelled card.
+  - **Accessibility:** the axe re-scan is clean after one target fix.
+- **Key decision:** Scanning means comparing the same fact across jobs, so the facts go in columns. The tiles become the filters, which also closes the docs/07 "looks tappable but isn't" finding.
+- **AI got wrong / I overruled:**
+  - I said the prompt 047 inbox column was confusing (it read as a second sidebar), and it's replaced.
+  - axe caught the new address button at 22px on phones; it's fixed.
+
 <!-- New entries go below, newest last. Template:
 ### YYYY-MM-DD · Phase N <name>: <title>
 - **Input:** [Prompt NNN](prompts/NNN_...) (text | voice note)
@@ -418,6 +479,9 @@ interview walk-through. The brief asks for three things, which have their own se
 | 016 | Today's progress, weather, colour-coded quick actions | Home now answers 'how is today going' and 'is it safe up there' first. |
 | 014 | Manrope + restructure from two feature lists | Turned a text-heavy prototype into an image-led app with job detail, camera simulation and tutorial. |
 | 012 | Switch typeface to Bricolage Grotesque | Set the brand typeface through one token. |
+| 048 | v2: replace the office inbox column with filter tiles and a jobs table | My usability call on the AI's layout: a side list read as a second sidebar; columns make jobs comparable. |
+| 047 | v2: task-first, bold redesign of both apps | Changed the interaction pattern (next-shot hero, camera tab, review inbox, shortcuts), not only the styling. |
+| 045 | v2: connect crew phone and office live | Closed the gap the brief names: a crew photo now becomes office evidence, and an office rejection becomes a crew retake. |
 | 041 | Needs attention and Evidence check | Turned the review page's information cards into an owned, actionable issue list and four trust verdicts. |
 | 039 | Heuristic and accessibility review of both apps | Turned "easy to use" into evidence: 0 axe violations in 35 scans, 44px targets, and a severity-ranked list of what's left. |
 | 026 | Office dashboard, approve / reject, five review questions | Turned the office view into a review workflow with metrics, decisions and a clear end state. |
@@ -426,11 +490,15 @@ interview walk-through. The brief asks for three things, which have their own se
 ## What I threw away
 | When | What | Why |
 |---|---|---|
+| 2026-10-26 | The v2 office review inbox column (prompt 047) | It read as a second sidebar beside the rail; replaced by filter tiles and a jobs table in the page (prompt 048). |
 | 2026-10-25 | GPS map, "Verified" badge and AI "Suggested → Confirmed" tags from the doc 05 office design | Not built in the crew app, so the office view can't honestly show them. Kept as future work. |
 
 ## Where the AI got it wrong (and what I did)
 | When | What the AI did | What I did instead |
 |---|---|---|
+| 2026-10-26 | Prompt 047 put the office job list in a column beside the icon rail, which read as a second sidebar (prompt 048). | Asked for a clearer structure: one page with filter tiles and a jobs table. |
+| 2026-10-26 | First pass of the v2 redesign (prompt 047): the office overview background stopped short, the raised camera button crowded the checklist's Finish job, a Needs you label squeezed the text at 320px, and the inbox search was 40px on phones. | All caught in the browser check before reporting; fixed. |
+| 2026-10-26 | The new "Retake requested" chip on the crew checklist overflowed the card at 320px (prompt 045). | Caught in the browser check; the chip now wraps inside the card. |
 | 2026-10-25 | The office Approve button (prompt 026) used white on #1A8A47, 4.4:1, below WCAG AA; the scrollable upload list wasn't keyboard-reachable (prompt 039 audit). | Found by axe-core; button darkened to 6.75:1, list made focusable and labelled. |
 | 2026-10-25 | The office slide-in menu didn't take keyboard focus when opened: it was still visibility-hidden during its slide (prompt 035). | Caught in the browser check; the menu now becomes visible immediately and hides only after sliding out. |
 | 2026-10-25 | The process-log site's reflection said the AI added the weather card and Cards/Table switch, but prompts 016 and 018 show I asked for them (prompt 030). | Corrected the reflection; cut ideas are now tagged with their real source. |

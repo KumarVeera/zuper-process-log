@@ -27,11 +27,41 @@
 <main id="main">
 <article class="doc"><p class="eyebrow"><a href="../index.html#evidence">Evidence</a> · <code>process-log/SESSION_HANDOFF.md</code> · <a href="../sources/process-log/SESSION_HANDOFF.md" target="_blank" rel="noopener">original .md</a></p><h1>Session Handoff: where things stand</h1>
 <p>Read this first in any new session, then <code>CLAUDE.md</code> (logging rules) and <code>process-log/PROCESS_LOG.md</code>.
-Last updated: 2026-10-25, after prompt 041 (Needs attention + Evidence check). Prompt 027 (connect crew and office through a shared store) is still <strong>planned but not built</strong>: see its prompt file. The next prompt file is <strong><code>042_…</code></strong>.</p>
+Last updated: 2026-10-26, after prompt 048 (v2 office jobs table). <strong>The next prompt file is <code>049_…</code>.</strong></p>
+<p><strong>Version 2:</strong> <code>v2/</code> is a copy of the v1 app (prompt 044), with preview config <code>roofing-crew-mobile-v2</code>. <strong>New prototype work goes in <code>v2/</code>.</strong> Since prompt 045, v2 connects the crew phone and the office through a shared localStorage store (<code>v2/src/store/jobStore.js</code>), with a side-by-side demo at <code>?view=split</code>. Since prompt 047, v2 has its own design (task-first, bold): Inter, near-black ink, one blue accent; a crew Home with the job on site and the next shot, plus a Camera tab; an office with an icon rail and one page (Next up → filter tiles → jobs table, since prompt 048) and A / R / J / K shortcuts in the photo panel. The &quot;Crew mobile app at a glance&quot; and &quot;Office web app at a glance&quot; sections below describe <strong>v1</strong>; see <code>v2/README.md</code> for v2. The case-study deck still shows v1. <code>app/roofing-crew-mobile/</code> is v1: frozen, and the version that is deployed. See <code>v2/README.md</code>.
+Prompt 027 (connect crew and office through a shared store) is still <strong>planned but not built</strong>: see its prompt file.</p>
 <h2>The assignment (one line)</h2>
 <p>Zuper take-home (Senior AI-Native Product Designer): design how a roofing crew takes job photos and how the office
 finds and shares them as proof. Deliverables: <strong>prototype link</strong> (crew phone + one office or customer view) and a
 <strong>process log</strong> (prompts that mattered, what was thrown away, where the AI got it wrong). Brief: <a href="https://spd-take-home.vercel.app/" target="_blank" rel="noopener">https://spd-take-home.vercel.app/</a></p>
+<h2>Live links (deployed by the user to Vercel)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>URL</th>
+<th>Local folder</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prototype (crew phone; office at <code>?view=office</code>)</td>
+<td><a href="https://zuper-product-designer-role-assignm.vercel.app/" target="_blank" rel="noopener">https://zuper-product-designer-role-assignm.vercel.app/</a></td>
+<td><code>app/roofing-crew-mobile/</code></td>
+</tr>
+<tr>
+<td>Process-log website</td>
+<td><a href="https://zuper-process-log-nine.vercel.app/" target="_blank" rel="noopener">https://zuper-process-log-nine.vercel.app/</a></td>
+<td><code>process-log-site/</code></td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>No Git remote</strong> is set up, so <code>git push</code> does nothing. To update a live site, run <code>npx vercel --prod</code> inside its folder, or connect the Vercel projects to a GitHub repo.<ul>
+<li><strong>Prototype Vercel settings:</strong> root <code>app/roofing-crew-mobile</code>, Vite, <code>npm run build</code>, output <code>dist</code>.</li>
+<li><strong>Process-log Vercel settings:</strong> root <code>process-log-site</code>, Other, no build, output <code>.</code>.</li>
+</ul>
+</li>
+<li><strong>Live sites lag local commits</strong> until the user redeploys.</li>
+</ul>
 <h2>What exists</h2>
 <div class="table-wrap"><table>
 <thead>
@@ -52,64 +82,134 @@ finds and shares them as proof. Deliverables: <strong>prototype link</strong> (c
 <td>Done</td>
 </tr>
 <tr>
-<td>Usability check (6 points, evidence)</td>
+<td>Usability check (6 points)</td>
 <td><code>docs/06-usability-check.md</code></td>
 <td>Done, all pass</td>
 </tr>
 <tr>
 <td>Heuristic + accessibility review</td>
 <td><code>docs/07-heuristic-and-accessibility-review.md</code></td>
-<td>Done: 0 axe violations in 35 scans; 5 recommendations open</td>
+<td>Done (prompt 039): 0 axe violations in 35 scans; recommendations open (below)</td>
 </tr>
 <tr>
-<td><strong>React crew app</strong> (main prototype)</td>
-<td><code>app/roofing-crew-mobile/</code></td>
-<td>Working, tested at 320/375px</td>
+<td><strong>Crew mobile app</strong></td>
+<td><code>app/roofing-crew-mobile/</code> (default view)</td>
+<td>Working; tested at 375 / 320px</td>
 </tr>
 <tr>
-<td><strong>Office portal + customer page</strong></td>
+<td><strong>Office web app + customer page</strong></td>
 <td>same app, <code>?view=office</code> / <code>?view=share</code> (<code>src/office/</code>)</td>
-<td>Sidebar navigation; Dashboard (Review now card, 4 read-only metrics, Jobs by status card with tabs, Needs review first) → job review page (job card · Needs attention · Required photos · Evidence check) → photo panel with approve / reject → compare → share. Prompts 024, 026, 028, 029, tested at 1366/375/320px</td>
+<td>Working; tested at 1366 / 1024 / 375 / 320px</td>
 </tr>
 <tr>
-<td>Claude Design canvas (earlier prototype)</td>
-<td><code>prototype/crew-mobile/</code> · <a href="https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz" target="_blank" rel="noopener">https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz</a> (v19, private)</td>
-<td>Older flow; Manrope font. Not updated with the later Home/Jobs redesign</td>
+<td>Process-log website</td>
+<td><code>process-log-site/</code> (generated)</td>
+<td>Up to date with prompts 001–041</td>
+</tr>
+<tr>
+<td>UX case study deck</td>
+<td><code>case-study/Zuper-UX-Case-Study.pptx</code> (22 slides + notes), built by <code>case-study/build-deck.js</code></td>
+<td>Up to date with prompts 001–043 (refreshed in prompt 043). After UI changes, recapture <code>case-study/screens/</code> and rebuild.</td>
+</tr>
+<tr>
+<td>Claude Design canvas (earliest prototype)</td>
+<td><code>prototype/crew-mobile/</code> · <a href="https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz" target="_blank" rel="noopener">https://claude.ai/artifact/CJucueKqgAgMs9pMcq8Dbz</a> (private)</td>
+<td>Old flow; not maintained</td>
 </tr>
 <tr>
 <td>Process log</td>
-<td><code>process-log/PROCESS_LOG.md</code>, <code>process-log/prompts/001–041</code>, <code>TOOLS_AND_SKILLS.md</code></td>
+<td><code>process-log/PROCESS_LOG.md</code>, <code>process-log/prompts/001–043</code>, <code>TOOLS_AND_SKILLS.md</code></td>
 <td>Up to date</td>
 </tr>
 </tbody></table></div>
-<h2>React app at a glance</h2>
+<h2>Crew mobile app at a glance</h2>
 <ul>
-<li>Run: <code>npm --prefix app/roofing-crew-mobile run dev</code> (preview config: <code>.claude/launch.json</code>, name <code>roofing-crew-mobile</code>).
-Jump to any screen with <code>?state=</code> (list in <code>app/roofing-crew-mobile/README.md</code>).</li>
-<li><strong>Home:</strong> Quick actions (2×2, no card: Today / My schedule / Action required / For my review; each opens its own page) → Today&#39;s progress (live: progress ring with %, start time, uploads) → My schedule (by day, Next up card).</li>
-<li><strong>Tabs:</strong> Home · Jobs · Photos · Profile (bottom nav; hidden only during full-screen capture).</li>
-<li><strong>Jobs</strong> → <strong>Job detail</strong> (Overview / Photo diary / Work order / Assets).</li>
-<li><strong>Capture:</strong> simulated camera + Gallery + phone camera → quality check (real on actual photos) → Retake / Choose a different photo → note and tags → Save to job folder (toast) → uploads (simulated).</li>
-<li><strong>Style:</strong> Manrope; page bg <code>#F5F5F7</code>; headings <code>#2B2826</code>, labels <code>#3D3A37</code>, sub text <code>#514F4D</code>; blue primary; green / orange / red / blue status tints; text plus icon, never colour alone; 44px targets; <code>--card-gap</code> 16px between crew cards, 24px in the office.</li>
-<li><strong>Honesty rule:</strong> no GPS, &quot;verified&quot; or original-file claims; demo photos and uploads are labelled as simulated.</li>
+<li><strong>Run:</strong> <code>npm --prefix app/roofing-crew-mobile run dev</code>, preview config <code>roofing-crew-mobile</code> in <code>.claude/launch.json</code>. Jump to any screen with <code>?state=…</code> (list in the app README).</li>
+<li><strong>Home:</strong> greeting → Quick actions (2 × 2 coloured tiles, no card) → Today&#39;s progress (blue ring with % inside, start time, photos uploaded; tap opens the job) → My schedule (by day, Next up card).</li>
+<li><strong>Tabs:</strong> Home · Jobs · Photos · Profile. <strong>Capture:</strong> simulated camera, gallery or phone camera → real sharpness / light check → retake or replace → note and tags → save (toast) → simulated uploads with retry.</li>
+<li><strong>Spacing:</strong> <code>--card-gap</code> is <strong>16px</strong> between cards and sections. Profile stats stack below 360px.</li>
 </ul>
+<h2>Office web app at a glance</h2>
+<ul>
+<li><p><strong>Layout:</strong> white <strong>sidebar</strong> with Dashboard · Schedule · Customers, then Crew phone view · Settings · Log out and the user. Schedule, Customers, Settings and Log out aren&#39;t built; they say so when tapped. Below 860px the sidebar is a slide-in menu; the page behind it is <code>inert</code>.</p>
+</li>
+<li><p><strong>Page:</strong> fills the width, 24px from the sidebar and the right edge (16px on phones). <code>--card-gap</code> is <strong>24px</strong>.</p>
+</li>
+<li><p><strong>Dashboard:</strong> Review now card → four read-only Key metrics → <strong>Jobs by status</strong> card: tabs Ongoing · Completed · <strong>Needs review</strong> (open by default) · Total jobs; job cards; search with no button (Enter opens an exact job ID).</p>
+</li>
+<li><p><strong>Job review page:</strong></p>
+<ol>
+<li><strong>Job card:</strong> ID, status, address, type; Date · Crew · Photos in one row; review progress; Start → Continue review → Mark job reviewed.</li>
+<li><strong>Needs attention:</strong> issues with owner tags (Your decision · Customer · Waiting on crew · For info) and one action each. Updates live.</li>
+<li><strong>Required photos:</strong> one row per phase with only the gaps; all 18 shots behind &quot;Show all&quot;.</li>
+<li><strong>Evidence check:</strong> four tiles: Time stamps, Photo quality, Taken by, Location.</li>
+</ol>
+<p>Below them is the photo grid with filters. The side panel has Approve / Reject (with a reason), Undo and Next to review; ← → and Esc work. Compare, and Share (the customer page at <code>?view=share</code>).</p>
+</li>
+<li><p><strong>Data:</strong> a fixed end-of-day snapshot of HR-2041 (<code>src/office/evidence.js</code>), <strong>not live from the crew phone</strong>.</p>
+</li>
+</ul>
+<h2>Style and rules</h2>
+<ul>
+<li><strong>Type and colour:</strong> Manrope; page <code>#F5F5F7</code>; headings <code>#2B2826</code>, labels <code>#3D3A37</code>, sub text <code>#514F4D</code>; blue primary. Status always has text and an icon, never colour alone.</li>
+<li><strong>Targets:</strong> 44px tap targets on touch screens.</li>
+<li><strong>Honesty rule:</strong> no GPS, &quot;verified&quot; or original-file claims. Demo photos and simulated uploads are labelled. Unbuilt features say so.</li>
+</ul>
+<h2>How each prompt has been handled (keep doing this)</h2>
+<ol>
+<li><p>Make the change. Test it in the browser preview at the relevant sizes (crew 375 / 320px; office 1366 and 375 / 320px), checking for overflow and that tapping still works.</p>
+</li>
+<li><p><strong>Log it</strong> per <code>CLAUDE.md</code>:</p>
+<ul>
+<li>a new <code>process-log/prompts/NNN_…md</code> with the prompt verbatim</li>
+<li>a Timeline entry in <code>PROCESS_LOG.md</code></li>
+<li>the tables (AI mistakes, prompts that mattered) when relevant</li>
+<li>this file&#39;s &quot;next prompt&quot; number</li>
+</ul>
+<p>Update the app README when behaviour changes.</p>
+</li>
+<li><p>Wait for the user to ask before committing. When they do:</p>
+<ul>
+<li>append their commit message as a &quot;Follow-up (verbatim)&quot; in that prompt file</li>
+<li>commit app + log, ending with <code>Co-Authored-By: Claude Opus 5.5 &lt;noreply@anthropic.com&gt;</code></li>
+<li>run <code>node process-log-site/tools/generate.mjs &amp;&amp; node process-log-site/tools/check.mjs</code></li>
+<li>commit <code>process-log-site</code> separately (&quot;Regenerate the process-log site with prompt NNN&quot;)</li>
+</ul>
+</li>
+<li><p><strong>Accessibility re-scans:</strong> copy <code>axe-core</code> into <code>app/roofing-crew-mobile/public/__audit/</code> only for the scan, then <strong>delete it</strong>. Never commit it.</p>
+</li>
+<li><p>Leave <code>.claude/launch.json</code> uncommitted. It holds local preview entries.</p>
+</li>
+</ol>
 <h2>Not done yet / likely next</h2>
 <ul>
-<li><del>Office or customer view</del>: built (prompt 024). It leaves out the doc 05 GPS map, &quot;Verified&quot; badges and AI tag confirmation (not built in the crew app).</li>
-<li>Deploy the prototype to a shareable link, and share the Design canvas if it&#39;s used.</li>
-<li>Fill the &quot;My notes&quot; sections in the prompt files; write the UX case study from the process log.</li>
-<li>Optional: update the Design canvas to match the current React app.</li>
+<li><strong>Shared store, crew ↔ office:</strong> built in <strong>v2</strong> (prompt 045). v1 still uses the fixed snapshot. Not done: an axe re-scan of v2&#39;s new states, and a test across two separate windows.</li>
+<li><strong>Recommendations from docs/07:</strong><ul>
+<li>office &quot;Approve all remaining&quot; with undo</li>
+<li>metric tiles that look tappable but aren&#39;t</li>
+<li>a short help entry</li>
+<li>explicit undo for Skip and for Mark job reviewed</li>
+</ul>
+</li>
+<li><strong>User&#39;s own content</strong> (never write it for them):<ul>
+<li><strong>My notes:</strong> &quot;My notes&quot; in the prompt files are blank (0 of 42). The site hides the empty blocks.</li>
+<li><strong>Reflection:</strong> the final reflection on the process-log site is a draft.</li>
+<li><strong>Unconfirmed AI-errors row:</strong> the prompt 001 row in &quot;Where the AI got it wrong&quot; still needs your answer.</li>
+<li><strong>Timeline placeholders:</strong> the five &quot;<span class="unresolved"><span class="unresolved__tag">Unresolved</span> <em>(review and fill in)</em></span>&quot; lines (prompts 003, 004, 005, 007 and 008).</li>
+</ul>
+</li>
+<li><strong>Redeploy</strong> both sites after committing, and optionally connect GitHub.</li>
 </ul>
 <h2>Working agreements with the user</h2>
 <ul>
-<li>Log <strong>every</strong> prompt verbatim (see <code>CLAUDE.md</code>). Commit only when asked, ending with the Co-Authored-By line.</li>
-<li>The user often invokes Figma skills, but the target has been the <strong>React app</strong> (no Figma file exists).</li>
-<li>Test changes in the browser preview at phone size before reporting.</li>
+<li>Log <strong>every</strong> prompt verbatim. Commit only when asked.</li>
+<li>The user often invokes Figma skills, but the target is the <strong>React app</strong>; no Figma file exists.</li>
+<li>Explain changes in plain language. Say what was tested and what wasn&#39;t. Don&#39;t invent URLs, notes or results.</li>
 </ul>
 </article>
 </main>
 <footer class="footer">
-  <p>Generated on 2026-10-25 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
+  <p>Generated on 2026-10-26 from <code>process-log/</code>, <code>docs/</code> and the git history of the take-home repository. Prompts are quoted exactly as written in the prompt files.</p>
   <p><a href="#main">Back to top</a></p>
 </footer>
 <a class="to-top" href="#main" aria-label="Back to top">↑ Top</a>
